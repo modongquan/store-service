@@ -1,0 +1,14 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/mnt/teamway/store-service/tools/cmake-3.18.2/Tests/FindPackageModeMakefileTest/foo.cpp
+foo.h
+/mnt/teamway/store-service/tools/cmake-3.18.2/Tests/FindPackageModeMakefileTest/foo.h
+
+/mnt/teamway/store-service/tools/cmake-3.18.2/Tests/FindPackageModeMakefileTest/foo.h
+

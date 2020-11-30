@@ -1,0 +1,948 @@
+
+syntax = "proto3";
+
+package GB28181;
+
+service Greeter{
+	//云台控制
+	rpc PtzCommand (PtzCommandRequest) returns (ControlReply){}
+	//摄像机拉近
+	rpc PtzZoomIn (PtzZoomInRequest) returns (PtzZoomInReply){}
+	//摄像机拉远
+	rpc PtzZoomOut (PtzZoomOutRequest) returns (PtzZoomOutReply){}
+	//光圈变大
+	rpc PtzIrisBig (PtzIrisBigRequest) returns (PtzIrisBigReply){}
+	//光圈变小
+	rpc PtzIrisSmall (PtzIrisSmallRequest) returns (PtzIrisSmallReply){}
+	//聚焦拉远
+	rpc PtzFocusOut (PtzFocusOutRequest) returns (PtzFocusOutReply){}
+	//聚焦拉近
+	rpc PtzFocusIn (PtzFocusInRequest) returns (PtzFocusInReply) {}
+	//聚焦光圈停止
+	rpc PtzIFStop (PtzIFStopRequest) returns (PtzIFStopReply){}
+	//云台控制停止（拉近拉远也用这个停止）
+	rpc PtzStop (PtzStopRequest) returns (PtzStopReply){}
+	//获取实时视频播放rtsp url
+	rpc GetRealPlayUrl (RealPlayUrlRequest) returns (RealPlayUrlReply){}
+	//获取实时视频播放RTMP url（超过60秒没有客户端连接服务器会停止取流）
+	rpc GetRTMPUrl (GetRTMPUrlRequest) returns (GetRTMPUrlReply){}
+	//获取HLS播放url
+	rpc GetHLSUrl (GetHLSUrlRequest) returns (GetHLSUrlReply){}
+	//获取实时视频播放rtsp url 内网ip
+	rpc GetRealPlayUrlIn (RealPlayUrlInRequest) returns (RealPlayUrlInReply){}
+	//获取实时视频播放RTMP url（超过60秒没有客户端连接服务器会停止取流）内网ip
+	rpc GetRTMPUrlIn (GetRTMPUrlInRequest) returns (GetRTMPUrlInReply){}
+	//获取HLS播放url 内网ip
+	rpc GetHLSUrlIn (GetHLSUrlInRequest) returns (GetHLSUrlInReply){}
+	//通过主id和子id停止视频播放
+	rpc StopVideoById (StopVideoByIdRequest) returns (StopVideoByIdReply){}
+	//通过ssrc停止视频播放
+  rpc StopVideoBySsrc (StopVideoBySsrcRequest) returns (StopVideoBySsrcReply){}
+	//获取录像回放的url
+	rpc GetPlayBackUrl (PlayBackUrlRequest) returns (PlayBackUrlReply){}
+	//转到相应预置位
+	rpc PresetGo (PresetGoRequest) returns (ControlReply){}
+	//设置相应预置位
+	rpc PresetSet (PresetSetRequest) returns (ControlReply){}
+	//删除相应预置位
+	rpc PresetDel (PresetDelRequest) returns (ControlReply){}
+	//查询预置位
+	rpc PresetQuery (PresetQueryRequest) returns (PresetQueryReply){}
+	//获取预置位
+	rpc GetPreset (GetPresetRequest) returns (GetPresetReply){}
+	//录像查询
+	rpc QueryRecord (QueryRecordRequest) returns (QueryRecordReply){}
+	//获取录像列表
+	rpc GetRecord (GetRecordRequest) returns (GetRecordReply){}
+	//快放
+	rpc PlayFast (PlayFastRequest) returns (PlayFastReply){}
+	//慢放
+	rpc PlaySlow (PlaySlowRequest) returns (PlaySlowReply){}
+	//暂停
+	rpc Pause (PauseRequest) returns (PauseReply){}
+	//开始播放
+	rpc Play (PlayRequest) returns (PlayReply){}
+	//设置当前播放时间点
+	rpc Seek (SeekRequest) returns (SeekReply){}
+	//快进
+  rpc GoForward (GoForwardRequest) returns (GoForwardReply){}
+  //快退
+  //停止录像播放
+  rpc StopPlayRecord (StopPlayRecordRequest) returns (StopPlayRecordReply){}
+  rpc GoBack (GoBackRequest) returns (GoBackReply){}
+	//录像下载
+	rpc RecordDownload (RecordDownloadRequest) returns (RecordDownloadReply){}
+	//根据设备id获取设备状态
+	rpc GetDeviceStatus (GetDeviceStatusRequest) returns (GetDeviceStatusReply){}
+	//获取所有设备状态
+	rpc GetAllDeviceStatus (GetAllDeviceStatusRequest) returns (GetAllDeviceStatusReply){}
+	//获取设备列表
+	rpc GetDeviceList (GetDeviceListRequest) returns (GetDeviceListReply){}
+	//设备重启	
+	rpc DeviceReboot (DeviceRebootRequest) returns (DeviceRebootReply){}
+	//开始语音广播
+	rpc StartBroadcast (StartBroadcastRequest) returns (StartBroadcastReply){}
+	//停止语音广播
+	rpc StopBroadcast (StopBroadcastRequest) returns (StopBroadcastReply){}
+	//开始语音对讲
+	rpc StartTalk (StartTalkRequest) returns (StartTalkReply){}
+	//停止语音对讲
+	rpc StopTalk (StopTalkRequest) returns (StopTalkReply){}
+	//获取节点状态
+	rpc ServiceStatus (ServiceStatusRequest) returns (ServiceStatusReply){}
+	//Onvif云台转动
+	rpc OnvifPtzMove (OnvifPtzMoveRequest) returns (OnvifPtzMoveReply){}
+	//Onvif停止云台转动
+	rpc OnvifPtzStop (OnvifPtzStopRequest) returns (OnvifPtzStopReply){}
+	//Onvif变倍拉近
+	rpc OnvifZoomIn (OnvifZoomInRequest) returns (OnvifZoomInReply){}
+	//Onvif变倍拉远
+	rpc OnvifZoomOut (OnvifZoomOutRequest) returns (OnvifZoomOutReply){}
+	//Onvif停止变倍
+	rpc OnvifZoomStop (OnvifZoomStopRequest) returns (OnvifZoomStopReply){}
+	//Onvif聚焦+
+	rpc OnvifFocusNear (OnvifFocusNearRequest) returns (OnvifFocusNearReply){}
+	//Onvif聚焦-
+	rpc OnvifFocusFar (OnvifFocusFarRequest) returns (OnvifFocusFarReply){}
+	//Onvif停止聚焦
+	rpc OnvifFocusStop (OnvifFocusStopRequest) returns (OnvifFocusStopReply){}
+	//Onvif云台3D控制
+	rpc OnvifPtz3D (OnvifPtz3DRequest) returns (OnvifPtz3DReply){}
+	//Onvif获取预置位
+	rpc OnvifGetPreset (OnvifGetPresetRequest) returns (OnvifGetPresetReply){}
+	//Onvif转到预置位
+	rpc OnvifGotoPreset (OnvifGotoPresetRequest) returns (OnvifGotoPresetReply){}
+	//Onvif设置预置位
+	rpc OnvifSetPreset (OnvifSetPresetRequest) returns (OnvifSetPresetReply){}
+	//Onvif设备重启
+	rpc OnvifDeviceReboot (OnvifDeviceRebootRequest) returns (OnvifDeviceRebootReply){}
+	//onvif获取主码流播放url
+	rpc OnvifGetMainUrl (OnvifGetMainUrlRequest) returns (OnvifGetMainUrlReply){}
+	//onvif获取子码流播放url
+	rpc OnvifGetSubUrl (OnvifGetSubUrlRequest) returns (OnvifGetSubUrlReply){}
+
+}
+
+
+//云台控制请求
+message PtzCommandRequest{
+	string mainId = 1;   //设备主id
+	string subId = 2;     //设备子id
+	int32 speed = 3;     //云台转动速度(1~255)
+	int32 direction = 4; //云台转动方向(1:上，2:右上，3:右，4:右下，5:下，6:左下，7:左，8:左上)
+}
+
+//云台控制回复
+message ControlReply{
+	int32 code = 1;    //返回码
+	string msg = 2;    //返回消息 
+}
+
+//云台拉近请求
+message PtzZoomInRequest{
+	string mainId = 1;    //设备主id   
+	string subId = 2;      //设备子id
+	int32 speed = 3;      //云台转动速度(1~255)
+}
+
+//云台拉近回复
+message PtzZoomInReply{
+	int32 code = 1;   //返回码
+	string msg = 2;   //返回消息 
+}
+
+//云台拉远请求
+message PtzZoomOutRequest{
+	string mainId = 1;    //设备主id   
+	string subId = 2;      //设备子id
+	int32 speed = 3;      //云台转动速度(1~255)
+}
+
+//云台拉远回复
+message PtzZoomOutReply{
+	int32 code = 1;   //返回码
+	string msg = 2;   //返回消息 
+}
+
+//停止云台控制请求
+message PtzStopRequest{
+	string mainId = 1;    //设备主id   
+	string subId = 2;      //设备子id
+}
+
+//停止云台控制回复
+message PtzStopReply{
+	int32 code = 1;   //返回码
+	string msg = 2;   //返回消息 
+}
+
+//光圈变大请求
+message PtzIrisBigRequest{
+	string mainId = 1;     //设备主id
+	string subId = 2;        //设备子id 
+	int32 speed = 3;        //速度
+}
+
+//光圈变大回复
+message PtzIrisBigReply{
+	int32 code = 1;     //返回码
+	string msg = 2;     //返回消息
+}
+
+//光圈变小请求
+message PtzIrisSmallRequest{
+	string mainId = 1;     //设备主id
+	string subId = 2;       //设备子id
+	int32 speed = 3;        //速度
+}
+
+//光圈变小回复
+message PtzIrisSmallReply{
+	int32 code = 1;       //返回码
+	string msg = 2;       //返回消息
+}
+
+//聚焦拉远请求
+message PtzFocusOutRequest{
+	string mainId = 1;     //设备主id
+	string subId = 2;       //设备子id
+	int32 speed = 3;       //速度
+}
+
+//聚焦拉远回复
+message PtzFocusOutReply{
+	int32 code = 1;      //返回码
+	string msg = 2;      //返回消息
+}
+
+//聚焦拉近请求
+message PtzFocusInRequest{
+	string mainId = 1;    //设备主id
+	string subId = 2;      //设备子id
+	int32 speed = 3;      //速度
+}
+
+//聚焦拉近回复
+message PtzFocusInReply{
+	int32 code = 1;      //返回码
+	string msg = 2;      //返回消息
+}
+
+//光圈聚焦停止请求
+message PtzIFStopRequest{
+	string mainId = 1;     //设备主id
+	string subId = 2;       //设备子id
+}
+
+//光圈聚焦停止回复
+message PtzIFStopReply{
+	int32 code = 1;       //返回码
+	string msg = 2;       //返回消息
+}
+
+//获取实时视频播放url请求
+message RealPlayUrlRequest{
+	string mainId = 1;    //设备主id   
+	string subId = 2;      //设备子id
+	int32 isTcp = 3;       //是否tcp获取视频流
+}
+
+//获取实时视频播放url回复
+message RealPlayUrlReply{
+	int32 code = 1;   //返回码
+	string url = 2;     //rtsp  url
+	string msg = 3;   //返回消息
+}
+
+//获取实时视频播放url请求 内网ip
+message RealPlayUrlInRequest{
+	string mainId = 1;    //设备主id   
+	string subId = 2;      //设备子id
+	int32 isTcp = 3;       //是否tcp获取视频流
+}
+
+//获取实时视频播放url回复 内网ip
+message RealPlayUrlInReply{
+	int32 code = 1;   //返回码
+	string url = 2;     //rtsp  url
+	string msg = 3;   //返回消息
+}
+
+//获取rtmp播放url请求
+message GetRTMPUrlRequest{
+	string mainId = 1;     //设备主id
+	string subId = 2;       //设备子id
+	int32 isTcp = 3;        //是否tcp获取视频流
+}
+
+//获取rtmp播放url回复
+message GetRTMPUrlReply{
+	string url = 1;      //rtmp播放url
+	int32 code = 2;   //返回码
+	string msg = 3;   //返回消息
+}
+
+//获取rtmp播放url请求 内网ip
+message GetRTMPUrlInRequest{
+	string mainId = 1;     //设备主id
+	string subId = 2;       //设备子id
+	int32 isTcp = 3;        //是否tcp获取视频流
+}
+
+//获取rtmp播放url回复 内网ip
+message GetRTMPUrlInReply{
+	string url = 1;      //rtmp播放url
+	int32 code = 2;   //返回码
+	string msg = 3;   //返回消息
+}
+
+//获取HLS播放url请求
+message GetHLSUrlRequest{
+	string mainId = 1;    //设备主id
+	string subId = 2;      //设备子id
+	int32 isTcp = 3;       //是否tcp获取视频流
+}
+
+//获取HLS播放url回复
+message GetHLSUrlReply{
+	string url = 1;        //HLS播放url
+	int32 code = 2;       //返回码
+	string msg = 3;        //返回消息
+}
+
+//获取HLS播放url请求 内网ip
+message GetHLSUrlInRequest{
+	string mainId = 1;    //设备主id
+	string subId = 2;      //设备子id
+	int32 isTcp = 3;       //是否tcp获取视频流
+}
+
+//获取HLS播放url回复 内网ip
+message GetHLSUrlInReply{
+	string url = 1;        //HLS播放url
+	int32 code = 2;       //返回码
+	string msg = 3;        //返回消息
+}
+
+//停止视频播放请求
+message StopVideoByIdRequest{
+	string mainId = 1;    //设备主id
+  string subId = 2;     //设备子id
+  int32 isTcp = 3;      //是否通过tcp获取视频流
+}
+
+//停止视频播放回复
+message StopVideoByIdReply{
+	int32 code = 1;       //返回码
+  string msg = 2;       //返回消息
+}
+
+//通过ssrc停止视频播放请求
+message StopVideoBySsrcRequest{
+	string ssrc = 1;     //播放ssrc
+}
+
+//通过ssrc停止视频播放回复
+message StopVideoBySsrcReply{
+	int32 code = 1;     //返回码
+  string msg = 2;     //返回消息
+}
+
+//获取录像回放播放url请求
+message PlayBackUrlRequest{
+	string mainId = 1;         //设备主id
+	string subId = 2;           //设备子id
+	string startTime = 3;     //录像开始时间
+	string endTime = 4;      //录像结束时间
+	int32 isTcp = 5;         //是否通过tcp获取视频流
+}
+
+//获取录像回放rtsp播放url回复
+message PlayBackUrlReply{
+	int32 code = 1;      //返回码
+	string rtspUrl = 2;        //录像回放rtsp播放url
+	string rtmpUrl = 3;        //录像回放rtmp播放url
+	string msg = 4;      //返回消息
+	string token = 5;    //录像播放链路标识
+}
+
+//转到指定预置位请求
+message PresetGoRequest{
+	string mainId = 1;      //设备主id
+	string subId = 2;        //设备子id
+	int32 presetId = 3;     //预置位id
+}
+
+//设置指定预置位请求
+message PresetSetRequest{
+	string mainId = 1;      //设备主id
+	string subId = 2;        //设备子id
+	int32 presetId = 3;     //预置位id
+}
+
+//删除指定预置位请求
+message PresetDelRequest{
+	string mainId = 1;     //设备主id
+	string subId = 2;       //设备子id
+	int32 presetId = 3;    //预置位id
+}
+
+//查询预置位请求
+message PresetQueryRequest{
+	string mainId = 1;     //设备主id
+	string subId = 2;      //设备子id
+}
+
+//查询预置位回复
+message PresetQueryReply{
+	int32 sn = 1;        //查询sn
+	int32 code = 2;      //返回码
+	string msg = 3;      //返回消息
+}
+
+//获取预置位请求
+message GetPresetRequest{
+	int32 sn = 1;       //查询sn
+}
+
+//预置位信息
+message PresetInfo{
+	int32 presetId = 1;      //预置位索引
+	string presetName = 2;   //预置位名称
+}
+
+//获取预置位回复
+message GetPresetReply{
+	repeated PresetInfo presetList = 1;   //预置位列表
+	int32 code = 2;                       //返回码
+	string msg = 3;                       //返回消息
+}
+
+//查询录像请求
+message QueryRecordRequest{
+	string mainId = 1;       //设备主id
+	string subId = 2;         //设备子id
+	string startTime = 3;   //开始时间
+	string endTime = 4;    //结束时间
+}
+
+//查询录像回复
+message QueryRecordReply{
+	int32 sn = 1;         //查询sn
+	int32 code = 2;       //返回码
+	string msg = 3;       //返回消息
+}
+
+//获取录像列表请求
+message GetRecordRequest{
+	int32 sn = 1;        //查询sn
+}
+
+//录像信息结构
+message RecordInfo{
+	string name = 1;         //录像名称
+	string startTime = 2;   //录像开始时间
+	string endTime = 3;    //录像结束时间
+}
+
+//获取录像列表回复
+message GetRecordReply{
+	repeated RecordInfo recordList = 1;     //录像列表
+	int32 code = 2;                                    //返回码
+	string msg = 3;                                    //返回消息
+}
+
+//录像快放请求
+message PlayFastRequest{
+	string token = 1;     //录像播放链路标识
+}
+
+//录像快放回复
+message PlayFastReply{
+	float scale = 1;     //当前播放倍速
+	int32 code = 2;    //返回码
+	string msg = 3;    //返回消息
+}
+
+//录像慢放请求
+message PlaySlowRequest{
+	string token = 1;    //录像播放链路标识
+}
+
+//录像慢放回复
+message PlaySlowReply{
+	float scale = 1;     //当前播放倍速
+	int32 code = 2;    //返回码
+	string msg = 3;    //返回消息
+}
+
+//录像播放暂停
+message PauseRequest{
+	string token = 1;   //录像播放链路标识
+}
+
+message PauseReply{
+	int32 code = 1;    //返回码
+	string msg = 2;    //返回消息
+}
+
+//录像播放请求
+message PlayRequest{
+	string token = 1;     //录像播放链路标识
+}
+
+//录像播放回复
+message PlayReply{
+	int32 code = 1;      //返回码
+	string msg = 2;      //返回消息
+}
+
+//设置播放时间点请求
+message SeekRequest{
+        string token = 1;    //录像播放链路标识
+        int32 time = 2;      //设置的时间点（从0开始  单位秒）
+}
+
+//设置播放时间点回复
+message SeekReply{
+        int32 code = 1;      //返回码
+        string msg = 2;      //返回消息
+}
+
+//快进请求
+message GoForwardRequest{
+        string token = 1;    //录像播放链路标识
+        int32 nowTime = 2;   //当前播放时间点
+}
+
+//快进回复
+message GoForwardReply{
+        int32 code = 1;     //返回码
+        string msg = 2;     //返回消息
+}
+
+//快退请求
+message GoBackRequest{
+        string token = 1;    //录像播放链路标识
+        int32 nowTime = 2;   //当前播放时间点
+}
+
+//快退回复
+message GoBackReply{
+        int32 code = 1;   //返回码
+        string msg = 2;   //返回消息
+}
+
+//停止录像播放请求
+message StopPlayRecordRequest{
+	string token = 1;   //录像播放链路标识
+}
+
+//停止录像播放回复
+message StopPlayRecordReply{
+	int32 code = 1;      //返回码
+	string msg = 3;      //返回消息
+}
+
+
+//录像下载请求
+message RecordDownloadRequest{
+	string mainId = 1;      //设备主id
+	string subId = 2;       //设备子id
+	string startTime = 3;   //录像开始时间
+	string endTime = 4;     //录像结束时间
+	string destIp = 5;      //接收录像ip
+	int32 destPort = 6;     //接收录像端口
+}
+
+//录像下载回复
+message RecordDownloadReply{
+	string token = 1;        //录像下载链路标识
+	int64 fileSize = 2;      //录像大小
+	int32 code = 3;          //返回码
+	string msg = 4;          //返回消息
+}
+
+//获取指定设备状态请求
+message GetDeviceStatusRequest{
+	string mainId = 1;     //设备主id
+	string subId = 2;       //设备子id
+}
+
+//获取指定设备状态回复
+message GetDeviceStatusReply{
+	bool isOnline = 1;       //设备是否在线
+	int32 code = 2;           //返回码
+	string msg = 3;           //返回消息
+}
+
+//获取所有设备状态请求
+message GetAllDeviceStatusRequest{
+	
+}
+
+//设备状态结构体
+message StatusInfo{
+	string mainId = 1;     //设备主id
+	string subId = 2;       //设备子id
+	bool isOnline = 3;     //设备是否在线
+}
+
+//获取所有设备状态回复
+message GetAllDeviceStatusReply{
+	repeated StatusInfo statusInfoList = 1;     //设备状态列表
+	int32 code = 2;                                        //返回码
+	string msg = 3;                                        //返回消息
+}
+
+//获取设备列表请求
+message GetDeviceListRequest{
+
+}
+
+//设备信息结构体
+message DeviceList{
+	string mainId = 1;    //设备主id
+	string subId = 2;      //设备子id
+	string name = 3;      //设备名称
+	string ip = 4;            //设备ip
+}
+
+//获取设备列表回复
+message GetDeviceListReply{
+	repeated DeviceList deviceList = 1;    //设备信息列表
+	int32 code = 2;                                 //返回码
+	string msg = 3;                                 //返回消息
+}
+
+//设备重启请求
+message DeviceRebootRequest{
+	string mainId = 1;       //设备主id
+	string subId = 2;         //设备子id
+}
+
+//设备重启回复
+message DeviceRebootReply{
+	int32 code = 1;        //返回码
+	string msg = 2;        //返回消息
+}
+
+//开始语音广播请求
+message StartBroadcastRequest{
+	string mainId = 1;     //设备主id
+	string subId = 2;       //设备子id
+}
+
+//开始语音广播回复
+message StartBroadcastReply{
+	string destIp = 1;       //接收音频数据ip
+	int32 destPort = 2;     //接收音频数据端口
+	string token = 3;        //广播链路标识
+	int32 code = 4;          //返回码
+	string msg = 5;          //返回消息
+}
+
+//停止语音广播请求
+message StopBroadcastRequest{
+	string token = 1;     //语音广播链路标识
+}
+
+//停止语音广播回复
+message StopBroadcastReply{
+	int32 code = 1;      //返回码
+	string msg = 2;      //返回消息
+}
+
+//开始语音对讲请求
+message StartTalkRequest{
+	string mainId = 1;        //设备主id
+	string subId = 2;          //设备子id
+	string ip = 3;                //客户端接收音频数据ip
+	int32 port = 4;             //客户端接收音频数据端口
+}
+
+//开始语音对讲回复
+message StartTalkReply{
+	string ip = 1;         //平台端接收音频数据ip
+	int32 port = 2;      //平台端接收音频数据端口
+	string token = 3;  //语音对讲链路标识
+	int32 code = 4;    //返回码
+	string msg = 5;    //返回消息
+}
+
+//停止语音对讲请求
+message StopTalkRequest{
+	string token = 1;    //语音对讲链路标识
+}
+
+//停止语音对回复
+message StopTalkReply{
+	int32 code = 1;      //返回码
+	string msg = 2;      //返回消息
+}
+
+//获取节点状态请求
+message ServiceStatusRequest{
+
+}
+
+//获取节点状态回复
+message ServiceStatusReply{
+        string ip = 1;                  //节点ip
+        uint64 diskTotalSize = 2;       //磁盘总大小
+        uint64 diskUsedSize = 3;        //磁盘已用大小
+        uint64 diskAvilableSize = 4;    //磁盘可用大小
+        string SipId = 5;               //节点SipID
+        int32 port = 6;                 //节点Sip端口
+        int32 code = 7;                 //返回码
+        string msg = 8;                 //返回消息
+}
+
+//Onvif云台转动请求
+message OnvifPtzMoveRequest{
+	string ip = 1;        //设备ip
+	int32 port = 2;       //设备端口
+	string user = 3;      //设备用户名
+	string password = 4;  //设备密码
+	int32 channel = 5;    //设备通道，单独摄像机默认0
+	int32 directory = 6;  //云台转动方向(1:上，2:右上，3:右，4:右下，5:下，6:左下，7:左，8:左上)
+	float speed = 7;      //云台转动速度（0~1）
+}
+
+//Onvif云台转动回复
+message OnvifPtzMoveReply{
+	int32 code = 1;    //返回码
+	string msg = 2;    //返回消息
+}
+
+//Onvif停止云台转动请求
+message OnvifPtzStopRequest{
+	string ip = 1;        //设备ip
+	int32 port = 2;       //设备端口
+	string user = 3;      //设备用户名
+	string password = 4;  //设备密码
+	int32 channel = 5;    //设备通道，单独摄像机默认0
+}
+
+//Onvif停止云台转动回复
+message OnvifPtzStopReply{
+	int32 code = 1;    //返回码
+	string msg = 2;    //返回消息
+}
+
+//Onvif变倍拉近请求
+message OnvifZoomInRequest{
+	string ip = 1;        //设备ip
+	int32 port = 2;       //设备端口
+	string user = 3;      //设备用户名
+	string password = 4;  //设备密码
+	int32 channel = 5;    //设备通道，单独摄像机默认0
+	float speed = 6;      //变倍速度（0~1）
+}
+
+//Onvif变倍拉近回复
+message OnvifZoomInReply{
+	int32 code = 1;    //返回码
+	string msg = 2;    //返回消息
+}
+
+//Onvif变倍拉远请求
+message OnvifZoomOutRequest{
+	string ip = 1;        //设备ip
+	int32 port = 2;       //设备端口
+	string user = 3;      //设备用户名
+	string password = 4;  //设备密码
+	int32 channel = 5;    //设备通道，单独摄像机默认0
+	float speed = 6;      //变倍速度（0~1）
+}
+
+//Onvif变倍拉远回复
+message OnvifZoomOutReply{
+	int32 code = 1;    //返回码
+	string msg = 2;    //返回消息
+}
+
+//Onvif停止变倍请求
+message OnvifZoomStopRequest{
+	string ip = 1;        //设备ip
+	int32 port = 2;       //设备端口
+	string user = 3;      //设备用户名
+	string password = 4;  //设备密码
+	int32 channel = 5;    //设备通道，单独摄像机默认0
+}
+
+//Onvif停止变倍回复
+message OnvifZoomStopReply{
+	int32 code = 1;    //返回码
+	string msg = 2;    //返回消息
+}
+
+//Onvif聚焦+请求
+message OnvifFocusNearRequest{
+	string ip = 1;        //设备ip
+	int32 port = 2;       //设备端口
+	string user = 3;      //设备用户名
+	string password = 4;  //设备密码
+	int32 channel = 5;    //设备通道，单独摄像机默认0
+	float speed = 6;      //聚焦速度（0~1）
+}
+
+//Onvif聚焦+回复
+message OnvifFocusNearReply{
+	int32 code = 1;    //返回码
+	string msg = 2;    //返回消息
+}
+
+//Onvif聚焦-请求
+message OnvifFocusFarRequest{
+	string ip = 1;        //设备ip
+	int32 port = 2;       //设备端口
+	string user = 3;      //设备用户名
+	string password = 4;  //设备密码
+	int32 channel = 5;    //设备通道，单独摄像机默认0
+	float speed = 6;      //聚焦速度（0~1）
+}
+
+//Onvif聚焦-回复
+message OnvifFocusFarReply{
+	int32 code = 1;    //返回码
+	string msg = 2;    //返回消息
+}
+
+//Onvif停止聚焦请求
+message OnvifFocusStopRequest{
+	string ip = 1;        //设备ip
+	int32 port = 2;       //设备端口
+	string user = 3;      //设备用户名
+	string password = 4;  //设备密码
+	int32 channel = 5;    //设备通道，单独摄像机默认0
+}
+
+//Onvif停止聚焦回复
+message OnvifFocusStopReply{
+	int32 code = 1;    //返回码
+	string msg = 2;    //返回消息
+}
+
+//Onvif3D控制请求
+message OnvifPtz3DRequest{
+	string ip = 1;        //设备ip
+	int32 port = 2;       //设备端口
+	string user = 3;      //设备用户名
+	string password = 4;  //设备密码
+	int32 channel = 5;    //设备通道，单独摄像机默认0
+	int32 x1 = 6;         //矩形左上角x坐标
+	int32 y1 = 7;         //矩形左上角y坐标
+	int32 x2 = 8;         //矩形右下角x坐标
+	int32 y2 = 9;         //矩形右下角y坐标
+	int32 width = 10;     //图像宽
+	int32 height = 11;    //图像高
+}
+
+//Onvif3D控制回复
+message OnvifPtz3DReply{
+	int32 code = 1;    //返回码
+	string msg = 2;    //返回消息
+}
+
+//Onvif预置位信息
+message OnvifPresetInfo{
+	bytes preToken = 1;   //预置位token
+	bytes preName = 2;    //预置位名称
+}
+
+//Onvif获取预置位请求
+message OnvifGetPresetRequest{
+	string ip = 1;        //设备ip
+	int32 port = 2;       //设备端口
+	string user = 3;      //设备用户名
+	string password = 4;  //设备密码
+	int32 channel = 5;    //设备通道，单独摄像机默认0
+}
+
+//Onvif获取预置位回复
+message OnvifGetPresetReply{
+	repeated OnvifPresetInfo presetList = 1;   //预置位列表
+	int32 code = 2;                            //返回码
+	string msg = 3;                            //返回消息
+}
+
+//Onvif转到预置位请求
+message OnvifGotoPresetRequest{
+	string ip = 1;        //设备ip
+	int32 port = 2;       //设备端口
+	string user = 3;      //设备用户名
+	string password = 4;  //设备密码
+	int32 channel = 5;    //设备通道，单独摄像机默认0
+	bytes preToken = 6;  //预置位token
+}
+
+//Onvif转到预置位回复
+message OnvifGotoPresetReply{
+	int32 code = 1;    //返回码
+	string msg = 2;    //返回消息
+}
+
+//Onvif设置预置位请求
+message OnvifSetPresetRequest{
+	string ip = 1;        //设备ip
+	int32 port = 2;       //设备端口
+	string user = 3;      //设备用户名
+	string password = 4;  //设备密码
+	int32 channel = 5;    //设备通道，单独摄像机默认0
+	bytes preToken = 6;  //预置位token
+	bytes preName = 7;    //预置位名称
+}
+
+//Onvif设置预置位回复
+message OnvifSetPresetReply{
+	int32 code = 1;    //返回码
+	string msg = 2;    //返回消息
+}
+
+//Onvif设备重启请求
+message OnvifDeviceRebootRequest{
+	string ip = 1;        //设备ip
+	int32 port = 2;       //设备端口
+	string user = 3;      //设备用户名
+	string password = 4;  //设备密码
+	int32 channel = 5;    //设备通道，单独摄像机默认0
+}
+
+//Onvif设备重启回复
+message OnvifDeviceRebootReply{
+	int32 code = 1;    //返回码
+	string msg = 2;    //返回消息
+}
+
+//Onvif获取主码流播放url请求
+message OnvifGetMainUrlRequest{
+	string ip = 1;        //设备ip
+	int32 port = 2;       //设备端口
+	string user = 3;      //设备用户名
+	string password = 4;  //设备密码
+	int32 channel = 5;    //设备通道，单独摄像机默认0
+}
+
+//Onvif获取主码流播放url回复
+message OnvifGetMainUrlReply{
+	string url = 1;     //播放url
+	int32 code = 2;     //返回码
+	string msg = 3;     //返回消息
+}
+
+//Onvif获取子码流播放url请求
+message OnvifGetSubUrlRequest{
+	string ip = 1;        //设备ip
+	int32 port = 2;       //设备端口
+	string user = 3;      //设备用户名
+	string password = 4;  //设备密码
+	int32 channel = 5;    //设备通道，单独摄像机默认0
+}
+
+//Onvif获取子码流播放url回复
+message OnvifGetSubUrlReply{
+	string url = 1;     //播放url
+	int32 code = 2;     //返回码
+	string msg = 3;     //返回消息
+}

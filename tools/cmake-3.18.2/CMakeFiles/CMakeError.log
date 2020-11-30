@@ -1,0 +1,3573 @@
+Determining if the environ exist failed with the following output:
+Change Dir: /mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_9381a/fast && make  -f CMakeFiles/cmTC_9381a.dir/build.make CMakeFiles/cmTC_9381a.dir/build
+make[1]: 进入目录“/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp”
+Building C object CMakeFiles/cmTC_9381a.dir/CheckSymbolExists.c.o
+/usr/bin/gcc   -std=gnu11 -o CMakeFiles/cmTC_9381a.dir/CheckSymbolExists.c.o -c /mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp/CheckSymbolExists.c: In function ‘main’:
+/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp/CheckSymbolExists.c:8:19: error: ‘environ’ undeclared (first use in this function)
+   return ((int*)(&environ))[argc];
+                   ^~~~~~~
+/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp/CheckSymbolExists.c:8:19: note: each undeclared identifier is reported only once for each function it appears in
+CMakeFiles/cmTC_9381a.dir/build.make:84: recipe for target 'CMakeFiles/cmTC_9381a.dir/CheckSymbolExists.c.o' failed
+make[1]: *** [CMakeFiles/cmTC_9381a.dir/CheckSymbolExists.c.o] Error 1
+make[1]: 离开目录“/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp”
+Makefile:140: recipe for target 'cmTC_9381a/fast' failed
+make: *** [cmTC_9381a/fast] Error 2
+
+
+File /mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <stdlib.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef environ
+  return ((int*)(&environ))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Performing C SOURCE FILE Test CMAKE_HAVE_LIBC_PTHREAD failed with the following output:
+Change Dir: /mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_6c264/fast && make  -f CMakeFiles/cmTC_6c264.dir/build.make CMakeFiles/cmTC_6c264.dir/build
+make[1]: 进入目录“/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp”
+Building C object CMakeFiles/cmTC_6c264.dir/src.c.o
+/usr/bin/gcc   -DCMAKE_HAVE_LIBC_PTHREAD -std=gnu11 -o CMakeFiles/cmTC_6c264.dir/src.c.o -c /mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp/src.c
+Linking C executable cmTC_6c264
+/mnt/teamway/store-service/tools/cmake-3.18.2/Bootstrap.cmk/cmake -E cmake_link_script CMakeFiles/cmTC_6c264.dir/link.txt --verbose=1
+/usr/bin/gcc  -DCMAKE_HAVE_LIBC_PTHREAD CMakeFiles/cmTC_6c264.dir/src.c.o -o cmTC_6c264 
+CMakeFiles/cmTC_6c264.dir/src.c.o：在函数‘main’中：
+src.c:(.text+0x3e)：对‘pthread_create’未定义的引用
+src.c:(.text+0x4a)：对‘pthread_detach’未定义的引用
+src.c:(.text+0x56)：对‘pthread_cancel’未定义的引用
+src.c:(.text+0x67)：对‘pthread_join’未定义的引用
+src.c:(.text+0x7b)：对‘pthread_atfork’未定义的引用
+collect2: error: ld returned 1 exit status
+CMakeFiles/cmTC_6c264.dir/build.make:105: recipe for target 'cmTC_6c264' failed
+make[1]: *** [cmTC_6c264] Error 1
+make[1]: 离开目录“/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp”
+Makefile:140: recipe for target 'cmTC_6c264/fast' failed
+make: *** [cmTC_6c264/fast] Error 2
+
+
+Source file was:
+#include <pthread.h>
+
+void* test_func(void* data)
+{
+  return data;
+}
+
+int main(void)
+{
+  pthread_t thread;
+  pthread_create(&thread, NULL, test_func, NULL);
+  pthread_detach(thread);
+  pthread_cancel(thread);
+  pthread_join(thread, NULL);
+  pthread_atfork(NULL, NULL, NULL);
+  pthread_exit(NULL);
+
+  return 0;
+}
+
+Determining if the function pthread_create exists in the pthreads failed with the following output:
+Change Dir: /mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_c9979/fast && make  -f CMakeFiles/cmTC_c9979.dir/build.make CMakeFiles/cmTC_c9979.dir/build
+make[1]: 进入目录“/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp”
+Building C object CMakeFiles/cmTC_c9979.dir/CheckFunctionExists.c.o
+/usr/bin/gcc   -DCHECK_FUNCTION_EXISTS=pthread_create -std=gnu11 -o CMakeFiles/cmTC_c9979.dir/CheckFunctionExists.c.o -c /mnt/teamway/store-service/tools/cmake-3.18.2/Modules/CheckFunctionExists.c
+Linking C executable cmTC_c9979
+/mnt/teamway/store-service/tools/cmake-3.18.2/Bootstrap.cmk/cmake -E cmake_link_script CMakeFiles/cmTC_c9979.dir/link.txt --verbose=1
+/usr/bin/gcc  -DCHECK_FUNCTION_EXISTS=pthread_create CMakeFiles/cmTC_c9979.dir/CheckFunctionExists.c.o -o cmTC_c9979  -lpthreads 
+/usr/bin/ld: 找不到 -lpthreads
+collect2: error: ld returned 1 exit status
+CMakeFiles/cmTC_c9979.dir/build.make:105: recipe for target 'cmTC_c9979' failed
+make[1]: *** [cmTC_c9979] Error 1
+make[1]: 离开目录“/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp”
+Makefile:140: recipe for target 'cmTC_c9979/fast' failed
+make: *** [cmTC_c9979/fast] Error 2
+
+
+
+Checking whether CXX compiler has environ in stdlib.h failed to compile with the following output:
+Change Dir: /mnt/teamway/store-service/tools/cmake-3.18.2/Source/kwsys/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_df59c/fast && make  -f CMakeFiles/cmTC_df59c.dir/build.make CMakeFiles/cmTC_df59c.dir/build
+make[1]: 进入目录“/mnt/teamway/store-service/tools/cmake-3.18.2/Source/kwsys/CMakeFiles/CMakeTmp”
+Building CXX object CMakeFiles/cmTC_df59c.dir/kwsysPlatformTestsCXX.cxx.o
+/usr/bin/g++ -DTEST_KWSYS_CXX_HAS_ENVIRON_IN_STDLIB_H  -std=gnu++1z -o CMakeFiles/cmTC_df59c.dir/kwsysPlatformTestsCXX.cxx.o -c /mnt/teamway/store-service/tools/cmake-3.18.2/Source/kwsys/kwsysPlatformTestsCXX.cxx
+/mnt/teamway/store-service/tools/cmake-3.18.2/Source/kwsys/kwsysPlatformTestsCXX.cxx: In function ‘int main()’:
+/mnt/teamway/store-service/tools/cmake-3.18.2/Source/kwsys/kwsysPlatformTestsCXX.cxx:53:13: error: ‘environ’ was not declared in this scope
+   char* e = environ[0];
+             ^~~~~~~
+/mnt/teamway/store-service/tools/cmake-3.18.2/Source/kwsys/kwsysPlatformTestsCXX.cxx:53:13: note: suggested alternative: ‘union’
+   char* e = environ[0];
+             ^~~~~~~
+             union
+CMakeFiles/cmTC_df59c.dir/build.make:84: recipe for target 'CMakeFiles/cmTC_df59c.dir/kwsysPlatformTestsCXX.cxx.o' failed
+make[1]: *** [CMakeFiles/cmTC_df59c.dir/kwsysPlatformTestsCXX.cxx.o] Error 1
+make[1]: 离开目录“/mnt/teamway/store-service/tools/cmake-3.18.2/Source/kwsys/CMakeFiles/CMakeTmp”
+Makefile:140: recipe for target 'cmTC_df59c/fast' failed
+make: *** [cmTC_df59c/fast] Error 2
+
+
+
+Checking whether CXX compiler struct stat has st_mtimespec member failed to compile with the following output:
+Change Dir: /mnt/teamway/store-service/tools/cmake-3.18.2/Source/kwsys/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_6f20b/fast && make  -f CMakeFiles/cmTC_6f20b.dir/build.make CMakeFiles/cmTC_6f20b.dir/build
+make[1]: 进入目录“/mnt/teamway/store-service/tools/cmake-3.18.2/Source/kwsys/CMakeFiles/CMakeTmp”
+Building CXX object CMakeFiles/cmTC_6f20b.dir/kwsysPlatformTestsCXX.cxx.o
+/usr/bin/g++ -DTEST_KWSYS_CXX_STAT_HAS_ST_MTIMESPEC  -std=gnu++1z -o CMakeFiles/cmTC_6f20b.dir/kwsysPlatformTestsCXX.cxx.o -c /mnt/teamway/store-service/tools/cmake-3.18.2/Source/kwsys/kwsysPlatformTestsCXX.cxx
+/mnt/teamway/store-service/tools/cmake-3.18.2/Source/kwsys/kwsysPlatformTestsCXX.cxx: In function ‘int main()’:
+/mnt/teamway/store-service/tools/cmake-3.18.2/Source/kwsys/kwsysPlatformTestsCXX.cxx:26:15: error: ‘struct stat’ has no member named ‘st_mtimespec’; did you mean ‘st_mtim’?
+   (void)stat1.st_mtimespec.tv_sec;
+               ^~~~~~~~~~~~
+               st_mtim
+/mnt/teamway/store-service/tools/cmake-3.18.2/Source/kwsys/kwsysPlatformTestsCXX.cxx:27:15: error: ‘struct stat’ has no member named ‘st_mtimespec’; did you mean ‘st_mtim’?
+   (void)stat1.st_mtimespec.tv_nsec;
+               ^~~~~~~~~~~~
+               st_mtim
+CMakeFiles/cmTC_6f20b.dir/build.make:84: recipe for target 'CMakeFiles/cmTC_6f20b.dir/kwsysPlatformTestsCXX.cxx.o' failed
+make[1]: *** [CMakeFiles/cmTC_6f20b.dir/kwsysPlatformTestsCXX.cxx.o] Error 1
+make[1]: 离开目录“/mnt/teamway/store-service/tools/cmake-3.18.2/Source/kwsys/CMakeFiles/CMakeTmp”
+Makefile:140: recipe for target 'cmTC_6f20b/fast' failed
+make: *** [cmTC_6f20b/fast] Error 2
+
+
+
+Determining if the function connect exists in the socket;dl failed with the following output:
+Change Dir: /mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_fefed/fast && make  -f CMakeFiles/cmTC_fefed.dir/build.make CMakeFiles/cmTC_fefed.dir/build
+make[1]: 进入目录“/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp”
+Building C object CMakeFiles/cmTC_fefed.dir/CheckFunctionExists.c.o
+/usr/bin/gcc   -w -DCHECK_FUNCTION_EXISTS=connect -std=gnu11 -o CMakeFiles/cmTC_fefed.dir/CheckFunctionExists.c.o -c /mnt/teamway/store-service/tools/cmake-3.18.2/Modules/CheckFunctionExists.c
+Linking C executable cmTC_fefed
+/mnt/teamway/store-service/tools/cmake-3.18.2/Bootstrap.cmk/cmake -E cmake_link_script CMakeFiles/cmTC_fefed.dir/link.txt --verbose=1
+/usr/bin/gcc   -w -DCHECK_FUNCTION_EXISTS=connect CMakeFiles/cmTC_fefed.dir/CheckFunctionExists.c.o -o cmTC_fefed  -lsocket -ldl 
+/usr/bin/ld: 找不到 -lsocket
+collect2: error: ld returned 1 exit status
+CMakeFiles/cmTC_fefed.dir/build.make:105: recipe for target 'cmTC_fefed' failed
+make[1]: *** [cmTC_fefed] Error 1
+make[1]: 离开目录“/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp”
+Makefile:140: recipe for target 'cmTC_fefed/fast' failed
+make: *** [cmTC_fefed/fast] Error 2
+
+
+
+Determining if the function recv exists in the network;dl failed with the following output:
+Change Dir: /mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_447bc/fast && make  -f CMakeFiles/cmTC_447bc.dir/build.make CMakeFiles/cmTC_447bc.dir/build
+make[1]: 进入目录“/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp”
+Building C object CMakeFiles/cmTC_447bc.dir/CheckFunctionExists.c.o
+/usr/bin/gcc   -w -DCHECK_FUNCTION_EXISTS=recv -std=gnu11 -o CMakeFiles/cmTC_447bc.dir/CheckFunctionExists.c.o -c /mnt/teamway/store-service/tools/cmake-3.18.2/Modules/CheckFunctionExists.c
+Linking C executable cmTC_447bc
+/mnt/teamway/store-service/tools/cmake-3.18.2/Bootstrap.cmk/cmake -E cmake_link_script CMakeFiles/cmTC_447bc.dir/link.txt --verbose=1
+/usr/bin/gcc   -w -DCHECK_FUNCTION_EXISTS=recv CMakeFiles/cmTC_447bc.dir/CheckFunctionExists.c.o -o cmTC_447bc  -lnetwork -ldl 
+/usr/bin/ld: 找不到 -lnetwork
+collect2: error: ld returned 1 exit status
+CMakeFiles/cmTC_447bc.dir/build.make:105: recipe for target 'cmTC_447bc' failed
+make[1]: *** [cmTC_447bc] Error 1
+make[1]: 离开目录“/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp”
+Makefile:140: recipe for target 'cmTC_447bc/fast' failed
+make: *** [cmTC_447bc/fast] Error 2
+
+
+
+Determining if the RAND_status exist failed with the following output:
+Change Dir: /mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_03f64/fast && make  -f CMakeFiles/cmTC_03f64.dir/build.make CMakeFiles/cmTC_03f64.dir/build
+make[1]: 进入目录“/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp”
+Building C object CMakeFiles/cmTC_03f64.dir/CheckSymbolExists.c.o
+/usr/bin/gcc   -w  -std=gnu11 -o CMakeFiles/cmTC_03f64.dir/CheckSymbolExists.c.o -c /mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp/CheckSymbolExists.c: In function ‘main’:
+/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp/CheckSymbolExists.c:7:19: error: ‘RAND_status’ undeclared (first use in this function)
+   return ((int*)(&RAND_status))[argc];
+                   ^~~~~~~~~~~
+/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp/CheckSymbolExists.c:7:19: note: each undeclared identifier is reported only once for each function it appears in
+CMakeFiles/cmTC_03f64.dir/build.make:84: recipe for target 'CMakeFiles/cmTC_03f64.dir/CheckSymbolExists.c.o' failed
+make[1]: *** [CMakeFiles/cmTC_03f64.dir/CheckSymbolExists.c.o] Error 1
+make[1]: 离开目录“/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp”
+Makefile:140: recipe for target 'cmTC_03f64/fast' failed
+make: *** [cmTC_03f64/fast] Error 2
+
+
+File /mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef RAND_status
+  return ((int*)(&RAND_status))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the RAND_screen exist failed with the following output:
+Change Dir: /mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_7ed7c/fast && make  -f CMakeFiles/cmTC_7ed7c.dir/build.make CMakeFiles/cmTC_7ed7c.dir/build
+make[1]: 进入目录“/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp”
+Building C object CMakeFiles/cmTC_7ed7c.dir/CheckSymbolExists.c.o
+/usr/bin/gcc   -w  -std=gnu11 -o CMakeFiles/cmTC_7ed7c.dir/CheckSymbolExists.c.o -c /mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp/CheckSymbolExists.c: In function ‘main’:
+/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp/CheckSymbolExists.c:7:19: error: ‘RAND_screen’ undeclared (first use in this function)
+   return ((int*)(&RAND_screen))[argc];
+                   ^~~~~~~~~~~
+/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp/CheckSymbolExists.c:7:19: note: each undeclared identifier is reported only once for each function it appears in
+CMakeFiles/cmTC_7ed7c.dir/build.make:84: recipe for target 'CMakeFiles/cmTC_7ed7c.dir/CheckSymbolExists.c.o' failed
+make[1]: *** [CMakeFiles/cmTC_7ed7c.dir/CheckSymbolExists.c.o] Error 1
+make[1]: 离开目录“/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp”
+Makefile:140: recipe for target 'cmTC_7ed7c/fast' failed
+make: *** [cmTC_7ed7c/fast] Error 2
+
+
+File /mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef RAND_screen
+  return ((int*)(&RAND_screen))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the RAND_egd exist failed with the following output:
+Change Dir: /mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_d705f/fast && make  -f CMakeFiles/cmTC_d705f.dir/build.make CMakeFiles/cmTC_d705f.dir/build
+make[1]: 进入目录“/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp”
+Building C object CMakeFiles/cmTC_d705f.dir/CheckSymbolExists.c.o
+/usr/bin/gcc   -w  -std=gnu11 -o CMakeFiles/cmTC_d705f.dir/CheckSymbolExists.c.o -c /mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp/CheckSymbolExists.c: In function ‘main’:
+/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp/CheckSymbolExists.c:7:19: error: ‘RAND_egd’ undeclared (first use in this function)
+   return ((int*)(&RAND_egd))[argc];
+                   ^~~~~~~~
+/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp/CheckSymbolExists.c:7:19: note: each undeclared identifier is reported only once for each function it appears in
+CMakeFiles/cmTC_d705f.dir/build.make:84: recipe for target 'CMakeFiles/cmTC_d705f.dir/CheckSymbolExists.c.o' failed
+make[1]: *** [CMakeFiles/cmTC_d705f.dir/CheckSymbolExists.c.o] Error 1
+make[1]: 离开目录“/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp”
+Makefile:140: recipe for target 'cmTC_d705f/fast' failed
+make: *** [cmTC_d705f/fast] Error 2
+
+
+File /mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef RAND_egd
+  return ((int*)(&RAND_egd))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the function idn2_lookup_ul exists in the idn2;dl;/usr/lib/x86_64-linux-gnu/libssl.so;/usr/lib/x86_64-linux-gnu/libcrypto.so;cmnghttp2 failed with the following output:
+Change Dir: /mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_bf4c0/fast && make  -f CMakeFiles/cmTC_bf4c0.dir/build.make CMakeFiles/cmTC_bf4c0.dir/build
+make[1]: 进入目录“/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp”
+Building C object CMakeFiles/cmTC_bf4c0.dir/CheckFunctionExists.c.o
+/usr/bin/gcc   -w -DCHECK_FUNCTION_EXISTS=idn2_lookup_ul -std=gnu11 -o CMakeFiles/cmTC_bf4c0.dir/CheckFunctionExists.c.o -c /mnt/teamway/store-service/tools/cmake-3.18.2/Modules/CheckFunctionExists.c
+Linking C executable cmTC_bf4c0
+/mnt/teamway/store-service/tools/cmake-3.18.2/Bootstrap.cmk/cmake -E cmake_link_script CMakeFiles/cmTC_bf4c0.dir/link.txt --verbose=1
+/usr/bin/gcc   -w -DCHECK_FUNCTION_EXISTS=idn2_lookup_ul CMakeFiles/cmTC_bf4c0.dir/CheckFunctionExists.c.o -o cmTC_bf4c0  -lidn2 -ldl /usr/lib/x86_64-linux-gnu/libssl.so /usr/lib/x86_64-linux-gnu/libcrypto.so -lcmnghttp2 
+/usr/bin/ld: 找不到 -lcmnghttp2
+collect2: error: ld returned 1 exit status
+CMakeFiles/cmTC_bf4c0.dir/build.make:107: recipe for target 'cmTC_bf4c0' failed
+make[1]: *** [cmTC_bf4c0] Error 1
+make[1]: 离开目录“/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp”
+Makefile:140: recipe for target 'cmTC_bf4c0/fast' failed
+make: *** [cmTC_bf4c0/fast] Error 2
+
+
+
+Determining if the function dlopen exists in the dl;/usr/lib/x86_64-linux-gnu/libssl.so;/usr/lib/x86_64-linux-gnu/libcrypto.so;cmnghttp2 failed with the following output:
+Change Dir: /mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_ba6c0/fast && make  -f CMakeFiles/cmTC_ba6c0.dir/build.make CMakeFiles/cmTC_ba6c0.dir/build
+make[1]: 进入目录“/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp”
+Building C object CMakeFiles/cmTC_ba6c0.dir/CheckFunctionExists.c.o
+/usr/bin/gcc   -w -DCHECK_FUNCTION_EXISTS=dlopen -std=gnu11 -o CMakeFiles/cmTC_ba6c0.dir/CheckFunctionExists.c.o -c /mnt/teamway/store-service/tools/cmake-3.18.2/Modules/CheckFunctionExists.c
+Linking C executable cmTC_ba6c0
+/mnt/teamway/store-service/tools/cmake-3.18.2/Bootstrap.cmk/cmake -E cmake_link_script CMakeFiles/cmTC_ba6c0.dir/link.txt --verbose=1
+/usr/bin/gcc   -w -DCHECK_FUNCTION_EXISTS=dlopen CMakeFiles/cmTC_ba6c0.dir/CheckFunctionExists.c.o -o cmTC_ba6c0  -ldl /usr/lib/x86_64-linux-gnu/libssl.so /usr/lib/x86_64-linux-gnu/libcrypto.so -lcmnghttp2 
+/usr/bin/ld: 找不到 -lcmnghttp2
+collect2: error: ld returned 1 exit status
+CMakeFiles/cmTC_ba6c0.dir/build.make:107: recipe for target 'cmTC_ba6c0' failed
+make[1]: *** [cmTC_ba6c0] Error 1
+make[1]: 离开目录“/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp”
+Makefile:140: recipe for target 'cmTC_ba6c0/fast' failed
+make: *** [cmTC_ba6c0/fast] Error 2
+
+
+
+Determining if files stdio.h;inttypes.h;sys/filio.h exist failed with the following output:
+Change Dir: /mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_80b69/fast && make  -f CMakeFiles/cmTC_80b69.dir/build.make CMakeFiles/cmTC_80b69.dir/build
+make[1]: 进入目录“/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp”
+Building C object CMakeFiles/cmTC_80b69.dir/HAVE_SYS_FILIO_H.c.o
+/usr/bin/gcc   -w  -std=gnu11 -o CMakeFiles/cmTC_80b69.dir/HAVE_SYS_FILIO_H.c.o -c /mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CheckIncludeFiles/HAVE_SYS_FILIO_H.c
+/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CheckIncludeFiles/HAVE_SYS_FILIO_H.c:4:10: fatal error: sys/filio.h: 没有那个文件或目录
+ #include <sys/filio.h>
+          ^~~~~~~~~~~~~
+compilation terminated.
+CMakeFiles/cmTC_80b69.dir/build.make:84: recipe for target 'CMakeFiles/cmTC_80b69.dir/HAVE_SYS_FILIO_H.c.o' failed
+make[1]: *** [CMakeFiles/cmTC_80b69.dir/HAVE_SYS_FILIO_H.c.o] Error 1
+make[1]: 离开目录“/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp”
+Makefile:140: recipe for target 'cmTC_80b69/fast' failed
+make: *** [cmTC_80b69/fast] Error 2
+
+
+Source:
+/* */
+#include <stdio.h>
+#include <inttypes.h>
+#include <sys/filio.h>
+
+
+int main(void){return 0;}
+
+Determining if files stdio.h;inttypes.h;sys/ioctl.h;sys/param.h;sys/poll.h;sys/resource.h;sys/select.h;sys/socket.h;sys/sockio.h exist failed with the following output:
+Change Dir: /mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_50969/fast && make  -f CMakeFiles/cmTC_50969.dir/build.make CMakeFiles/cmTC_50969.dir/build
+make[1]: 进入目录“/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp”
+Building C object CMakeFiles/cmTC_50969.dir/HAVE_SYS_SOCKIO_H.c.o
+/usr/bin/gcc   -w  -std=gnu11 -o CMakeFiles/cmTC_50969.dir/HAVE_SYS_SOCKIO_H.c.o -c /mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CheckIncludeFiles/HAVE_SYS_SOCKIO_H.c
+/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CheckIncludeFiles/HAVE_SYS_SOCKIO_H.c:10:10: fatal error: sys/sockio.h: 没有那个文件或目录
+ #include <sys/sockio.h>
+          ^~~~~~~~~~~~~~
+compilation terminated.
+CMakeFiles/cmTC_50969.dir/build.make:84: recipe for target 'CMakeFiles/cmTC_50969.dir/HAVE_SYS_SOCKIO_H.c.o' failed
+make[1]: *** [CMakeFiles/cmTC_50969.dir/HAVE_SYS_SOCKIO_H.c.o] Error 1
+make[1]: 离开目录“/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp”
+Makefile:140: recipe for target 'cmTC_50969/fast' failed
+make: *** [cmTC_50969/fast] Error 2
+
+
+Source:
+/* */
+#include <stdio.h>
+#include <inttypes.h>
+#include <sys/ioctl.h>
+#include <sys/param.h>
+#include <sys/poll.h>
+#include <sys/resource.h>
+#include <sys/select.h>
+#include <sys/socket.h>
+#include <sys/sockio.h>
+
+
+int main(void){return 0;}
+
+Determining if files stdio.h;inttypes.h;sys/ioctl.h;sys/param.h;sys/poll.h;sys/resource.h;sys/select.h;sys/socket.h;sys/stat.h;sys/time.h;sys/types.h;sys/uio.h;sys/un.h;sys/utime.h exist failed with the following output:
+Change Dir: /mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_497e1/fast && make  -f CMakeFiles/cmTC_497e1.dir/build.make CMakeFiles/cmTC_497e1.dir/build
+make[1]: 进入目录“/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp”
+Building C object CMakeFiles/cmTC_497e1.dir/HAVE_SYS_UTIME_H.c.o
+/usr/bin/gcc   -w  -std=gnu11 -o CMakeFiles/cmTC_497e1.dir/HAVE_SYS_UTIME_H.c.o -c /mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CheckIncludeFiles/HAVE_SYS_UTIME_H.c
+/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CheckIncludeFiles/HAVE_SYS_UTIME_H.c:15:10: fatal error: sys/utime.h: 没有那个文件或目录
+ #include <sys/utime.h>
+          ^~~~~~~~~~~~~
+compilation terminated.
+CMakeFiles/cmTC_497e1.dir/build.make:84: recipe for target 'CMakeFiles/cmTC_497e1.dir/HAVE_SYS_UTIME_H.c.o' failed
+make[1]: *** [CMakeFiles/cmTC_497e1.dir/HAVE_SYS_UTIME_H.c.o] Error 1
+make[1]: 离开目录“/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp”
+Makefile:140: recipe for target 'cmTC_497e1/fast' failed
+make: *** [cmTC_497e1/fast] Error 2
+
+
+Source:
+/* */
+#include <stdio.h>
+#include <inttypes.h>
+#include <sys/ioctl.h>
+#include <sys/param.h>
+#include <sys/poll.h>
+#include <sys/resource.h>
+#include <sys/select.h>
+#include <sys/socket.h>
+#include <sys/stat.h>
+#include <sys/time.h>
+#include <sys/types.h>
+#include <sys/uio.h>
+#include <sys/un.h>
+#include <sys/utime.h>
+
+
+int main(void){return 0;}
+
+Determining if files stdio.h;inttypes.h;sys/ioctl.h;sys/param.h;sys/poll.h;sys/resource.h;sys/select.h;sys/socket.h;sys/stat.h;sys/time.h;sys/types.h;sys/uio.h;sys/un.h;sys/xattr.h;alloca.h;arpa/inet.h;arpa/tftp.h;assert.h;crypto.h exist failed with the following output:
+Change Dir: /mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_2b5a0/fast && make  -f CMakeFiles/cmTC_2b5a0.dir/build.make CMakeFiles/cmTC_2b5a0.dir/build
+make[1]: 进入目录“/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp”
+Building C object CMakeFiles/cmTC_2b5a0.dir/HAVE_CRYPTO_H.c.o
+/usr/bin/gcc   -w  -std=gnu11 -o CMakeFiles/cmTC_2b5a0.dir/HAVE_CRYPTO_H.c.o -c /mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CheckIncludeFiles/HAVE_CRYPTO_H.c
+/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CheckIncludeFiles/HAVE_CRYPTO_H.c:20:10: fatal error: crypto.h: 没有那个文件或目录
+ #include <crypto.h>
+          ^~~~~~~~~~
+compilation terminated.
+CMakeFiles/cmTC_2b5a0.dir/build.make:84: recipe for target 'CMakeFiles/cmTC_2b5a0.dir/HAVE_CRYPTO_H.c.o' failed
+make[1]: *** [CMakeFiles/cmTC_2b5a0.dir/HAVE_CRYPTO_H.c.o] Error 1
+make[1]: 离开目录“/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp”
+Makefile:140: recipe for target 'cmTC_2b5a0/fast' failed
+make: *** [cmTC_2b5a0/fast] Error 2
+
+
+Source:
+/* */
+#include <stdio.h>
+#include <inttypes.h>
+#include <sys/ioctl.h>
+#include <sys/param.h>
+#include <sys/poll.h>
+#include <sys/resource.h>
+#include <sys/select.h>
+#include <sys/socket.h>
+#include <sys/stat.h>
+#include <sys/time.h>
+#include <sys/types.h>
+#include <sys/uio.h>
+#include <sys/un.h>
+#include <sys/xattr.h>
+#include <alloca.h>
+#include <arpa/inet.h>
+#include <arpa/tftp.h>
+#include <assert.h>
+#include <crypto.h>
+
+
+int main(void){return 0;}
+
+Determining if files stdio.h;inttypes.h;sys/ioctl.h;sys/param.h;sys/poll.h;sys/resource.h;sys/select.h;sys/socket.h;sys/stat.h;sys/time.h;sys/types.h;sys/uio.h;sys/un.h;sys/xattr.h;alloca.h;arpa/inet.h;arpa/tftp.h;assert.h;err.h;errno.h;fcntl.h;idn2.h;ifaddrs.h;io.h exist failed with the following output:
+Change Dir: /mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_e0521/fast && make  -f CMakeFiles/cmTC_e0521.dir/build.make CMakeFiles/cmTC_e0521.dir/build
+make[1]: 进入目录“/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp”
+Building C object CMakeFiles/cmTC_e0521.dir/HAVE_IO_H.c.o
+/usr/bin/gcc   -w  -std=gnu11 -o CMakeFiles/cmTC_e0521.dir/HAVE_IO_H.c.o -c /mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CheckIncludeFiles/HAVE_IO_H.c
+/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CheckIncludeFiles/HAVE_IO_H.c:25:10: fatal error: io.h: 没有那个文件或目录
+ #include <io.h>
+          ^~~~~~
+compilation terminated.
+CMakeFiles/cmTC_e0521.dir/build.make:84: recipe for target 'CMakeFiles/cmTC_e0521.dir/HAVE_IO_H.c.o' failed
+make[1]: *** [CMakeFiles/cmTC_e0521.dir/HAVE_IO_H.c.o] Error 1
+make[1]: 离开目录“/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp”
+Makefile:140: recipe for target 'cmTC_e0521/fast' failed
+make: *** [cmTC_e0521/fast] Error 2
+
+
+Source:
+/* */
+#include <stdio.h>
+#include <inttypes.h>
+#include <sys/ioctl.h>
+#include <sys/param.h>
+#include <sys/poll.h>
+#include <sys/resource.h>
+#include <sys/select.h>
+#include <sys/socket.h>
+#include <sys/stat.h>
+#include <sys/time.h>
+#include <sys/types.h>
+#include <sys/uio.h>
+#include <sys/un.h>
+#include <sys/xattr.h>
+#include <alloca.h>
+#include <arpa/inet.h>
+#include <arpa/tftp.h>
+#include <assert.h>
+#include <err.h>
+#include <errno.h>
+#include <fcntl.h>
+#include <idn2.h>
+#include <ifaddrs.h>
+#include <io.h>
+
+
+int main(void){return 0;}
+
+Determining if files stdio.h;inttypes.h;sys/ioctl.h;sys/param.h;sys/poll.h;sys/resource.h;sys/select.h;sys/socket.h;sys/stat.h;sys/time.h;sys/types.h;sys/uio.h;sys/un.h;sys/xattr.h;alloca.h;arpa/inet.h;arpa/tftp.h;assert.h;err.h;errno.h;fcntl.h;idn2.h;ifaddrs.h;krb.h exist failed with the following output:
+Change Dir: /mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_5e6e3/fast && make  -f CMakeFiles/cmTC_5e6e3.dir/build.make CMakeFiles/cmTC_5e6e3.dir/build
+make[1]: 进入目录“/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp”
+Building C object CMakeFiles/cmTC_5e6e3.dir/HAVE_KRB_H.c.o
+/usr/bin/gcc   -w  -std=gnu11 -o CMakeFiles/cmTC_5e6e3.dir/HAVE_KRB_H.c.o -c /mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CheckIncludeFiles/HAVE_KRB_H.c
+/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CheckIncludeFiles/HAVE_KRB_H.c:25:10: fatal error: krb.h: 没有那个文件或目录
+ #include <krb.h>
+          ^~~~~~~
+compilation terminated.
+CMakeFiles/cmTC_5e6e3.dir/build.make:84: recipe for target 'CMakeFiles/cmTC_5e6e3.dir/HAVE_KRB_H.c.o' failed
+make[1]: *** [CMakeFiles/cmTC_5e6e3.dir/HAVE_KRB_H.c.o] Error 1
+make[1]: 离开目录“/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp”
+Makefile:140: recipe for target 'cmTC_5e6e3/fast' failed
+make: *** [cmTC_5e6e3/fast] Error 2
+
+
+Source:
+/* */
+#include <stdio.h>
+#include <inttypes.h>
+#include <sys/ioctl.h>
+#include <sys/param.h>
+#include <sys/poll.h>
+#include <sys/resource.h>
+#include <sys/select.h>
+#include <sys/socket.h>
+#include <sys/stat.h>
+#include <sys/time.h>
+#include <sys/types.h>
+#include <sys/uio.h>
+#include <sys/un.h>
+#include <sys/xattr.h>
+#include <alloca.h>
+#include <arpa/inet.h>
+#include <arpa/tftp.h>
+#include <assert.h>
+#include <err.h>
+#include <errno.h>
+#include <fcntl.h>
+#include <idn2.h>
+#include <ifaddrs.h>
+#include <krb.h>
+
+
+int main(void){return 0;}
+
+Determining if files stdio.h;inttypes.h;sys/ioctl.h;sys/param.h;sys/poll.h;sys/resource.h;sys/select.h;sys/socket.h;sys/stat.h;sys/time.h;sys/types.h;sys/uio.h;sys/un.h;sys/xattr.h;alloca.h;arpa/inet.h;arpa/tftp.h;assert.h;err.h;errno.h;fcntl.h;idn2.h;ifaddrs.h;libgen.h;locale.h;net/if.h;netdb.h;netinet/in.h;netinet/tcp.h;pem.h exist failed with the following output:
+Change Dir: /mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_134af/fast && make  -f CMakeFiles/cmTC_134af.dir/build.make CMakeFiles/cmTC_134af.dir/build
+make[1]: 进入目录“/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp”
+Building C object CMakeFiles/cmTC_134af.dir/HAVE_PEM_H.c.o
+/usr/bin/gcc   -w  -std=gnu11 -o CMakeFiles/cmTC_134af.dir/HAVE_PEM_H.c.o -c /mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CheckIncludeFiles/HAVE_PEM_H.c
+/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CheckIncludeFiles/HAVE_PEM_H.c:31:10: fatal error: pem.h: 没有那个文件或目录
+ #include <pem.h>
+          ^~~~~~~
+compilation terminated.
+CMakeFiles/cmTC_134af.dir/build.make:84: recipe for target 'CMakeFiles/cmTC_134af.dir/HAVE_PEM_H.c.o' failed
+make[1]: *** [CMakeFiles/cmTC_134af.dir/HAVE_PEM_H.c.o] Error 1
+make[1]: 离开目录“/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp”
+Makefile:140: recipe for target 'cmTC_134af/fast' failed
+make: *** [cmTC_134af/fast] Error 2
+
+
+Source:
+/* */
+#include <stdio.h>
+#include <inttypes.h>
+#include <sys/ioctl.h>
+#include <sys/param.h>
+#include <sys/poll.h>
+#include <sys/resource.h>
+#include <sys/select.h>
+#include <sys/socket.h>
+#include <sys/stat.h>
+#include <sys/time.h>
+#include <sys/types.h>
+#include <sys/uio.h>
+#include <sys/un.h>
+#include <sys/xattr.h>
+#include <alloca.h>
+#include <arpa/inet.h>
+#include <arpa/tftp.h>
+#include <assert.h>
+#include <err.h>
+#include <errno.h>
+#include <fcntl.h>
+#include <idn2.h>
+#include <ifaddrs.h>
+#include <libgen.h>
+#include <locale.h>
+#include <net/if.h>
+#include <netdb.h>
+#include <netinet/in.h>
+#include <netinet/tcp.h>
+#include <pem.h>
+
+
+int main(void){return 0;}
+
+Determining if files stdio.h;inttypes.h;sys/ioctl.h;sys/param.h;sys/poll.h;sys/resource.h;sys/select.h;sys/socket.h;sys/stat.h;sys/time.h;sys/types.h;sys/uio.h;sys/un.h;sys/xattr.h;alloca.h;arpa/inet.h;arpa/tftp.h;assert.h;err.h;errno.h;fcntl.h;idn2.h;ifaddrs.h;libgen.h;locale.h;net/if.h;netdb.h;netinet/in.h;netinet/tcp.h;poll.h;pwd.h;rsa.h exist failed with the following output:
+Change Dir: /mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_2a8ac/fast && make  -f CMakeFiles/cmTC_2a8ac.dir/build.make CMakeFiles/cmTC_2a8ac.dir/build
+make[1]: 进入目录“/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp”
+Building C object CMakeFiles/cmTC_2a8ac.dir/HAVE_RSA_H.c.o
+/usr/bin/gcc   -w  -std=gnu11 -o CMakeFiles/cmTC_2a8ac.dir/HAVE_RSA_H.c.o -c /mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CheckIncludeFiles/HAVE_RSA_H.c
+/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CheckIncludeFiles/HAVE_RSA_H.c:33:10: fatal error: rsa.h: 没有那个文件或目录
+ #include <rsa.h>
+          ^~~~~~~
+compilation terminated.
+CMakeFiles/cmTC_2a8ac.dir/build.make:84: recipe for target 'CMakeFiles/cmTC_2a8ac.dir/HAVE_RSA_H.c.o' failed
+make[1]: *** [CMakeFiles/cmTC_2a8ac.dir/HAVE_RSA_H.c.o] Error 1
+make[1]: 离开目录“/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp”
+Makefile:140: recipe for target 'cmTC_2a8ac/fast' failed
+make: *** [cmTC_2a8ac/fast] Error 2
+
+
+Source:
+/* */
+#include <stdio.h>
+#include <inttypes.h>
+#include <sys/ioctl.h>
+#include <sys/param.h>
+#include <sys/poll.h>
+#include <sys/resource.h>
+#include <sys/select.h>
+#include <sys/socket.h>
+#include <sys/stat.h>
+#include <sys/time.h>
+#include <sys/types.h>
+#include <sys/uio.h>
+#include <sys/un.h>
+#include <sys/xattr.h>
+#include <alloca.h>
+#include <arpa/inet.h>
+#include <arpa/tftp.h>
+#include <assert.h>
+#include <err.h>
+#include <errno.h>
+#include <fcntl.h>
+#include <idn2.h>
+#include <ifaddrs.h>
+#include <libgen.h>
+#include <locale.h>
+#include <net/if.h>
+#include <netdb.h>
+#include <netinet/in.h>
+#include <netinet/tcp.h>
+#include <poll.h>
+#include <pwd.h>
+#include <rsa.h>
+
+
+int main(void){return 0;}
+
+Determining if files stdio.h;inttypes.h;sys/ioctl.h;sys/param.h;sys/poll.h;sys/resource.h;sys/select.h;sys/socket.h;sys/stat.h;sys/time.h;sys/types.h;sys/uio.h;sys/un.h;sys/xattr.h;alloca.h;arpa/inet.h;arpa/tftp.h;assert.h;err.h;errno.h;fcntl.h;idn2.h;ifaddrs.h;libgen.h;locale.h;net/if.h;netdb.h;netinet/in.h;netinet/tcp.h;poll.h;pwd.h;setjmp.h;sgtty.h;signal.h;ssl.h exist failed with the following output:
+Change Dir: /mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_e55d8/fast && make  -f CMakeFiles/cmTC_e55d8.dir/build.make CMakeFiles/cmTC_e55d8.dir/build
+make[1]: 进入目录“/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp”
+Building C object CMakeFiles/cmTC_e55d8.dir/HAVE_SSL_H.c.o
+/usr/bin/gcc   -w  -std=gnu11 -o CMakeFiles/cmTC_e55d8.dir/HAVE_SSL_H.c.o -c /mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CheckIncludeFiles/HAVE_SSL_H.c
+/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CheckIncludeFiles/HAVE_SSL_H.c:36:10: fatal error: ssl.h: 没有那个文件或目录
+ #include <ssl.h>
+          ^~~~~~~
+compilation terminated.
+CMakeFiles/cmTC_e55d8.dir/build.make:84: recipe for target 'CMakeFiles/cmTC_e55d8.dir/HAVE_SSL_H.c.o' failed
+make[1]: *** [CMakeFiles/cmTC_e55d8.dir/HAVE_SSL_H.c.o] Error 1
+make[1]: 离开目录“/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp”
+Makefile:140: recipe for target 'cmTC_e55d8/fast' failed
+make: *** [cmTC_e55d8/fast] Error 2
+
+
+Source:
+/* */
+#include <stdio.h>
+#include <inttypes.h>
+#include <sys/ioctl.h>
+#include <sys/param.h>
+#include <sys/poll.h>
+#include <sys/resource.h>
+#include <sys/select.h>
+#include <sys/socket.h>
+#include <sys/stat.h>
+#include <sys/time.h>
+#include <sys/types.h>
+#include <sys/uio.h>
+#include <sys/un.h>
+#include <sys/xattr.h>
+#include <alloca.h>
+#include <arpa/inet.h>
+#include <arpa/tftp.h>
+#include <assert.h>
+#include <err.h>
+#include <errno.h>
+#include <fcntl.h>
+#include <idn2.h>
+#include <ifaddrs.h>
+#include <libgen.h>
+#include <locale.h>
+#include <net/if.h>
+#include <netdb.h>
+#include <netinet/in.h>
+#include <netinet/tcp.h>
+#include <poll.h>
+#include <pwd.h>
+#include <setjmp.h>
+#include <sgtty.h>
+#include <signal.h>
+#include <ssl.h>
+
+
+int main(void){return 0;}
+
+Determining if files stdio.h;inttypes.h;sys/ioctl.h;sys/param.h;sys/poll.h;sys/resource.h;sys/select.h;sys/socket.h;sys/stat.h;sys/time.h;sys/types.h;sys/uio.h;sys/un.h;sys/xattr.h;alloca.h;arpa/inet.h;arpa/tftp.h;assert.h;err.h;errno.h;fcntl.h;idn2.h;ifaddrs.h;libgen.h;locale.h;net/if.h;netdb.h;netinet/in.h;netinet/tcp.h;poll.h;pwd.h;setjmp.h;sgtty.h;signal.h;stdbool.h;stdint.h;stdio.h;stdlib.h;string.h;strings.h;stropts.h;termio.h;termios.h;time.h;unistd.h;utime.h;x509.h exist failed with the following output:
+Change Dir: /mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_6a605/fast && make  -f CMakeFiles/cmTC_6a605.dir/build.make CMakeFiles/cmTC_6a605.dir/build
+make[1]: 进入目录“/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp”
+Building C object CMakeFiles/cmTC_6a605.dir/HAVE_X509_H.c.o
+/usr/bin/gcc   -w  -std=gnu11 -o CMakeFiles/cmTC_6a605.dir/HAVE_X509_H.c.o -c /mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CheckIncludeFiles/HAVE_X509_H.c
+/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CheckIncludeFiles/HAVE_X509_H.c:48:10: fatal error: x509.h: 没有那个文件或目录
+ #include <x509.h>
+          ^~~~~~~~
+compilation terminated.
+CMakeFiles/cmTC_6a605.dir/build.make:84: recipe for target 'CMakeFiles/cmTC_6a605.dir/HAVE_X509_H.c.o' failed
+make[1]: *** [CMakeFiles/cmTC_6a605.dir/HAVE_X509_H.c.o] Error 1
+make[1]: 离开目录“/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp”
+Makefile:140: recipe for target 'cmTC_6a605/fast' failed
+make: *** [cmTC_6a605/fast] Error 2
+
+
+Source:
+/* */
+#include <stdio.h>
+#include <inttypes.h>
+#include <sys/ioctl.h>
+#include <sys/param.h>
+#include <sys/poll.h>
+#include <sys/resource.h>
+#include <sys/select.h>
+#include <sys/socket.h>
+#include <sys/stat.h>
+#include <sys/time.h>
+#include <sys/types.h>
+#include <sys/uio.h>
+#include <sys/un.h>
+#include <sys/xattr.h>
+#include <alloca.h>
+#include <arpa/inet.h>
+#include <arpa/tftp.h>
+#include <assert.h>
+#include <err.h>
+#include <errno.h>
+#include <fcntl.h>
+#include <idn2.h>
+#include <ifaddrs.h>
+#include <libgen.h>
+#include <locale.h>
+#include <net/if.h>
+#include <netdb.h>
+#include <netinet/in.h>
+#include <netinet/tcp.h>
+#include <poll.h>
+#include <pwd.h>
+#include <setjmp.h>
+#include <sgtty.h>
+#include <signal.h>
+#include <stdbool.h>
+#include <stdint.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <strings.h>
+#include <stropts.h>
+#include <termio.h>
+#include <termios.h>
+#include <time.h>
+#include <unistd.h>
+#include <utime.h>
+#include <x509.h>
+
+
+int main(void){return 0;}
+
+Determining if files stdio.h;inttypes.h;sys/ioctl.h;sys/param.h;sys/poll.h;sys/resource.h;sys/select.h;sys/socket.h;sys/stat.h;sys/time.h;sys/types.h;sys/uio.h;sys/un.h;sys/xattr.h;alloca.h;arpa/inet.h;arpa/tftp.h;assert.h;err.h;errno.h;fcntl.h;idn2.h;ifaddrs.h;libgen.h;locale.h;net/if.h;netdb.h;netinet/in.h;netinet/tcp.h;poll.h;pwd.h;setjmp.h;sgtty.h;signal.h;stdbool.h;stdint.h;stdio.h;stdlib.h;string.h;strings.h;stropts.h;termio.h;termios.h;time.h;unistd.h;utime.h;process.h exist failed with the following output:
+Change Dir: /mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_fafdd/fast && make  -f CMakeFiles/cmTC_fafdd.dir/build.make CMakeFiles/cmTC_fafdd.dir/build
+make[1]: 进入目录“/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp”
+Building C object CMakeFiles/cmTC_fafdd.dir/HAVE_PROCESS_H.c.o
+/usr/bin/gcc   -w  -std=gnu11 -o CMakeFiles/cmTC_fafdd.dir/HAVE_PROCESS_H.c.o -c /mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CheckIncludeFiles/HAVE_PROCESS_H.c
+/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CheckIncludeFiles/HAVE_PROCESS_H.c:48:10: fatal error: process.h: 没有那个文件或目录
+ #include <process.h>
+          ^~~~~~~~~~~
+compilation terminated.
+CMakeFiles/cmTC_fafdd.dir/build.make:84: recipe for target 'CMakeFiles/cmTC_fafdd.dir/HAVE_PROCESS_H.c.o' failed
+make[1]: *** [CMakeFiles/cmTC_fafdd.dir/HAVE_PROCESS_H.c.o] Error 1
+make[1]: 离开目录“/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp”
+Makefile:140: recipe for target 'cmTC_fafdd/fast' failed
+make: *** [cmTC_fafdd/fast] Error 2
+
+
+Source:
+/* */
+#include <stdio.h>
+#include <inttypes.h>
+#include <sys/ioctl.h>
+#include <sys/param.h>
+#include <sys/poll.h>
+#include <sys/resource.h>
+#include <sys/select.h>
+#include <sys/socket.h>
+#include <sys/stat.h>
+#include <sys/time.h>
+#include <sys/types.h>
+#include <sys/uio.h>
+#include <sys/un.h>
+#include <sys/xattr.h>
+#include <alloca.h>
+#include <arpa/inet.h>
+#include <arpa/tftp.h>
+#include <assert.h>
+#include <err.h>
+#include <errno.h>
+#include <fcntl.h>
+#include <idn2.h>
+#include <ifaddrs.h>
+#include <libgen.h>
+#include <locale.h>
+#include <net/if.h>
+#include <netdb.h>
+#include <netinet/in.h>
+#include <netinet/tcp.h>
+#include <poll.h>
+#include <pwd.h>
+#include <setjmp.h>
+#include <sgtty.h>
+#include <signal.h>
+#include <stdbool.h>
+#include <stdint.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <strings.h>
+#include <stropts.h>
+#include <termio.h>
+#include <termios.h>
+#include <time.h>
+#include <unistd.h>
+#include <utime.h>
+#include <process.h>
+
+
+int main(void){return 0;}
+
+Determining if files stdio.h;inttypes.h;sys/ioctl.h;sys/param.h;sys/poll.h;sys/resource.h;sys/select.h;sys/socket.h;sys/stat.h;sys/time.h;sys/types.h;sys/uio.h;sys/un.h;sys/xattr.h;alloca.h;arpa/inet.h;arpa/tftp.h;assert.h;err.h;errno.h;fcntl.h;idn2.h;ifaddrs.h;libgen.h;locale.h;net/if.h;netdb.h;netinet/in.h;netinet/tcp.h;poll.h;pwd.h;setjmp.h;sgtty.h;signal.h;stdbool.h;stdint.h;stdio.h;stdlib.h;string.h;strings.h;stropts.h;termio.h;termios.h;time.h;unistd.h;utime.h;stddef.h;dlfcn.h;malloc.h;memory.h;netinet/if_ether.h;stdint.h;sockio.h exist failed with the following output:
+Change Dir: /mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_9f667/fast && make  -f CMakeFiles/cmTC_9f667.dir/build.make CMakeFiles/cmTC_9f667.dir/build
+make[1]: 进入目录“/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp”
+Building C object CMakeFiles/cmTC_9f667.dir/HAVE_SOCKIO_H.c.o
+/usr/bin/gcc   -w  -std=gnu11 -o CMakeFiles/cmTC_9f667.dir/HAVE_SOCKIO_H.c.o -c /mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CheckIncludeFiles/HAVE_SOCKIO_H.c
+/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CheckIncludeFiles/HAVE_SOCKIO_H.c:54:10: fatal error: sockio.h: 没有那个文件或目录
+ #include <sockio.h>
+          ^~~~~~~~~~
+compilation terminated.
+CMakeFiles/cmTC_9f667.dir/build.make:84: recipe for target 'CMakeFiles/cmTC_9f667.dir/HAVE_SOCKIO_H.c.o' failed
+make[1]: *** [CMakeFiles/cmTC_9f667.dir/HAVE_SOCKIO_H.c.o] Error 1
+make[1]: 离开目录“/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp”
+Makefile:140: recipe for target 'cmTC_9f667/fast' failed
+make: *** [cmTC_9f667/fast] Error 2
+
+
+Source:
+/* */
+#include <stdio.h>
+#include <inttypes.h>
+#include <sys/ioctl.h>
+#include <sys/param.h>
+#include <sys/poll.h>
+#include <sys/resource.h>
+#include <sys/select.h>
+#include <sys/socket.h>
+#include <sys/stat.h>
+#include <sys/time.h>
+#include <sys/types.h>
+#include <sys/uio.h>
+#include <sys/un.h>
+#include <sys/xattr.h>
+#include <alloca.h>
+#include <arpa/inet.h>
+#include <arpa/tftp.h>
+#include <assert.h>
+#include <err.h>
+#include <errno.h>
+#include <fcntl.h>
+#include <idn2.h>
+#include <ifaddrs.h>
+#include <libgen.h>
+#include <locale.h>
+#include <net/if.h>
+#include <netdb.h>
+#include <netinet/in.h>
+#include <netinet/tcp.h>
+#include <poll.h>
+#include <pwd.h>
+#include <setjmp.h>
+#include <sgtty.h>
+#include <signal.h>
+#include <stdbool.h>
+#include <stdint.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <strings.h>
+#include <stropts.h>
+#include <termio.h>
+#include <termios.h>
+#include <time.h>
+#include <unistd.h>
+#include <utime.h>
+#include <stddef.h>
+#include <dlfcn.h>
+#include <malloc.h>
+#include <memory.h>
+#include <netinet/if_ether.h>
+#include <stdint.h>
+#include <sockio.h>
+
+
+int main(void){return 0;}
+
+Determining if the stricmp exist failed with the following output:
+Change Dir: /mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_6f786/fast && make  -f CMakeFiles/cmTC_6f786.dir/build.make CMakeFiles/cmTC_6f786.dir/build
+make[1]: 进入目录“/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp”
+Building C object CMakeFiles/cmTC_6f786.dir/CheckSymbolExists.c.o
+/usr/bin/gcc   -w  -std=gnu11 -o CMakeFiles/cmTC_6f786.dir/CheckSymbolExists.c.o -c /mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp/CheckSymbolExists.c: In function ‘main’:
+/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp/CheckSymbolExists.c:60:19: error: ‘stricmp’ undeclared (first use in this function); did you mean ‘strncmp’?
+   return ((int*)(&stricmp))[argc];
+                   ^~~~~~~
+                   strncmp
+/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp/CheckSymbolExists.c:60:19: note: each undeclared identifier is reported only once for each function it appears in
+CMakeFiles/cmTC_6f786.dir/build.make:84: recipe for target 'CMakeFiles/cmTC_6f786.dir/CheckSymbolExists.c.o' failed
+make[1]: *** [CMakeFiles/cmTC_6f786.dir/CheckSymbolExists.c.o] Error 1
+make[1]: 离开目录“/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp”
+Makefile:140: recipe for target 'cmTC_6f786/fast' failed
+make: *** [cmTC_6f786/fast] Error 2
+
+
+File /mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <stdio.h>
+#include <inttypes.h>
+#include <sys/ioctl.h>
+#include <sys/param.h>
+#include <sys/poll.h>
+#include <sys/resource.h>
+#include <sys/select.h>
+#include <sys/socket.h>
+#include <sys/stat.h>
+#include <sys/time.h>
+#include <sys/types.h>
+#include <sys/uio.h>
+#include <sys/un.h>
+#include <sys/xattr.h>
+#include <alloca.h>
+#include <arpa/inet.h>
+#include <arpa/tftp.h>
+#include <assert.h>
+#include <err.h>
+#include <errno.h>
+#include <fcntl.h>
+#include <idn2.h>
+#include <ifaddrs.h>
+#include <libgen.h>
+#include <locale.h>
+#include <net/if.h>
+#include <netdb.h>
+#include <netinet/in.h>
+#include <netinet/tcp.h>
+#include <poll.h>
+#include <pwd.h>
+#include <setjmp.h>
+#include <sgtty.h>
+#include <signal.h>
+#include <stdbool.h>
+#include <stdint.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <strings.h>
+#include <stropts.h>
+#include <termio.h>
+#include <termios.h>
+#include <time.h>
+#include <unistd.h>
+#include <utime.h>
+#include <stddef.h>
+#include <dlfcn.h>
+#include <malloc.h>
+#include <memory.h>
+#include <netinet/if_ether.h>
+#include <stdint.h>
+#include <sys/utsname.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef stricmp
+  return ((int*)(&stricmp))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the strcmpi exist failed with the following output:
+Change Dir: /mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_78391/fast && make  -f CMakeFiles/cmTC_78391.dir/build.make CMakeFiles/cmTC_78391.dir/build
+make[1]: 进入目录“/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp”
+Building C object CMakeFiles/cmTC_78391.dir/CheckSymbolExists.c.o
+/usr/bin/gcc   -w  -std=gnu11 -o CMakeFiles/cmTC_78391.dir/CheckSymbolExists.c.o -c /mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp/CheckSymbolExists.c: In function ‘main’:
+/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp/CheckSymbolExists.c:60:19: error: ‘strcmpi’ undeclared (first use in this function); did you mean ‘strcmp’?
+   return ((int*)(&strcmpi))[argc];
+                   ^~~~~~~
+                   strcmp
+/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp/CheckSymbolExists.c:60:19: note: each undeclared identifier is reported only once for each function it appears in
+CMakeFiles/cmTC_78391.dir/build.make:84: recipe for target 'CMakeFiles/cmTC_78391.dir/CheckSymbolExists.c.o' failed
+make[1]: *** [CMakeFiles/cmTC_78391.dir/CheckSymbolExists.c.o] Error 1
+make[1]: 离开目录“/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp”
+Makefile:140: recipe for target 'cmTC_78391/fast' failed
+make: *** [cmTC_78391/fast] Error 2
+
+
+File /mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <stdio.h>
+#include <inttypes.h>
+#include <sys/ioctl.h>
+#include <sys/param.h>
+#include <sys/poll.h>
+#include <sys/resource.h>
+#include <sys/select.h>
+#include <sys/socket.h>
+#include <sys/stat.h>
+#include <sys/time.h>
+#include <sys/types.h>
+#include <sys/uio.h>
+#include <sys/un.h>
+#include <sys/xattr.h>
+#include <alloca.h>
+#include <arpa/inet.h>
+#include <arpa/tftp.h>
+#include <assert.h>
+#include <err.h>
+#include <errno.h>
+#include <fcntl.h>
+#include <idn2.h>
+#include <ifaddrs.h>
+#include <libgen.h>
+#include <locale.h>
+#include <net/if.h>
+#include <netdb.h>
+#include <netinet/in.h>
+#include <netinet/tcp.h>
+#include <poll.h>
+#include <pwd.h>
+#include <setjmp.h>
+#include <sgtty.h>
+#include <signal.h>
+#include <stdbool.h>
+#include <stdint.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <strings.h>
+#include <stropts.h>
+#include <termio.h>
+#include <termios.h>
+#include <time.h>
+#include <unistd.h>
+#include <utime.h>
+#include <stddef.h>
+#include <dlfcn.h>
+#include <malloc.h>
+#include <memory.h>
+#include <netinet/if_ether.h>
+#include <stdint.h>
+#include <sys/utsname.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef strcmpi
+  return ((int*)(&strcmpi))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the strncmpi exist failed with the following output:
+Change Dir: /mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_16747/fast && make  -f CMakeFiles/cmTC_16747.dir/build.make CMakeFiles/cmTC_16747.dir/build
+make[1]: 进入目录“/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp”
+Building C object CMakeFiles/cmTC_16747.dir/CheckSymbolExists.c.o
+/usr/bin/gcc   -w  -std=gnu11 -o CMakeFiles/cmTC_16747.dir/CheckSymbolExists.c.o -c /mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp/CheckSymbolExists.c: In function ‘main’:
+/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp/CheckSymbolExists.c:60:19: error: ‘strncmpi’ undeclared (first use in this function); did you mean ‘strncmp’?
+   return ((int*)(&strncmpi))[argc];
+                   ^~~~~~~~
+                   strncmp
+/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp/CheckSymbolExists.c:60:19: note: each undeclared identifier is reported only once for each function it appears in
+CMakeFiles/cmTC_16747.dir/build.make:84: recipe for target 'CMakeFiles/cmTC_16747.dir/CheckSymbolExists.c.o' failed
+make[1]: *** [CMakeFiles/cmTC_16747.dir/CheckSymbolExists.c.o] Error 1
+make[1]: 离开目录“/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp”
+Makefile:140: recipe for target 'cmTC_16747/fast' failed
+make: *** [cmTC_16747/fast] Error 2
+
+
+File /mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <stdio.h>
+#include <inttypes.h>
+#include <sys/ioctl.h>
+#include <sys/param.h>
+#include <sys/poll.h>
+#include <sys/resource.h>
+#include <sys/select.h>
+#include <sys/socket.h>
+#include <sys/stat.h>
+#include <sys/time.h>
+#include <sys/types.h>
+#include <sys/uio.h>
+#include <sys/un.h>
+#include <sys/xattr.h>
+#include <alloca.h>
+#include <arpa/inet.h>
+#include <arpa/tftp.h>
+#include <assert.h>
+#include <err.h>
+#include <errno.h>
+#include <fcntl.h>
+#include <idn2.h>
+#include <ifaddrs.h>
+#include <libgen.h>
+#include <locale.h>
+#include <net/if.h>
+#include <netdb.h>
+#include <netinet/in.h>
+#include <netinet/tcp.h>
+#include <poll.h>
+#include <pwd.h>
+#include <setjmp.h>
+#include <sgtty.h>
+#include <signal.h>
+#include <stdbool.h>
+#include <stdint.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <strings.h>
+#include <stropts.h>
+#include <termio.h>
+#include <termios.h>
+#include <time.h>
+#include <unistd.h>
+#include <utime.h>
+#include <stddef.h>
+#include <dlfcn.h>
+#include <malloc.h>
+#include <memory.h>
+#include <netinet/if_ether.h>
+#include <stdint.h>
+#include <sys/utsname.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef strncmpi
+  return ((int*)(&strncmpi))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the inet_ntoa_r exist failed with the following output:
+Change Dir: /mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_296a7/fast && make  -f CMakeFiles/cmTC_296a7.dir/build.make CMakeFiles/cmTC_296a7.dir/build
+make[1]: 进入目录“/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp”
+Building C object CMakeFiles/cmTC_296a7.dir/CheckSymbolExists.c.o
+/usr/bin/gcc   -w  -std=gnu11 -o CMakeFiles/cmTC_296a7.dir/CheckSymbolExists.c.o -c /mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp/CheckSymbolExists.c: In function ‘main’:
+/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp/CheckSymbolExists.c:60:19: error: ‘inet_ntoa_r’ undeclared (first use in this function); did you mean ‘inet_ntoa’?
+   return ((int*)(&inet_ntoa_r))[argc];
+                   ^~~~~~~~~~~
+                   inet_ntoa
+/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp/CheckSymbolExists.c:60:19: note: each undeclared identifier is reported only once for each function it appears in
+CMakeFiles/cmTC_296a7.dir/build.make:84: recipe for target 'CMakeFiles/cmTC_296a7.dir/CheckSymbolExists.c.o' failed
+make[1]: *** [CMakeFiles/cmTC_296a7.dir/CheckSymbolExists.c.o] Error 1
+make[1]: 离开目录“/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp”
+Makefile:140: recipe for target 'cmTC_296a7/fast' failed
+make: *** [cmTC_296a7/fast] Error 2
+
+
+File /mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <stdio.h>
+#include <inttypes.h>
+#include <sys/ioctl.h>
+#include <sys/param.h>
+#include <sys/poll.h>
+#include <sys/resource.h>
+#include <sys/select.h>
+#include <sys/socket.h>
+#include <sys/stat.h>
+#include <sys/time.h>
+#include <sys/types.h>
+#include <sys/uio.h>
+#include <sys/un.h>
+#include <sys/xattr.h>
+#include <alloca.h>
+#include <arpa/inet.h>
+#include <arpa/tftp.h>
+#include <assert.h>
+#include <err.h>
+#include <errno.h>
+#include <fcntl.h>
+#include <idn2.h>
+#include <ifaddrs.h>
+#include <libgen.h>
+#include <locale.h>
+#include <net/if.h>
+#include <netdb.h>
+#include <netinet/in.h>
+#include <netinet/tcp.h>
+#include <poll.h>
+#include <pwd.h>
+#include <setjmp.h>
+#include <sgtty.h>
+#include <signal.h>
+#include <stdbool.h>
+#include <stdint.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <strings.h>
+#include <stropts.h>
+#include <termio.h>
+#include <termios.h>
+#include <time.h>
+#include <unistd.h>
+#include <utime.h>
+#include <stddef.h>
+#include <dlfcn.h>
+#include <malloc.h>
+#include <memory.h>
+#include <netinet/if_ether.h>
+#include <stdint.h>
+#include <sys/utsname.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef inet_ntoa_r
+  return ((int*)(&inet_ntoa_r))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the closesocket exist failed with the following output:
+Change Dir: /mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_12a0a/fast && make  -f CMakeFiles/cmTC_12a0a.dir/build.make CMakeFiles/cmTC_12a0a.dir/build
+make[1]: 进入目录“/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp”
+Building C object CMakeFiles/cmTC_12a0a.dir/CheckSymbolExists.c.o
+/usr/bin/gcc   -w  -std=gnu11 -o CMakeFiles/cmTC_12a0a.dir/CheckSymbolExists.c.o -c /mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp/CheckSymbolExists.c: In function ‘main’:
+/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp/CheckSymbolExists.c:60:19: error: ‘closesocket’ undeclared (first use in this function); did you mean ‘socket’?
+   return ((int*)(&closesocket))[argc];
+                   ^~~~~~~~~~~
+                   socket
+/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp/CheckSymbolExists.c:60:19: note: each undeclared identifier is reported only once for each function it appears in
+CMakeFiles/cmTC_12a0a.dir/build.make:84: recipe for target 'CMakeFiles/cmTC_12a0a.dir/CheckSymbolExists.c.o' failed
+make[1]: *** [CMakeFiles/cmTC_12a0a.dir/CheckSymbolExists.c.o] Error 1
+make[1]: 离开目录“/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp”
+Makefile:140: recipe for target 'cmTC_12a0a/fast' failed
+make: *** [cmTC_12a0a/fast] Error 2
+
+
+File /mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <stdio.h>
+#include <inttypes.h>
+#include <sys/ioctl.h>
+#include <sys/param.h>
+#include <sys/poll.h>
+#include <sys/resource.h>
+#include <sys/select.h>
+#include <sys/socket.h>
+#include <sys/stat.h>
+#include <sys/time.h>
+#include <sys/types.h>
+#include <sys/uio.h>
+#include <sys/un.h>
+#include <sys/xattr.h>
+#include <alloca.h>
+#include <arpa/inet.h>
+#include <arpa/tftp.h>
+#include <assert.h>
+#include <err.h>
+#include <errno.h>
+#include <fcntl.h>
+#include <idn2.h>
+#include <ifaddrs.h>
+#include <libgen.h>
+#include <locale.h>
+#include <net/if.h>
+#include <netdb.h>
+#include <netinet/in.h>
+#include <netinet/tcp.h>
+#include <poll.h>
+#include <pwd.h>
+#include <setjmp.h>
+#include <sgtty.h>
+#include <signal.h>
+#include <stdbool.h>
+#include <stdint.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <strings.h>
+#include <stropts.h>
+#include <termio.h>
+#include <termios.h>
+#include <time.h>
+#include <unistd.h>
+#include <utime.h>
+#include <stddef.h>
+#include <dlfcn.h>
+#include <malloc.h>
+#include <memory.h>
+#include <netinet/if_ether.h>
+#include <stdint.h>
+#include <sys/utsname.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef closesocket
+  return ((int*)(&closesocket))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the getpass_r exist failed with the following output:
+Change Dir: /mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_68689/fast && make  -f CMakeFiles/cmTC_68689.dir/build.make CMakeFiles/cmTC_68689.dir/build
+make[1]: 进入目录“/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp”
+Building C object CMakeFiles/cmTC_68689.dir/CheckSymbolExists.c.o
+/usr/bin/gcc   -w  -std=gnu11 -o CMakeFiles/cmTC_68689.dir/CheckSymbolExists.c.o -c /mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp/CheckSymbolExists.c: In function ‘main’:
+/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp/CheckSymbolExists.c:60:19: error: ‘getpass_r’ undeclared (first use in this function); did you mean ‘getpass’?
+   return ((int*)(&getpass_r))[argc];
+                   ^~~~~~~~~
+                   getpass
+/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp/CheckSymbolExists.c:60:19: note: each undeclared identifier is reported only once for each function it appears in
+CMakeFiles/cmTC_68689.dir/build.make:84: recipe for target 'CMakeFiles/cmTC_68689.dir/CheckSymbolExists.c.o' failed
+make[1]: *** [CMakeFiles/cmTC_68689.dir/CheckSymbolExists.c.o] Error 1
+make[1]: 离开目录“/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp”
+Makefile:140: recipe for target 'cmTC_68689/fast' failed
+make: *** [cmTC_68689/fast] Error 2
+
+
+File /mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <stdio.h>
+#include <inttypes.h>
+#include <sys/ioctl.h>
+#include <sys/param.h>
+#include <sys/poll.h>
+#include <sys/resource.h>
+#include <sys/select.h>
+#include <sys/socket.h>
+#include <sys/stat.h>
+#include <sys/time.h>
+#include <sys/types.h>
+#include <sys/uio.h>
+#include <sys/un.h>
+#include <sys/xattr.h>
+#include <alloca.h>
+#include <arpa/inet.h>
+#include <arpa/tftp.h>
+#include <assert.h>
+#include <err.h>
+#include <errno.h>
+#include <fcntl.h>
+#include <idn2.h>
+#include <ifaddrs.h>
+#include <libgen.h>
+#include <locale.h>
+#include <net/if.h>
+#include <netdb.h>
+#include <netinet/in.h>
+#include <netinet/tcp.h>
+#include <poll.h>
+#include <pwd.h>
+#include <setjmp.h>
+#include <sgtty.h>
+#include <signal.h>
+#include <stdbool.h>
+#include <stdint.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <strings.h>
+#include <stropts.h>
+#include <termio.h>
+#include <termios.h>
+#include <time.h>
+#include <unistd.h>
+#include <utime.h>
+#include <stddef.h>
+#include <dlfcn.h>
+#include <malloc.h>
+#include <memory.h>
+#include <netinet/if_ether.h>
+#include <stdint.h>
+#include <sys/utsname.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef getpass_r
+  return ((int*)(&getpass_r))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the strlcat exist failed with the following output:
+Change Dir: /mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_244bd/fast && make  -f CMakeFiles/cmTC_244bd.dir/build.make CMakeFiles/cmTC_244bd.dir/build
+make[1]: 进入目录“/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp”
+Building C object CMakeFiles/cmTC_244bd.dir/CheckSymbolExists.c.o
+/usr/bin/gcc   -w  -std=gnu11 -o CMakeFiles/cmTC_244bd.dir/CheckSymbolExists.c.o -c /mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp/CheckSymbolExists.c: In function ‘main’:
+/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp/CheckSymbolExists.c:60:19: error: ‘strlcat’ undeclared (first use in this function); did you mean ‘strncat’?
+   return ((int*)(&strlcat))[argc];
+                   ^~~~~~~
+                   strncat
+/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp/CheckSymbolExists.c:60:19: note: each undeclared identifier is reported only once for each function it appears in
+CMakeFiles/cmTC_244bd.dir/build.make:84: recipe for target 'CMakeFiles/cmTC_244bd.dir/CheckSymbolExists.c.o' failed
+make[1]: *** [CMakeFiles/cmTC_244bd.dir/CheckSymbolExists.c.o] Error 1
+make[1]: 离开目录“/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp”
+Makefile:140: recipe for target 'cmTC_244bd/fast' failed
+make: *** [cmTC_244bd/fast] Error 2
+
+
+File /mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <stdio.h>
+#include <inttypes.h>
+#include <sys/ioctl.h>
+#include <sys/param.h>
+#include <sys/poll.h>
+#include <sys/resource.h>
+#include <sys/select.h>
+#include <sys/socket.h>
+#include <sys/stat.h>
+#include <sys/time.h>
+#include <sys/types.h>
+#include <sys/uio.h>
+#include <sys/un.h>
+#include <sys/xattr.h>
+#include <alloca.h>
+#include <arpa/inet.h>
+#include <arpa/tftp.h>
+#include <assert.h>
+#include <err.h>
+#include <errno.h>
+#include <fcntl.h>
+#include <idn2.h>
+#include <ifaddrs.h>
+#include <libgen.h>
+#include <locale.h>
+#include <net/if.h>
+#include <netdb.h>
+#include <netinet/in.h>
+#include <netinet/tcp.h>
+#include <poll.h>
+#include <pwd.h>
+#include <setjmp.h>
+#include <sgtty.h>
+#include <signal.h>
+#include <stdbool.h>
+#include <stdint.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <strings.h>
+#include <stropts.h>
+#include <termio.h>
+#include <termios.h>
+#include <time.h>
+#include <unistd.h>
+#include <utime.h>
+#include <stddef.h>
+#include <dlfcn.h>
+#include <malloc.h>
+#include <memory.h>
+#include <netinet/if_ether.h>
+#include <stdint.h>
+#include <sys/utsname.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef strlcat
+  return ((int*)(&strlcat))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the _strtoi64 exist failed with the following output:
+Change Dir: /mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_808e4/fast && make  -f CMakeFiles/cmTC_808e4.dir/build.make CMakeFiles/cmTC_808e4.dir/build
+make[1]: 进入目录“/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp”
+Building C object CMakeFiles/cmTC_808e4.dir/CheckSymbolExists.c.o
+/usr/bin/gcc   -w  -std=gnu11 -o CMakeFiles/cmTC_808e4.dir/CheckSymbolExists.c.o -c /mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp/CheckSymbolExists.c: In function ‘main’:
+/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp/CheckSymbolExists.c:60:19: error: ‘_strtoi64’ undeclared (first use in this function); did you mean ‘strtoull’?
+   return ((int*)(&_strtoi64))[argc];
+                   ^~~~~~~~~
+                   strtoull
+/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp/CheckSymbolExists.c:60:19: note: each undeclared identifier is reported only once for each function it appears in
+CMakeFiles/cmTC_808e4.dir/build.make:84: recipe for target 'CMakeFiles/cmTC_808e4.dir/CheckSymbolExists.c.o' failed
+make[1]: *** [CMakeFiles/cmTC_808e4.dir/CheckSymbolExists.c.o] Error 1
+make[1]: 离开目录“/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp”
+Makefile:140: recipe for target 'cmTC_808e4/fast' failed
+make: *** [cmTC_808e4/fast] Error 2
+
+
+File /mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <stdio.h>
+#include <inttypes.h>
+#include <sys/ioctl.h>
+#include <sys/param.h>
+#include <sys/poll.h>
+#include <sys/resource.h>
+#include <sys/select.h>
+#include <sys/socket.h>
+#include <sys/stat.h>
+#include <sys/time.h>
+#include <sys/types.h>
+#include <sys/uio.h>
+#include <sys/un.h>
+#include <sys/xattr.h>
+#include <alloca.h>
+#include <arpa/inet.h>
+#include <arpa/tftp.h>
+#include <assert.h>
+#include <err.h>
+#include <errno.h>
+#include <fcntl.h>
+#include <idn2.h>
+#include <ifaddrs.h>
+#include <libgen.h>
+#include <locale.h>
+#include <net/if.h>
+#include <netdb.h>
+#include <netinet/in.h>
+#include <netinet/tcp.h>
+#include <poll.h>
+#include <pwd.h>
+#include <setjmp.h>
+#include <sgtty.h>
+#include <signal.h>
+#include <stdbool.h>
+#include <stdint.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <strings.h>
+#include <stropts.h>
+#include <termio.h>
+#include <termios.h>
+#include <time.h>
+#include <unistd.h>
+#include <utime.h>
+#include <stddef.h>
+#include <dlfcn.h>
+#include <malloc.h>
+#include <memory.h>
+#include <netinet/if_ether.h>
+#include <stdint.h>
+#include <sys/utsname.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef _strtoi64
+  return ((int*)(&_strtoi64))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the setmode exist failed with the following output:
+Change Dir: /mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_90469/fast && make  -f CMakeFiles/cmTC_90469.dir/build.make CMakeFiles/cmTC_90469.dir/build
+make[1]: 进入目录“/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp”
+Building C object CMakeFiles/cmTC_90469.dir/CheckSymbolExists.c.o
+/usr/bin/gcc   -w  -std=gnu11 -o CMakeFiles/cmTC_90469.dir/CheckSymbolExists.c.o -c /mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp/CheckSymbolExists.c: In function ‘main’:
+/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp/CheckSymbolExists.c:60:19: error: ‘setmode’ undeclared (first use in this function); did you mean ‘setgid’?
+   return ((int*)(&setmode))[argc];
+                   ^~~~~~~
+                   setgid
+/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp/CheckSymbolExists.c:60:19: note: each undeclared identifier is reported only once for each function it appears in
+CMakeFiles/cmTC_90469.dir/build.make:84: recipe for target 'CMakeFiles/cmTC_90469.dir/CheckSymbolExists.c.o' failed
+make[1]: *** [CMakeFiles/cmTC_90469.dir/CheckSymbolExists.c.o] Error 1
+make[1]: 离开目录“/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp”
+Makefile:140: recipe for target 'cmTC_90469/fast' failed
+make: *** [cmTC_90469/fast] Error 2
+
+
+File /mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <stdio.h>
+#include <inttypes.h>
+#include <sys/ioctl.h>
+#include <sys/param.h>
+#include <sys/poll.h>
+#include <sys/resource.h>
+#include <sys/select.h>
+#include <sys/socket.h>
+#include <sys/stat.h>
+#include <sys/time.h>
+#include <sys/types.h>
+#include <sys/uio.h>
+#include <sys/un.h>
+#include <sys/xattr.h>
+#include <alloca.h>
+#include <arpa/inet.h>
+#include <arpa/tftp.h>
+#include <assert.h>
+#include <err.h>
+#include <errno.h>
+#include <fcntl.h>
+#include <idn2.h>
+#include <ifaddrs.h>
+#include <libgen.h>
+#include <locale.h>
+#include <net/if.h>
+#include <netdb.h>
+#include <netinet/in.h>
+#include <netinet/tcp.h>
+#include <poll.h>
+#include <pwd.h>
+#include <setjmp.h>
+#include <sgtty.h>
+#include <signal.h>
+#include <stdbool.h>
+#include <stdint.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <strings.h>
+#include <stropts.h>
+#include <termio.h>
+#include <termios.h>
+#include <time.h>
+#include <unistd.h>
+#include <utime.h>
+#include <stddef.h>
+#include <dlfcn.h>
+#include <malloc.h>
+#include <memory.h>
+#include <netinet/if_ether.h>
+#include <stdint.h>
+#include <sys/utsname.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef setmode
+  return ((int*)(&setmode))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the function mach_absolute_time exists failed with the following output:
+Change Dir: /mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_cd204/fast && make  -f CMakeFiles/cmTC_cd204.dir/build.make CMakeFiles/cmTC_cd204.dir/build
+make[1]: 进入目录“/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp”
+Building C object CMakeFiles/cmTC_cd204.dir/CheckFunctionExists.c.o
+/usr/bin/gcc   -w -DCHECK_FUNCTION_EXISTS=mach_absolute_time -std=gnu11 -o CMakeFiles/cmTC_cd204.dir/CheckFunctionExists.c.o -c /mnt/teamway/store-service/tools/cmake-3.18.2/Modules/CheckFunctionExists.c
+Linking C executable cmTC_cd204
+/mnt/teamway/store-service/tools/cmake-3.18.2/Bootstrap.cmk/cmake -E cmake_link_script CMakeFiles/cmTC_cd204.dir/link.txt --verbose=1
+/usr/bin/gcc   -w -DCHECK_FUNCTION_EXISTS=mach_absolute_time CMakeFiles/cmTC_cd204.dir/CheckFunctionExists.c.o -o cmTC_cd204 
+CMakeFiles/cmTC_cd204.dir/CheckFunctionExists.c.o：在函数‘main’中：
+CheckFunctionExists.c:(.text+0x10)：对‘mach_absolute_time’未定义的引用
+collect2: error: ld returned 1 exit status
+CMakeFiles/cmTC_cd204.dir/build.make:105: recipe for target 'cmTC_cd204' failed
+make[1]: *** [cmTC_cd204] Error 1
+make[1]: 离开目录“/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp”
+Makefile:140: recipe for target 'cmTC_cd204/fast' failed
+make: *** [cmTC_cd204/fast] Error 2
+
+
+
+Performing Curl Test HAVE_FSETXATTR_6 failed with the following output:
+Change Dir: /mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_14964/fast && make  -f CMakeFiles/cmTC_14964.dir/build.make CMakeFiles/cmTC_14964.dir/build
+make[1]: 进入目录“/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp”
+Building C object CMakeFiles/cmTC_14964.dir/CurlTests.c.o
+/usr/bin/gcc   -w -DHAVE_FSETXATTR_6  -DHAVE_STDIO_H -DHAVE_INTTYPES_H -DHAVE_SYS_IOCTL_H -DHAVE_SYS_PARAM_H -DHAVE_SYS_POLL_H -DHAVE_SYS_RESOURCE_H -DHAVE_SYS_SELECT_H -DHAVE_SYS_SOCKET_H -DHAVE_SYS_STAT_H -DHAVE_SYS_TIME_H -DHAVE_SYS_TYPES_H -DHAVE_SYS_UIO_H -DHAVE_SYS_UN_H -DHAVE_SYS_XATTR_H -DHAVE_ALLOCA_H -DHAVE_ARPA_INET_H -DHAVE_ARPA_TFTP_H -DHAVE_ASSERT_H -DHAVE_ERR_H -DHAVE_ERRNO_H -DHAVE_FCNTL_H -DHAVE_IDN2_H -DHAVE_IFADDRS_H -DHAVE_LIBGEN_H -DHAVE_LOCALE_H -DHAVE_NET_IF_H -DHAVE_NETDB_H -DHAVE_NETINET_IN_H -DHAVE_NETINET_TCP_H -DHAVE_POLL_H -DHAVE_PWD_H -DHAVE_SETJMP_H -DHAVE_SGTTY_H -DHAVE_SIGNAL_H -DHAVE_STDBOOL_H -DHAVE_STDINT_H -DHAVE_STDIO_H -DHAVE_STDLIB_H -DHAVE_STRING_H -DHAVE_STRINGS_H -DHAVE_STROPTS_H -DHAVE_TERMIO_H -DHAVE_TERMIOS_H -DHAVE_TIME_H -DHAVE_UNISTD_H -DHAVE_UTIME_H -DHAVE_STDDEF_H -DHAVE_DLFCN_H -DHAVE_MALLOC_H -DHAVE_MEMORY_H -DHAVE_NETINET_IF_ETHER_H -DHAVE_STDINT_H -DHAVE_SYS_UTSNAME_H -std=gnu11 -o CMakeFiles/cmTC_14964.dir/CurlTests.c.o -c /mnt/teamway/store-service/tools/cmake-3.18.2/Utilities/cmcurl/CMake/CurlTests.c
+/mnt/teamway/store-service/tools/cmake-3.18.2/Utilities/cmcurl/CMake/CurlTests.c: In function ‘main’:
+/mnt/teamway/store-service/tools/cmake-3.18.2/Utilities/cmcurl/CMake/CurlTests.c:544:3: error: too many arguments to function ‘fsetxattr’
+   fsetxattr(0, 0, 0, 0, 0, 0);
+   ^~~~~~~~~
+In file included from /mnt/teamway/store-service/tools/cmake-3.18.2/Utilities/cmcurl/CMake/CurlTests.c:541:0:
+/usr/include/x86_64-linux-gnu/sys/xattr.h:54:12: note: declared here
+ extern int fsetxattr (int __fd, const char *__name, const void *__value,
+            ^~~~~~~~~
+CMakeFiles/cmTC_14964.dir/build.make:84: recipe for target 'CMakeFiles/cmTC_14964.dir/CurlTests.c.o' failed
+make[1]: *** [CMakeFiles/cmTC_14964.dir/CurlTests.c.o] Error 1
+make[1]: 离开目录“/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp”
+Makefile:140: recipe for target 'cmTC_14964/fast' failed
+make: *** [cmTC_14964/fast] Error 2
+
+
+Performing Curl Test HAVE_IOCTLSOCKET failed with the following output:
+Change Dir: /mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_87801/fast && make  -f CMakeFiles/cmTC_87801.dir/build.make CMakeFiles/cmTC_87801.dir/build
+make[1]: 进入目录“/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp”
+Building C object CMakeFiles/cmTC_87801.dir/CurlTests.c.o
+/usr/bin/gcc   -w -DHAVE_IOCTLSOCKET  -DHAVE_STDIO_H -DHAVE_INTTYPES_H -DHAVE_SYS_IOCTL_H -DHAVE_SYS_PARAM_H -DHAVE_SYS_POLL_H -DHAVE_SYS_RESOURCE_H -DHAVE_SYS_SELECT_H -DHAVE_SYS_SOCKET_H -DHAVE_SYS_STAT_H -DHAVE_SYS_TIME_H -DHAVE_SYS_TYPES_H -DHAVE_SYS_UIO_H -DHAVE_SYS_UN_H -DHAVE_SYS_XATTR_H -DHAVE_ALLOCA_H -DHAVE_ARPA_INET_H -DHAVE_ARPA_TFTP_H -DHAVE_ASSERT_H -DHAVE_ERR_H -DHAVE_ERRNO_H -DHAVE_FCNTL_H -DHAVE_IDN2_H -DHAVE_IFADDRS_H -DHAVE_LIBGEN_H -DHAVE_LOCALE_H -DHAVE_NET_IF_H -DHAVE_NETDB_H -DHAVE_NETINET_IN_H -DHAVE_NETINET_TCP_H -DHAVE_POLL_H -DHAVE_PWD_H -DHAVE_SETJMP_H -DHAVE_SGTTY_H -DHAVE_SIGNAL_H -DHAVE_STDBOOL_H -DHAVE_STDINT_H -DHAVE_STDIO_H -DHAVE_STDLIB_H -DHAVE_STRING_H -DHAVE_STRINGS_H -DHAVE_STROPTS_H -DHAVE_TERMIO_H -DHAVE_TERMIOS_H -DHAVE_TIME_H -DHAVE_UNISTD_H -DHAVE_UTIME_H -DHAVE_STDDEF_H -DHAVE_DLFCN_H -DHAVE_MALLOC_H -DHAVE_MEMORY_H -DHAVE_NETINET_IF_ETHER_H -DHAVE_STDINT_H -DHAVE_SYS_UTSNAME_H -std=gnu11 -o CMakeFiles/cmTC_87801.dir/CurlTests.c.o -c /mnt/teamway/store-service/tools/cmake-3.18.2/Utilities/cmcurl/CMake/CurlTests.c
+/mnt/teamway/store-service/tools/cmake-3.18.2/Utilities/cmcurl/CMake/CurlTests.c: In function ‘main’:
+/mnt/teamway/store-service/tools/cmake-3.18.2/Utilities/cmcurl/CMake/CurlTests.c:326:44: error: ‘FIONBIO’ undeclared (first use in this function)
+  unsigned long flags = ioctlsocket(socket, FIONBIO, &flags);
+                                            ^~~~~~~
+/mnt/teamway/store-service/tools/cmake-3.18.2/Utilities/cmcurl/CMake/CurlTests.c:326:44: note: each undeclared identifier is reported only once for each function it appears in
+CMakeFiles/cmTC_87801.dir/build.make:84: recipe for target 'CMakeFiles/cmTC_87801.dir/CurlTests.c.o' failed
+make[1]: *** [CMakeFiles/cmTC_87801.dir/CurlTests.c.o] Error 1
+make[1]: 离开目录“/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp”
+Makefile:140: recipe for target 'cmTC_87801/fast' failed
+make: *** [cmTC_87801/fast] Error 2
+
+
+Performing Curl Test HAVE_IOCTLSOCKET_CAMEL failed with the following output:
+Change Dir: /mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_27cee/fast && make  -f CMakeFiles/cmTC_27cee.dir/build.make CMakeFiles/cmTC_27cee.dir/build
+make[1]: 进入目录“/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp”
+Building C object CMakeFiles/cmTC_27cee.dir/CurlTests.c.o
+/usr/bin/gcc   -w -DHAVE_IOCTLSOCKET_CAMEL  -DHAVE_STDIO_H -DHAVE_INTTYPES_H -DHAVE_SYS_IOCTL_H -DHAVE_SYS_PARAM_H -DHAVE_SYS_POLL_H -DHAVE_SYS_RESOURCE_H -DHAVE_SYS_SELECT_H -DHAVE_SYS_SOCKET_H -DHAVE_SYS_STAT_H -DHAVE_SYS_TIME_H -DHAVE_SYS_TYPES_H -DHAVE_SYS_UIO_H -DHAVE_SYS_UN_H -DHAVE_SYS_XATTR_H -DHAVE_ALLOCA_H -DHAVE_ARPA_INET_H -DHAVE_ARPA_TFTP_H -DHAVE_ASSERT_H -DHAVE_ERR_H -DHAVE_ERRNO_H -DHAVE_FCNTL_H -DHAVE_IDN2_H -DHAVE_IFADDRS_H -DHAVE_LIBGEN_H -DHAVE_LOCALE_H -DHAVE_NET_IF_H -DHAVE_NETDB_H -DHAVE_NETINET_IN_H -DHAVE_NETINET_TCP_H -DHAVE_POLL_H -DHAVE_PWD_H -DHAVE_SETJMP_H -DHAVE_SGTTY_H -DHAVE_SIGNAL_H -DHAVE_STDBOOL_H -DHAVE_STDINT_H -DHAVE_STDIO_H -DHAVE_STDLIB_H -DHAVE_STRING_H -DHAVE_STRINGS_H -DHAVE_STROPTS_H -DHAVE_TERMIO_H -DHAVE_TERMIOS_H -DHAVE_TIME_H -DHAVE_UNISTD_H -DHAVE_UTIME_H -DHAVE_STDDEF_H -DHAVE_DLFCN_H -DHAVE_MALLOC_H -DHAVE_MEMORY_H -DHAVE_NETINET_IF_ETHER_H -DHAVE_STDINT_H -DHAVE_SYS_UTSNAME_H -std=gnu11 -o CMakeFiles/cmTC_27cee.dir/CurlTests.c.o -c /mnt/teamway/store-service/tools/cmake-3.18.2/Utilities/cmcurl/CMake/CurlTests.c
+Linking C executable cmTC_27cee
+/mnt/teamway/store-service/tools/cmake-3.18.2/Bootstrap.cmk/cmake -E cmake_link_script CMakeFiles/cmTC_27cee.dir/link.txt --verbose=1
+/usr/bin/gcc   -w -DHAVE_IOCTLSOCKET_CAMEL  -DHAVE_STDIO_H -DHAVE_INTTYPES_H -DHAVE_SYS_IOCTL_H -DHAVE_SYS_PARAM_H -DHAVE_SYS_POLL_H -DHAVE_SYS_RESOURCE_H -DHAVE_SYS_SELECT_H -DHAVE_SYS_SOCKET_H -DHAVE_SYS_STAT_H -DHAVE_SYS_TIME_H -DHAVE_SYS_TYPES_H -DHAVE_SYS_UIO_H -DHAVE_SYS_UN_H -DHAVE_SYS_XATTR_H -DHAVE_ALLOCA_H -DHAVE_ARPA_INET_H -DHAVE_ARPA_TFTP_H -DHAVE_ASSERT_H -DHAVE_ERR_H -DHAVE_ERRNO_H -DHAVE_FCNTL_H -DHAVE_IDN2_H -DHAVE_IFADDRS_H -DHAVE_LIBGEN_H -DHAVE_LOCALE_H -DHAVE_NET_IF_H -DHAVE_NETDB_H -DHAVE_NETINET_IN_H -DHAVE_NETINET_TCP_H -DHAVE_POLL_H -DHAVE_PWD_H -DHAVE_SETJMP_H -DHAVE_SGTTY_H -DHAVE_SIGNAL_H -DHAVE_STDBOOL_H -DHAVE_STDINT_H -DHAVE_STDIO_H -DHAVE_STDLIB_H -DHAVE_STRING_H -DHAVE_STRINGS_H -DHAVE_STROPTS_H -DHAVE_TERMIO_H -DHAVE_TERMIOS_H -DHAVE_TIME_H -DHAVE_UNISTD_H -DHAVE_UTIME_H -DHAVE_STDDEF_H -DHAVE_DLFCN_H -DHAVE_MALLOC_H -DHAVE_MEMORY_H -DHAVE_NETINET_IF_ETHER_H -DHAVE_STDINT_H -DHAVE_SYS_UTSNAME_H CMakeFiles/cmTC_27cee.dir/CurlTests.c.o -o cmTC_27cee 
+CMakeFiles/cmTC_27cee.dir/CurlTests.c.o：在函数‘main’中：
+CurlTests.c:(.text+0x19)：对‘IoctlSocket’未定义的引用
+collect2: error: ld returned 1 exit status
+CMakeFiles/cmTC_27cee.dir/build.make:105: recipe for target 'cmTC_27cee' failed
+make[1]: *** [cmTC_27cee] Error 1
+make[1]: 离开目录“/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp”
+Makefile:140: recipe for target 'cmTC_27cee/fast' failed
+make: *** [cmTC_27cee/fast] Error 2
+
+
+Performing Curl Test HAVE_IOCTLSOCKET_CAMEL_FIONBIO failed with the following output:
+Change Dir: /mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_51ee6/fast && make  -f CMakeFiles/cmTC_51ee6.dir/build.make CMakeFiles/cmTC_51ee6.dir/build
+make[1]: 进入目录“/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp”
+Building C object CMakeFiles/cmTC_51ee6.dir/CurlTests.c.o
+/usr/bin/gcc   -w -DHAVE_IOCTLSOCKET_CAMEL_FIONBIO  -DHAVE_STDIO_H -DHAVE_INTTYPES_H -DHAVE_SYS_IOCTL_H -DHAVE_SYS_PARAM_H -DHAVE_SYS_POLL_H -DHAVE_SYS_RESOURCE_H -DHAVE_SYS_SELECT_H -DHAVE_SYS_SOCKET_H -DHAVE_SYS_STAT_H -DHAVE_SYS_TIME_H -DHAVE_SYS_TYPES_H -DHAVE_SYS_UIO_H -DHAVE_SYS_UN_H -DHAVE_SYS_XATTR_H -DHAVE_ALLOCA_H -DHAVE_ARPA_INET_H -DHAVE_ARPA_TFTP_H -DHAVE_ASSERT_H -DHAVE_ERR_H -DHAVE_ERRNO_H -DHAVE_FCNTL_H -DHAVE_IDN2_H -DHAVE_IFADDRS_H -DHAVE_LIBGEN_H -DHAVE_LOCALE_H -DHAVE_NET_IF_H -DHAVE_NETDB_H -DHAVE_NETINET_IN_H -DHAVE_NETINET_TCP_H -DHAVE_POLL_H -DHAVE_PWD_H -DHAVE_SETJMP_H -DHAVE_SGTTY_H -DHAVE_SIGNAL_H -DHAVE_STDBOOL_H -DHAVE_STDINT_H -DHAVE_STDIO_H -DHAVE_STDLIB_H -DHAVE_STRING_H -DHAVE_STRINGS_H -DHAVE_STROPTS_H -DHAVE_TERMIO_H -DHAVE_TERMIOS_H -DHAVE_TIME_H -DHAVE_UNISTD_H -DHAVE_UTIME_H -DHAVE_STDDEF_H -DHAVE_DLFCN_H -DHAVE_MALLOC_H -DHAVE_MEMORY_H -DHAVE_NETINET_IF_ETHER_H -DHAVE_STDINT_H -DHAVE_SYS_UTSNAME_H -std=gnu11 -o CMakeFiles/cmTC_51ee6.dir/CurlTests.c.o -c /mnt/teamway/store-service/tools/cmake-3.18.2/Utilities/cmcurl/CMake/CurlTests.c
+/mnt/teamway/store-service/tools/cmake-3.18.2/Utilities/cmcurl/CMake/CurlTests.c: In function ‘main’:
+/mnt/teamway/store-service/tools/cmake-3.18.2/Utilities/cmcurl/CMake/CurlTests.c:382:32: error: ‘FIONBIO’ undeclared (first use in this function)
+         if(0 != ioctlsocket(0, FIONBIO, &flags))
+                                ^~~~~~~
+/mnt/teamway/store-service/tools/cmake-3.18.2/Utilities/cmcurl/CMake/CurlTests.c:382:32: note: each undeclared identifier is reported only once for each function it appears in
+CMakeFiles/cmTC_51ee6.dir/build.make:84: recipe for target 'CMakeFiles/cmTC_51ee6.dir/CurlTests.c.o' failed
+make[1]: *** [CMakeFiles/cmTC_51ee6.dir/CurlTests.c.o] Error 1
+make[1]: 离开目录“/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp”
+Makefile:140: recipe for target 'cmTC_51ee6/fast' failed
+make: *** [cmTC_51ee6/fast] Error 2
+
+
+Performing Curl Test HAVE_IOCTLSOCKET_FIONBIO failed with the following output:
+Change Dir: /mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_fa301/fast && make  -f CMakeFiles/cmTC_fa301.dir/build.make CMakeFiles/cmTC_fa301.dir/build
+make[1]: 进入目录“/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp”
+Building C object CMakeFiles/cmTC_fa301.dir/CurlTests.c.o
+/usr/bin/gcc   -w -DHAVE_IOCTLSOCKET_FIONBIO  -DHAVE_STDIO_H -DHAVE_INTTYPES_H -DHAVE_SYS_IOCTL_H -DHAVE_SYS_PARAM_H -DHAVE_SYS_POLL_H -DHAVE_SYS_RESOURCE_H -DHAVE_SYS_SELECT_H -DHAVE_SYS_SOCKET_H -DHAVE_SYS_STAT_H -DHAVE_SYS_TIME_H -DHAVE_SYS_TYPES_H -DHAVE_SYS_UIO_H -DHAVE_SYS_UN_H -DHAVE_SYS_XATTR_H -DHAVE_ALLOCA_H -DHAVE_ARPA_INET_H -DHAVE_ARPA_TFTP_H -DHAVE_ASSERT_H -DHAVE_ERR_H -DHAVE_ERRNO_H -DHAVE_FCNTL_H -DHAVE_IDN2_H -DHAVE_IFADDRS_H -DHAVE_LIBGEN_H -DHAVE_LOCALE_H -DHAVE_NET_IF_H -DHAVE_NETDB_H -DHAVE_NETINET_IN_H -DHAVE_NETINET_TCP_H -DHAVE_POLL_H -DHAVE_PWD_H -DHAVE_SETJMP_H -DHAVE_SGTTY_H -DHAVE_SIGNAL_H -DHAVE_STDBOOL_H -DHAVE_STDINT_H -DHAVE_STDIO_H -DHAVE_STDLIB_H -DHAVE_STRING_H -DHAVE_STRINGS_H -DHAVE_STROPTS_H -DHAVE_TERMIO_H -DHAVE_TERMIOS_H -DHAVE_TIME_H -DHAVE_UNISTD_H -DHAVE_UTIME_H -DHAVE_STDDEF_H -DHAVE_DLFCN_H -DHAVE_MALLOC_H -DHAVE_MEMORY_H -DHAVE_NETINET_IF_ETHER_H -DHAVE_STDINT_H -DHAVE_SYS_UTSNAME_H -std=gnu11 -o CMakeFiles/cmTC_fa301.dir/CurlTests.c.o -c /mnt/teamway/store-service/tools/cmake-3.18.2/Utilities/cmcurl/CMake/CurlTests.c
+/mnt/teamway/store-service/tools/cmake-3.18.2/Utilities/cmcurl/CMake/CurlTests.c: In function ‘main’:
+/mnt/teamway/store-service/tools/cmake-3.18.2/Utilities/cmcurl/CMake/CurlTests.c:409:32: error: ‘FIONBIO’ undeclared (first use in this function)
+         if(0 != ioctlsocket(0, FIONBIO, &flags))
+                                ^~~~~~~
+/mnt/teamway/store-service/tools/cmake-3.18.2/Utilities/cmcurl/CMake/CurlTests.c:409:32: note: each undeclared identifier is reported only once for each function it appears in
+CMakeFiles/cmTC_fa301.dir/build.make:84: recipe for target 'CMakeFiles/cmTC_fa301.dir/CurlTests.c.o' failed
+make[1]: *** [CMakeFiles/cmTC_fa301.dir/CurlTests.c.o] Error 1
+make[1]: 离开目录“/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp”
+Makefile:140: recipe for target 'cmTC_fa301/fast' failed
+make: *** [cmTC_fa301/fast] Error 2
+
+
+Performing Curl Test HAVE_SETSOCKOPT_SO_NONBLOCK failed with the following output:
+Change Dir: /mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_26750/fast && make  -f CMakeFiles/cmTC_26750.dir/build.make CMakeFiles/cmTC_26750.dir/build
+make[1]: 进入目录“/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp”
+Building C object CMakeFiles/cmTC_26750.dir/CurlTests.c.o
+/usr/bin/gcc   -w -DHAVE_SETSOCKOPT_SO_NONBLOCK  -DHAVE_STDIO_H -DHAVE_INTTYPES_H -DHAVE_SYS_IOCTL_H -DHAVE_SYS_PARAM_H -DHAVE_SYS_POLL_H -DHAVE_SYS_RESOURCE_H -DHAVE_SYS_SELECT_H -DHAVE_SYS_SOCKET_H -DHAVE_SYS_STAT_H -DHAVE_SYS_TIME_H -DHAVE_SYS_TYPES_H -DHAVE_SYS_UIO_H -DHAVE_SYS_UN_H -DHAVE_SYS_XATTR_H -DHAVE_ALLOCA_H -DHAVE_ARPA_INET_H -DHAVE_ARPA_TFTP_H -DHAVE_ASSERT_H -DHAVE_ERR_H -DHAVE_ERRNO_H -DHAVE_FCNTL_H -DHAVE_IDN2_H -DHAVE_IFADDRS_H -DHAVE_LIBGEN_H -DHAVE_LOCALE_H -DHAVE_NET_IF_H -DHAVE_NETDB_H -DHAVE_NETINET_IN_H -DHAVE_NETINET_TCP_H -DHAVE_POLL_H -DHAVE_PWD_H -DHAVE_SETJMP_H -DHAVE_SGTTY_H -DHAVE_SIGNAL_H -DHAVE_STDBOOL_H -DHAVE_STDINT_H -DHAVE_STDIO_H -DHAVE_STDLIB_H -DHAVE_STRING_H -DHAVE_STRINGS_H -DHAVE_STROPTS_H -DHAVE_TERMIO_H -DHAVE_TERMIOS_H -DHAVE_TIME_H -DHAVE_UNISTD_H -DHAVE_UTIME_H -DHAVE_STDDEF_H -DHAVE_DLFCN_H -DHAVE_MALLOC_H -DHAVE_MEMORY_H -DHAVE_NETINET_IF_ETHER_H -DHAVE_STDINT_H -DHAVE_SYS_UTSNAME_H -std=gnu11 -o CMakeFiles/cmTC_26750.dir/CurlTests.c.o -c /mnt/teamway/store-service/tools/cmake-3.18.2/Utilities/cmcurl/CMake/CurlTests.c
+/mnt/teamway/store-service/tools/cmake-3.18.2/Utilities/cmcurl/CMake/CurlTests.c: In function ‘main’:
+/mnt/teamway/store-service/tools/cmake-3.18.2/Utilities/cmcurl/CMake/CurlTests.c:505:43: error: ‘SO_NONBLOCK’ undeclared (first use in this function); did you mean ‘SOCK_NONBLOCK’?
+         if(0 != setsockopt(0, SOL_SOCKET, SO_NONBLOCK, 0, 0))
+                                           ^~~~~~~~~~~
+                                           SOCK_NONBLOCK
+/mnt/teamway/store-service/tools/cmake-3.18.2/Utilities/cmcurl/CMake/CurlTests.c:505:43: note: each undeclared identifier is reported only once for each function it appears in
+CMakeFiles/cmTC_26750.dir/build.make:84: recipe for target 'CMakeFiles/cmTC_26750.dir/CurlTests.c.o' failed
+make[1]: *** [CMakeFiles/cmTC_26750.dir/CurlTests.c.o] Error 1
+make[1]: 离开目录“/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp”
+Makefile:140: recipe for target 'cmTC_26750/fast' failed
+make: *** [cmTC_26750/fast] Error 2
+
+
+Performing Curl Test HAVE_O_NONBLOCK failed with the following output:
+Change Dir: /mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_648a4/fast && make  -f CMakeFiles/cmTC_648a4.dir/build.make CMakeFiles/cmTC_648a4.dir/build
+make[1]: 进入目录“/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp”
+Building C object CMakeFiles/cmTC_648a4.dir/CurlTests.c.o
+/usr/bin/gcc   -w -DHAVE_O_NONBLOCK  -DHAVE_STDIO_H -DHAVE_INTTYPES_H -DHAVE_SYS_IOCTL_H -DHAVE_SYS_PARAM_H -DHAVE_SYS_POLL_H -DHAVE_SYS_RESOURCE_H -DHAVE_SYS_SELECT_H -DHAVE_SYS_SOCKET_H -DHAVE_SYS_STAT_H -DHAVE_SYS_TIME_H -DHAVE_SYS_TYPES_H -DHAVE_SYS_UIO_H -DHAVE_SYS_UN_H -DHAVE_SYS_XATTR_H -DHAVE_ALLOCA_H -DHAVE_ARPA_INET_H -DHAVE_ARPA_TFTP_H -DHAVE_ASSERT_H -DHAVE_ERR_H -DHAVE_ERRNO_H -DHAVE_FCNTL_H -DHAVE_IDN2_H -DHAVE_IFADDRS_H -DHAVE_LIBGEN_H -DHAVE_LOCALE_H -DHAVE_NET_IF_H -DHAVE_NETDB_H -DHAVE_NETINET_IN_H -DHAVE_NETINET_TCP_H -DHAVE_POLL_H -DHAVE_PWD_H -DHAVE_SETJMP_H -DHAVE_SGTTY_H -DHAVE_SIGNAL_H -DHAVE_STDBOOL_H -DHAVE_STDINT_H -DHAVE_STDIO_H -DHAVE_STDLIB_H -DHAVE_STRING_H -DHAVE_STRINGS_H -DHAVE_STROPTS_H -DHAVE_TERMIO_H -DHAVE_TERMIOS_H -DHAVE_TIME_H -DHAVE_UNISTD_H -DHAVE_UTIME_H -DHAVE_STDDEF_H -DHAVE_DLFCN_H -DHAVE_MALLOC_H -DHAVE_MEMORY_H -DHAVE_NETINET_IF_ETHER_H -DHAVE_STDINT_H -DHAVE_SYS_UTSNAME_H -std=gnu11 -o CMakeFiles/cmTC_648a4.dir/CurlTests.c.o -c /mnt/teamway/store-service/tools/cmake-3.18.2/Utilities/cmcurl/CMake/CurlTests.c
+Linking C executable cmTC_648a4
+/mnt/teamway/store-service/tools/cmake-3.18.2/Bootstrap.cmk/cmake -E cmake_link_script CMakeFiles/cmTC_648a4.dir/link.txt --verbose=1
+/usr/bin/gcc   -w -DHAVE_O_NONBLOCK  -DHAVE_STDIO_H -DHAVE_INTTYPES_H -DHAVE_SYS_IOCTL_H -DHAVE_SYS_PARAM_H -DHAVE_SYS_POLL_H -DHAVE_SYS_RESOURCE_H -DHAVE_SYS_SELECT_H -DHAVE_SYS_SOCKET_H -DHAVE_SYS_STAT_H -DHAVE_SYS_TIME_H -DHAVE_SYS_TYPES_H -DHAVE_SYS_UIO_H -DHAVE_SYS_UN_H -DHAVE_SYS_XATTR_H -DHAVE_ALLOCA_H -DHAVE_ARPA_INET_H -DHAVE_ARPA_TFTP_H -DHAVE_ASSERT_H -DHAVE_ERR_H -DHAVE_ERRNO_H -DHAVE_FCNTL_H -DHAVE_IDN2_H -DHAVE_IFADDRS_H -DHAVE_LIBGEN_H -DHAVE_LOCALE_H -DHAVE_NET_IF_H -DHAVE_NETDB_H -DHAVE_NETINET_IN_H -DHAVE_NETINET_TCP_H -DHAVE_POLL_H -DHAVE_PWD_H -DHAVE_SETJMP_H -DHAVE_SGTTY_H -DHAVE_SIGNAL_H -DHAVE_STDBOOL_H -DHAVE_STDINT_H -DHAVE_STDIO_H -DHAVE_STDLIB_H -DHAVE_STRING_H -DHAVE_STRINGS_H -DHAVE_STROPTS_H -DHAVE_TERMIO_H -DHAVE_TERMIOS_H -DHAVE_TIME_H -DHAVE_UNISTD_H -DHAVE_UTIME_H -DHAVE_STDDEF_H -DHAVE_DLFCN_H -DHAVE_MALLOC_H -DHAVE_MEMORY_H -DHAVE_NETINET_IF_ETHER_H -DHAVE_STDINT_H -DHAVE_SYS_UTSNAME_H CMakeFiles/cmTC_648a4.dir/CurlTests.c.o -o cmTC_648a4 
+/usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/Scrt1.o：在函数‘_start’中：
+(.text+0x20)：对‘main’未定义的引用
+collect2: error: ld returned 1 exit status
+CMakeFiles/cmTC_648a4.dir/build.make:105: recipe for target 'cmTC_648a4' failed
+make[1]: *** [cmTC_648a4] Error 1
+make[1]: 离开目录“/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp”
+Makefile:140: recipe for target 'cmTC_648a4/fast' failed
+make: *** [cmTC_648a4/fast] Error 2
+
+
+Performing Curl Test HAVE_GETHOSTBYADDR_R_5 failed with the following output:
+Change Dir: /mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_85ce7/fast && make  -f CMakeFiles/cmTC_85ce7.dir/build.make CMakeFiles/cmTC_85ce7.dir/build
+make[1]: 进入目录“/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp”
+Building C object CMakeFiles/cmTC_85ce7.dir/CurlTests.c.o
+/usr/bin/gcc   -w -DHAVE_GETHOSTBYADDR_R_5  -DHAVE_STDIO_H -DHAVE_INTTYPES_H -DHAVE_SYS_IOCTL_H -DHAVE_SYS_PARAM_H -DHAVE_SYS_POLL_H -DHAVE_SYS_RESOURCE_H -DHAVE_SYS_SELECT_H -DHAVE_SYS_SOCKET_H -DHAVE_SYS_STAT_H -DHAVE_SYS_TIME_H -DHAVE_SYS_TYPES_H -DHAVE_SYS_UIO_H -DHAVE_SYS_UN_H -DHAVE_SYS_XATTR_H -DHAVE_ALLOCA_H -DHAVE_ARPA_INET_H -DHAVE_ARPA_TFTP_H -DHAVE_ASSERT_H -DHAVE_ERR_H -DHAVE_ERRNO_H -DHAVE_FCNTL_H -DHAVE_IDN2_H -DHAVE_IFADDRS_H -DHAVE_LIBGEN_H -DHAVE_LOCALE_H -DHAVE_NET_IF_H -DHAVE_NETDB_H -DHAVE_NETINET_IN_H -DHAVE_NETINET_TCP_H -DHAVE_POLL_H -DHAVE_PWD_H -DHAVE_SETJMP_H -DHAVE_SGTTY_H -DHAVE_SIGNAL_H -DHAVE_STDBOOL_H -DHAVE_STDINT_H -DHAVE_STDIO_H -DHAVE_STDLIB_H -DHAVE_STRING_H -DHAVE_STRINGS_H -DHAVE_STROPTS_H -DHAVE_TERMIO_H -DHAVE_TERMIOS_H -DHAVE_TIME_H -DHAVE_UNISTD_H -DHAVE_UTIME_H -DHAVE_STDDEF_H -DHAVE_DLFCN_H -DHAVE_MALLOC_H -DHAVE_MEMORY_H -DHAVE_NETINET_IF_ETHER_H -DHAVE_STDINT_H -DHAVE_SYS_UTSNAME_H -std=gnu11 -o CMakeFiles/cmTC_85ce7.dir/CurlTests.c.o -c /mnt/teamway/store-service/tools/cmake-3.18.2/Utilities/cmcurl/CMake/CurlTests.c
+/mnt/teamway/store-service/tools/cmake-3.18.2/Utilities/cmcurl/CMake/CurlTests.c: In function ‘main’:
+/mnt/teamway/store-service/tools/cmake-3.18.2/Utilities/cmcurl/CMake/CurlTests.c:106:23: error: storage size of ‘hdata’ isn’t known
+   struct hostent_data hdata;
+                       ^~~~~
+/mnt/teamway/store-service/tools/cmake-3.18.2/Utilities/cmcurl/CMake/CurlTests.c:127:8: error: too few arguments to function ‘gethostbyaddr_r’
+   rc = gethostbyaddr_r(address, length, type, &h, &hdata);
+        ^~~~~~~~~~~~~~~
+In file included from /mnt/teamway/store-service/tools/cmake-3.18.2/Utilities/cmcurl/CMake/CurlTests.c:93:0:
+/usr/include/netdb.h:170:12: note: declared here
+ extern int gethostbyaddr_r (const void *__restrict __addr, __socklen_t __len,
+            ^~~~~~~~~~~~~~~
+CMakeFiles/cmTC_85ce7.dir/build.make:84: recipe for target 'CMakeFiles/cmTC_85ce7.dir/CurlTests.c.o' failed
+make[1]: *** [CMakeFiles/cmTC_85ce7.dir/CurlTests.c.o] Error 1
+make[1]: 离开目录“/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp”
+Makefile:140: recipe for target 'cmTC_85ce7/fast' failed
+make: *** [cmTC_85ce7/fast] Error 2
+
+
+Performing Curl Test HAVE_GETHOSTBYADDR_R_7 failed with the following output:
+Change Dir: /mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_a3622/fast && make  -f CMakeFiles/cmTC_a3622.dir/build.make CMakeFiles/cmTC_a3622.dir/build
+make[1]: 进入目录“/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp”
+Building C object CMakeFiles/cmTC_a3622.dir/CurlTests.c.o
+/usr/bin/gcc   -w -DHAVE_GETHOSTBYADDR_R_7  -DHAVE_STDIO_H -DHAVE_INTTYPES_H -DHAVE_SYS_IOCTL_H -DHAVE_SYS_PARAM_H -DHAVE_SYS_POLL_H -DHAVE_SYS_RESOURCE_H -DHAVE_SYS_SELECT_H -DHAVE_SYS_SOCKET_H -DHAVE_SYS_STAT_H -DHAVE_SYS_TIME_H -DHAVE_SYS_TYPES_H -DHAVE_SYS_UIO_H -DHAVE_SYS_UN_H -DHAVE_SYS_XATTR_H -DHAVE_ALLOCA_H -DHAVE_ARPA_INET_H -DHAVE_ARPA_TFTP_H -DHAVE_ASSERT_H -DHAVE_ERR_H -DHAVE_ERRNO_H -DHAVE_FCNTL_H -DHAVE_IDN2_H -DHAVE_IFADDRS_H -DHAVE_LIBGEN_H -DHAVE_LOCALE_H -DHAVE_NET_IF_H -DHAVE_NETDB_H -DHAVE_NETINET_IN_H -DHAVE_NETINET_TCP_H -DHAVE_POLL_H -DHAVE_PWD_H -DHAVE_SETJMP_H -DHAVE_SGTTY_H -DHAVE_SIGNAL_H -DHAVE_STDBOOL_H -DHAVE_STDINT_H -DHAVE_STDIO_H -DHAVE_STDLIB_H -DHAVE_STRING_H -DHAVE_STRINGS_H -DHAVE_STROPTS_H -DHAVE_TERMIO_H -DHAVE_TERMIOS_H -DHAVE_TIME_H -DHAVE_UNISTD_H -DHAVE_UTIME_H -DHAVE_STDDEF_H -DHAVE_DLFCN_H -DHAVE_MALLOC_H -DHAVE_MEMORY_H -DHAVE_NETINET_IF_ETHER_H -DHAVE_STDINT_H -DHAVE_SYS_UTSNAME_H -std=gnu11 -o CMakeFiles/cmTC_a3622.dir/CurlTests.c.o -c /mnt/teamway/store-service/tools/cmake-3.18.2/Utilities/cmcurl/CMake/CurlTests.c
+/mnt/teamway/store-service/tools/cmake-3.18.2/Utilities/cmcurl/CMake/CurlTests.c: In function ‘main’:
+/mnt/teamway/store-service/tools/cmake-3.18.2/Utilities/cmcurl/CMake/CurlTests.c:131:8: error: too few arguments to function ‘gethostbyaddr_r’
+   hp = gethostbyaddr_r(address, length, type, &h, buffer, 8192, &h_errnop);
+        ^~~~~~~~~~~~~~~
+In file included from /mnt/teamway/store-service/tools/cmake-3.18.2/Utilities/cmcurl/CMake/CurlTests.c:93:0:
+/usr/include/netdb.h:170:12: note: declared here
+ extern int gethostbyaddr_r (const void *__restrict __addr, __socklen_t __len,
+            ^~~~~~~~~~~~~~~
+CMakeFiles/cmTC_a3622.dir/build.make:84: recipe for target 'CMakeFiles/cmTC_a3622.dir/CurlTests.c.o' failed
+make[1]: *** [CMakeFiles/cmTC_a3622.dir/CurlTests.c.o] Error 1
+make[1]: 离开目录“/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp”
+Makefile:140: recipe for target 'cmTC_a3622/fast' failed
+make: *** [cmTC_a3622/fast] Error 2
+
+
+Performing Curl Test HAVE_GETHOSTBYADDR_R_5_REENTRANT failed with the following output:
+Change Dir: /mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_d67bb/fast && make  -f CMakeFiles/cmTC_d67bb.dir/build.make CMakeFiles/cmTC_d67bb.dir/build
+make[1]: 进入目录“/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp”
+Building C object CMakeFiles/cmTC_d67bb.dir/CurlTests.c.o
+/usr/bin/gcc   -w -DHAVE_GETHOSTBYADDR_R_5_REENTRANT  -DHAVE_STDIO_H -DHAVE_INTTYPES_H -DHAVE_SYS_IOCTL_H -DHAVE_SYS_PARAM_H -DHAVE_SYS_POLL_H -DHAVE_SYS_RESOURCE_H -DHAVE_SYS_SELECT_H -DHAVE_SYS_SOCKET_H -DHAVE_SYS_STAT_H -DHAVE_SYS_TIME_H -DHAVE_SYS_TYPES_H -DHAVE_SYS_UIO_H -DHAVE_SYS_UN_H -DHAVE_SYS_XATTR_H -DHAVE_ALLOCA_H -DHAVE_ARPA_INET_H -DHAVE_ARPA_TFTP_H -DHAVE_ASSERT_H -DHAVE_ERR_H -DHAVE_ERRNO_H -DHAVE_FCNTL_H -DHAVE_IDN2_H -DHAVE_IFADDRS_H -DHAVE_LIBGEN_H -DHAVE_LOCALE_H -DHAVE_NET_IF_H -DHAVE_NETDB_H -DHAVE_NETINET_IN_H -DHAVE_NETINET_TCP_H -DHAVE_POLL_H -DHAVE_PWD_H -DHAVE_SETJMP_H -DHAVE_SGTTY_H -DHAVE_SIGNAL_H -DHAVE_STDBOOL_H -DHAVE_STDINT_H -DHAVE_STDIO_H -DHAVE_STDLIB_H -DHAVE_STRING_H -DHAVE_STRINGS_H -DHAVE_STROPTS_H -DHAVE_TERMIO_H -DHAVE_TERMIOS_H -DHAVE_TIME_H -DHAVE_UNISTD_H -DHAVE_UTIME_H -DHAVE_STDDEF_H -DHAVE_DLFCN_H -DHAVE_MALLOC_H -DHAVE_MEMORY_H -DHAVE_NETINET_IF_ETHER_H -DHAVE_STDINT_H -DHAVE_SYS_UTSNAME_H -std=gnu11 -o CMakeFiles/cmTC_d67bb.dir/CurlTests.c.o -c /mnt/teamway/store-service/tools/cmake-3.18.2/Utilities/cmcurl/CMake/CurlTests.c
+/mnt/teamway/store-service/tools/cmake-3.18.2/Utilities/cmcurl/CMake/CurlTests.c: In function ‘main’:
+/mnt/teamway/store-service/tools/cmake-3.18.2/Utilities/cmcurl/CMake/CurlTests.c:106:23: error: storage size of ‘hdata’ isn’t known
+   struct hostent_data hdata;
+                       ^~~~~
+/mnt/teamway/store-service/tools/cmake-3.18.2/Utilities/cmcurl/CMake/CurlTests.c:127:8: error: too few arguments to function ‘gethostbyaddr_r’
+   rc = gethostbyaddr_r(address, length, type, &h, &hdata);
+        ^~~~~~~~~~~~~~~
+In file included from /mnt/teamway/store-service/tools/cmake-3.18.2/Utilities/cmcurl/CMake/CurlTests.c:93:0:
+/usr/include/netdb.h:170:12: note: declared here
+ extern int gethostbyaddr_r (const void *__restrict __addr, __socklen_t __len,
+            ^~~~~~~~~~~~~~~
+CMakeFiles/cmTC_d67bb.dir/build.make:84: recipe for target 'CMakeFiles/cmTC_d67bb.dir/CurlTests.c.o' failed
+make[1]: *** [CMakeFiles/cmTC_d67bb.dir/CurlTests.c.o] Error 1
+make[1]: 离开目录“/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp”
+Makefile:140: recipe for target 'cmTC_d67bb/fast' failed
+make: *** [cmTC_d67bb/fast] Error 2
+
+
+Performing Curl Test HAVE_GETHOSTBYADDR_R_7_REENTRANT failed with the following output:
+Change Dir: /mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_dcfa3/fast && make  -f CMakeFiles/cmTC_dcfa3.dir/build.make CMakeFiles/cmTC_dcfa3.dir/build
+make[1]: 进入目录“/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp”
+Building C object CMakeFiles/cmTC_dcfa3.dir/CurlTests.c.o
+/usr/bin/gcc   -w -DHAVE_GETHOSTBYADDR_R_7_REENTRANT  -DHAVE_STDIO_H -DHAVE_INTTYPES_H -DHAVE_SYS_IOCTL_H -DHAVE_SYS_PARAM_H -DHAVE_SYS_POLL_H -DHAVE_SYS_RESOURCE_H -DHAVE_SYS_SELECT_H -DHAVE_SYS_SOCKET_H -DHAVE_SYS_STAT_H -DHAVE_SYS_TIME_H -DHAVE_SYS_TYPES_H -DHAVE_SYS_UIO_H -DHAVE_SYS_UN_H -DHAVE_SYS_XATTR_H -DHAVE_ALLOCA_H -DHAVE_ARPA_INET_H -DHAVE_ARPA_TFTP_H -DHAVE_ASSERT_H -DHAVE_ERR_H -DHAVE_ERRNO_H -DHAVE_FCNTL_H -DHAVE_IDN2_H -DHAVE_IFADDRS_H -DHAVE_LIBGEN_H -DHAVE_LOCALE_H -DHAVE_NET_IF_H -DHAVE_NETDB_H -DHAVE_NETINET_IN_H -DHAVE_NETINET_TCP_H -DHAVE_POLL_H -DHAVE_PWD_H -DHAVE_SETJMP_H -DHAVE_SGTTY_H -DHAVE_SIGNAL_H -DHAVE_STDBOOL_H -DHAVE_STDINT_H -DHAVE_STDIO_H -DHAVE_STDLIB_H -DHAVE_STRING_H -DHAVE_STRINGS_H -DHAVE_STROPTS_H -DHAVE_TERMIO_H -DHAVE_TERMIOS_H -DHAVE_TIME_H -DHAVE_UNISTD_H -DHAVE_UTIME_H -DHAVE_STDDEF_H -DHAVE_DLFCN_H -DHAVE_MALLOC_H -DHAVE_MEMORY_H -DHAVE_NETINET_IF_ETHER_H -DHAVE_STDINT_H -DHAVE_SYS_UTSNAME_H -std=gnu11 -o CMakeFiles/cmTC_dcfa3.dir/CurlTests.c.o -c /mnt/teamway/store-service/tools/cmake-3.18.2/Utilities/cmcurl/CMake/CurlTests.c
+/mnt/teamway/store-service/tools/cmake-3.18.2/Utilities/cmcurl/CMake/CurlTests.c: In function ‘main’:
+/mnt/teamway/store-service/tools/cmake-3.18.2/Utilities/cmcurl/CMake/CurlTests.c:131:8: error: too few arguments to function ‘gethostbyaddr_r’
+   hp = gethostbyaddr_r(address, length, type, &h, buffer, 8192, &h_errnop);
+        ^~~~~~~~~~~~~~~
+In file included from /mnt/teamway/store-service/tools/cmake-3.18.2/Utilities/cmcurl/CMake/CurlTests.c:93:0:
+/usr/include/netdb.h:170:12: note: declared here
+ extern int gethostbyaddr_r (const void *__restrict __addr, __socklen_t __len,
+            ^~~~~~~~~~~~~~~
+CMakeFiles/cmTC_dcfa3.dir/build.make:84: recipe for target 'CMakeFiles/cmTC_dcfa3.dir/CurlTests.c.o' failed
+make[1]: *** [CMakeFiles/cmTC_dcfa3.dir/CurlTests.c.o] Error 1
+make[1]: 离开目录“/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp”
+Makefile:140: recipe for target 'cmTC_dcfa3/fast' failed
+make: *** [cmTC_dcfa3/fast] Error 2
+
+
+Performing Curl Test HAVE_GETHOSTBYNAME_R_3 failed with the following output:
+Change Dir: /mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_43564/fast && make  -f CMakeFiles/cmTC_43564.dir/build.make CMakeFiles/cmTC_43564.dir/build
+make[1]: 进入目录“/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp”
+Building C object CMakeFiles/cmTC_43564.dir/CurlTests.c.o
+/usr/bin/gcc   -w -DHAVE_GETHOSTBYNAME_R_3  -DHAVE_STDIO_H -DHAVE_INTTYPES_H -DHAVE_SYS_IOCTL_H -DHAVE_SYS_PARAM_H -DHAVE_SYS_POLL_H -DHAVE_SYS_RESOURCE_H -DHAVE_SYS_SELECT_H -DHAVE_SYS_SOCKET_H -DHAVE_SYS_STAT_H -DHAVE_SYS_TIME_H -DHAVE_SYS_TYPES_H -DHAVE_SYS_UIO_H -DHAVE_SYS_UN_H -DHAVE_SYS_XATTR_H -DHAVE_ALLOCA_H -DHAVE_ARPA_INET_H -DHAVE_ARPA_TFTP_H -DHAVE_ASSERT_H -DHAVE_ERR_H -DHAVE_ERRNO_H -DHAVE_FCNTL_H -DHAVE_IDN2_H -DHAVE_IFADDRS_H -DHAVE_LIBGEN_H -DHAVE_LOCALE_H -DHAVE_NET_IF_H -DHAVE_NETDB_H -DHAVE_NETINET_IN_H -DHAVE_NETINET_TCP_H -DHAVE_POLL_H -DHAVE_PWD_H -DHAVE_SETJMP_H -DHAVE_SGTTY_H -DHAVE_SIGNAL_H -DHAVE_STDBOOL_H -DHAVE_STDINT_H -DHAVE_STDIO_H -DHAVE_STDLIB_H -DHAVE_STRING_H -DHAVE_STRINGS_H -DHAVE_STROPTS_H -DHAVE_TERMIO_H -DHAVE_TERMIOS_H -DHAVE_TIME_H -DHAVE_UNISTD_H -DHAVE_UTIME_H -DHAVE_STDDEF_H -DHAVE_DLFCN_H -DHAVE_MALLOC_H -DHAVE_MEMORY_H -DHAVE_NETINET_IF_ETHER_H -DHAVE_STDINT_H -DHAVE_SYS_UTSNAME_H -std=gnu11 -o CMakeFiles/cmTC_43564.dir/CurlTests.c.o -c /mnt/teamway/store-service/tools/cmake-3.18.2/Utilities/cmcurl/CMake/CurlTests.c
+/mnt/teamway/store-service/tools/cmake-3.18.2/Utilities/cmcurl/CMake/CurlTests.c: In function ‘main’:
+/mnt/teamway/store-service/tools/cmake-3.18.2/Utilities/cmcurl/CMake/CurlTests.c:106:23: error: storage size of ‘hdata’ isn’t known
+   struct hostent_data hdata;
+                       ^~~~~
+/mnt/teamway/store-service/tools/cmake-3.18.2/Utilities/cmcurl/CMake/CurlTests.c:141:8: error: too few arguments to function ‘gethostbyname_r’
+   rc = gethostbyname_r(address, &h, &hdata);
+        ^~~~~~~~~~~~~~~
+In file included from /mnt/teamway/store-service/tools/cmake-3.18.2/Utilities/cmcurl/CMake/CurlTests.c:93:0:
+/usr/include/netdb.h:177:12: note: declared here
+ extern int gethostbyname_r (const char *__restrict __name,
+            ^~~~~~~~~~~~~~~
+CMakeFiles/cmTC_43564.dir/build.make:84: recipe for target 'CMakeFiles/cmTC_43564.dir/CurlTests.c.o' failed
+make[1]: *** [CMakeFiles/cmTC_43564.dir/CurlTests.c.o] Error 1
+make[1]: 离开目录“/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp”
+Makefile:140: recipe for target 'cmTC_43564/fast' failed
+make: *** [cmTC_43564/fast] Error 2
+
+
+Performing Curl Test HAVE_GETHOSTBYNAME_R_5 failed with the following output:
+Change Dir: /mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_7cca7/fast && make  -f CMakeFiles/cmTC_7cca7.dir/build.make CMakeFiles/cmTC_7cca7.dir/build
+make[1]: 进入目录“/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp”
+Building C object CMakeFiles/cmTC_7cca7.dir/CurlTests.c.o
+/usr/bin/gcc   -w -DHAVE_GETHOSTBYNAME_R_5  -DHAVE_STDIO_H -DHAVE_INTTYPES_H -DHAVE_SYS_IOCTL_H -DHAVE_SYS_PARAM_H -DHAVE_SYS_POLL_H -DHAVE_SYS_RESOURCE_H -DHAVE_SYS_SELECT_H -DHAVE_SYS_SOCKET_H -DHAVE_SYS_STAT_H -DHAVE_SYS_TIME_H -DHAVE_SYS_TYPES_H -DHAVE_SYS_UIO_H -DHAVE_SYS_UN_H -DHAVE_SYS_XATTR_H -DHAVE_ALLOCA_H -DHAVE_ARPA_INET_H -DHAVE_ARPA_TFTP_H -DHAVE_ASSERT_H -DHAVE_ERR_H -DHAVE_ERRNO_H -DHAVE_FCNTL_H -DHAVE_IDN2_H -DHAVE_IFADDRS_H -DHAVE_LIBGEN_H -DHAVE_LOCALE_H -DHAVE_NET_IF_H -DHAVE_NETDB_H -DHAVE_NETINET_IN_H -DHAVE_NETINET_TCP_H -DHAVE_POLL_H -DHAVE_PWD_H -DHAVE_SETJMP_H -DHAVE_SGTTY_H -DHAVE_SIGNAL_H -DHAVE_STDBOOL_H -DHAVE_STDINT_H -DHAVE_STDIO_H -DHAVE_STDLIB_H -DHAVE_STRING_H -DHAVE_STRINGS_H -DHAVE_STROPTS_H -DHAVE_TERMIO_H -DHAVE_TERMIOS_H -DHAVE_TIME_H -DHAVE_UNISTD_H -DHAVE_UTIME_H -DHAVE_STDDEF_H -DHAVE_DLFCN_H -DHAVE_MALLOC_H -DHAVE_MEMORY_H -DHAVE_NETINET_IF_ETHER_H -DHAVE_STDINT_H -DHAVE_SYS_UTSNAME_H -std=gnu11 -o CMakeFiles/cmTC_7cca7.dir/CurlTests.c.o -c /mnt/teamway/store-service/tools/cmake-3.18.2/Utilities/cmcurl/CMake/CurlTests.c
+/mnt/teamway/store-service/tools/cmake-3.18.2/Utilities/cmcurl/CMake/CurlTests.c: In function ‘main’:
+/mnt/teamway/store-service/tools/cmake-3.18.2/Utilities/cmcurl/CMake/CurlTests.c:144:8: error: too few arguments to function ‘gethostbyname_r’
+   rc = gethostbyname_r(address, &h, buffer, 8192, &h_errnop);
+        ^~~~~~~~~~~~~~~
+In file included from /mnt/teamway/store-service/tools/cmake-3.18.2/Utilities/cmcurl/CMake/CurlTests.c:93:0:
+/usr/include/netdb.h:177:12: note: declared here
+ extern int gethostbyname_r (const char *__restrict __name,
+            ^~~~~~~~~~~~~~~
+CMakeFiles/cmTC_7cca7.dir/build.make:84: recipe for target 'CMakeFiles/cmTC_7cca7.dir/CurlTests.c.o' failed
+make[1]: *** [CMakeFiles/cmTC_7cca7.dir/CurlTests.c.o] Error 1
+make[1]: 离开目录“/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp”
+Makefile:140: recipe for target 'cmTC_7cca7/fast' failed
+make: *** [cmTC_7cca7/fast] Error 2
+
+
+Performing Curl Test HAVE_GETHOSTBYNAME_R_3_REENTRANT failed with the following output:
+Change Dir: /mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_f7ef1/fast && make  -f CMakeFiles/cmTC_f7ef1.dir/build.make CMakeFiles/cmTC_f7ef1.dir/build
+make[1]: 进入目录“/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp”
+Building C object CMakeFiles/cmTC_f7ef1.dir/CurlTests.c.o
+/usr/bin/gcc   -w -DHAVE_GETHOSTBYNAME_R_3_REENTRANT  -DHAVE_STDIO_H -DHAVE_INTTYPES_H -DHAVE_SYS_IOCTL_H -DHAVE_SYS_PARAM_H -DHAVE_SYS_POLL_H -DHAVE_SYS_RESOURCE_H -DHAVE_SYS_SELECT_H -DHAVE_SYS_SOCKET_H -DHAVE_SYS_STAT_H -DHAVE_SYS_TIME_H -DHAVE_SYS_TYPES_H -DHAVE_SYS_UIO_H -DHAVE_SYS_UN_H -DHAVE_SYS_XATTR_H -DHAVE_ALLOCA_H -DHAVE_ARPA_INET_H -DHAVE_ARPA_TFTP_H -DHAVE_ASSERT_H -DHAVE_ERR_H -DHAVE_ERRNO_H -DHAVE_FCNTL_H -DHAVE_IDN2_H -DHAVE_IFADDRS_H -DHAVE_LIBGEN_H -DHAVE_LOCALE_H -DHAVE_NET_IF_H -DHAVE_NETDB_H -DHAVE_NETINET_IN_H -DHAVE_NETINET_TCP_H -DHAVE_POLL_H -DHAVE_PWD_H -DHAVE_SETJMP_H -DHAVE_SGTTY_H -DHAVE_SIGNAL_H -DHAVE_STDBOOL_H -DHAVE_STDINT_H -DHAVE_STDIO_H -DHAVE_STDLIB_H -DHAVE_STRING_H -DHAVE_STRINGS_H -DHAVE_STROPTS_H -DHAVE_TERMIO_H -DHAVE_TERMIOS_H -DHAVE_TIME_H -DHAVE_UNISTD_H -DHAVE_UTIME_H -DHAVE_STDDEF_H -DHAVE_DLFCN_H -DHAVE_MALLOC_H -DHAVE_MEMORY_H -DHAVE_NETINET_IF_ETHER_H -DHAVE_STDINT_H -DHAVE_SYS_UTSNAME_H -std=gnu11 -o CMakeFiles/cmTC_f7ef1.dir/CurlTests.c.o -c /mnt/teamway/store-service/tools/cmake-3.18.2/Utilities/cmcurl/CMake/CurlTests.c
+/mnt/teamway/store-service/tools/cmake-3.18.2/Utilities/cmcurl/CMake/CurlTests.c: In function ‘main’:
+/mnt/teamway/store-service/tools/cmake-3.18.2/Utilities/cmcurl/CMake/CurlTests.c:106:23: error: storage size of ‘hdata’ isn’t known
+   struct hostent_data hdata;
+                       ^~~~~
+/mnt/teamway/store-service/tools/cmake-3.18.2/Utilities/cmcurl/CMake/CurlTests.c:141:8: error: too few arguments to function ‘gethostbyname_r’
+   rc = gethostbyname_r(address, &h, &hdata);
+        ^~~~~~~~~~~~~~~
+In file included from /mnt/teamway/store-service/tools/cmake-3.18.2/Utilities/cmcurl/CMake/CurlTests.c:93:0:
+/usr/include/netdb.h:177:12: note: declared here
+ extern int gethostbyname_r (const char *__restrict __name,
+            ^~~~~~~~~~~~~~~
+CMakeFiles/cmTC_f7ef1.dir/build.make:84: recipe for target 'CMakeFiles/cmTC_f7ef1.dir/CurlTests.c.o' failed
+make[1]: *** [CMakeFiles/cmTC_f7ef1.dir/CurlTests.c.o] Error 1
+make[1]: 离开目录“/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp”
+Makefile:140: recipe for target 'cmTC_f7ef1/fast' failed
+make: *** [cmTC_f7ef1/fast] Error 2
+
+
+Performing Curl Test HAVE_GETHOSTBYNAME_R_5_REENTRANT failed with the following output:
+Change Dir: /mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_8bb40/fast && make  -f CMakeFiles/cmTC_8bb40.dir/build.make CMakeFiles/cmTC_8bb40.dir/build
+make[1]: 进入目录“/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp”
+Building C object CMakeFiles/cmTC_8bb40.dir/CurlTests.c.o
+/usr/bin/gcc   -w -DHAVE_GETHOSTBYNAME_R_5_REENTRANT  -DHAVE_STDIO_H -DHAVE_INTTYPES_H -DHAVE_SYS_IOCTL_H -DHAVE_SYS_PARAM_H -DHAVE_SYS_POLL_H -DHAVE_SYS_RESOURCE_H -DHAVE_SYS_SELECT_H -DHAVE_SYS_SOCKET_H -DHAVE_SYS_STAT_H -DHAVE_SYS_TIME_H -DHAVE_SYS_TYPES_H -DHAVE_SYS_UIO_H -DHAVE_SYS_UN_H -DHAVE_SYS_XATTR_H -DHAVE_ALLOCA_H -DHAVE_ARPA_INET_H -DHAVE_ARPA_TFTP_H -DHAVE_ASSERT_H -DHAVE_ERR_H -DHAVE_ERRNO_H -DHAVE_FCNTL_H -DHAVE_IDN2_H -DHAVE_IFADDRS_H -DHAVE_LIBGEN_H -DHAVE_LOCALE_H -DHAVE_NET_IF_H -DHAVE_NETDB_H -DHAVE_NETINET_IN_H -DHAVE_NETINET_TCP_H -DHAVE_POLL_H -DHAVE_PWD_H -DHAVE_SETJMP_H -DHAVE_SGTTY_H -DHAVE_SIGNAL_H -DHAVE_STDBOOL_H -DHAVE_STDINT_H -DHAVE_STDIO_H -DHAVE_STDLIB_H -DHAVE_STRING_H -DHAVE_STRINGS_H -DHAVE_STROPTS_H -DHAVE_TERMIO_H -DHAVE_TERMIOS_H -DHAVE_TIME_H -DHAVE_UNISTD_H -DHAVE_UTIME_H -DHAVE_STDDEF_H -DHAVE_DLFCN_H -DHAVE_MALLOC_H -DHAVE_MEMORY_H -DHAVE_NETINET_IF_ETHER_H -DHAVE_STDINT_H -DHAVE_SYS_UTSNAME_H -std=gnu11 -o CMakeFiles/cmTC_8bb40.dir/CurlTests.c.o -c /mnt/teamway/store-service/tools/cmake-3.18.2/Utilities/cmcurl/CMake/CurlTests.c
+/mnt/teamway/store-service/tools/cmake-3.18.2/Utilities/cmcurl/CMake/CurlTests.c: In function ‘main’:
+/mnt/teamway/store-service/tools/cmake-3.18.2/Utilities/cmcurl/CMake/CurlTests.c:144:8: error: too few arguments to function ‘gethostbyname_r’
+   rc = gethostbyname_r(address, &h, buffer, 8192, &h_errnop);
+        ^~~~~~~~~~~~~~~
+In file included from /mnt/teamway/store-service/tools/cmake-3.18.2/Utilities/cmcurl/CMake/CurlTests.c:93:0:
+/usr/include/netdb.h:177:12: note: declared here
+ extern int gethostbyname_r (const char *__restrict __name,
+            ^~~~~~~~~~~~~~~
+CMakeFiles/cmTC_8bb40.dir/build.make:84: recipe for target 'CMakeFiles/cmTC_8bb40.dir/CurlTests.c.o' failed
+make[1]: *** [CMakeFiles/cmTC_8bb40.dir/CurlTests.c.o] Error 1
+make[1]: 离开目录“/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp”
+Makefile:140: recipe for target 'cmTC_8bb40/fast' failed
+make: *** [cmTC_8bb40/fast] Error 2
+
+
+Performing Curl Test HAVE_INET_NTOA_R_DECL failed with the following output:
+Change Dir: /mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_2403e/fast && make  -f CMakeFiles/cmTC_2403e.dir/build.make CMakeFiles/cmTC_2403e.dir/build
+make[1]: 进入目录“/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp”
+Building C object CMakeFiles/cmTC_2403e.dir/CurlTests.c.o
+/usr/bin/gcc   -w -DHAVE_INET_NTOA_R_DECL  -DHAVE_STDIO_H -DHAVE_INTTYPES_H -DHAVE_SYS_IOCTL_H -DHAVE_SYS_PARAM_H -DHAVE_SYS_POLL_H -DHAVE_SYS_RESOURCE_H -DHAVE_SYS_SELECT_H -DHAVE_SYS_SOCKET_H -DHAVE_SYS_STAT_H -DHAVE_SYS_TIME_H -DHAVE_SYS_TYPES_H -DHAVE_SYS_UIO_H -DHAVE_SYS_UN_H -DHAVE_SYS_XATTR_H -DHAVE_ALLOCA_H -DHAVE_ARPA_INET_H -DHAVE_ARPA_TFTP_H -DHAVE_ASSERT_H -DHAVE_ERR_H -DHAVE_ERRNO_H -DHAVE_FCNTL_H -DHAVE_IDN2_H -DHAVE_IFADDRS_H -DHAVE_LIBGEN_H -DHAVE_LOCALE_H -DHAVE_NET_IF_H -DHAVE_NETDB_H -DHAVE_NETINET_IN_H -DHAVE_NETINET_TCP_H -DHAVE_POLL_H -DHAVE_PWD_H -DHAVE_SETJMP_H -DHAVE_SGTTY_H -DHAVE_SIGNAL_H -DHAVE_STDBOOL_H -DHAVE_STDINT_H -DHAVE_STDIO_H -DHAVE_STDLIB_H -DHAVE_STRING_H -DHAVE_STRINGS_H -DHAVE_STROPTS_H -DHAVE_TERMIO_H -DHAVE_TERMIOS_H -DHAVE_TIME_H -DHAVE_UNISTD_H -DHAVE_UTIME_H -DHAVE_STDDEF_H -DHAVE_DLFCN_H -DHAVE_MALLOC_H -DHAVE_MEMORY_H -DHAVE_NETINET_IF_ETHER_H -DHAVE_STDINT_H -DHAVE_SYS_UTSNAME_H -std=gnu11 -o CMakeFiles/cmTC_2403e.dir/CurlTests.c.o -c /mnt/teamway/store-service/tools/cmake-3.18.2/Utilities/cmcurl/CMake/CurlTests.c
+/mnt/teamway/store-service/tools/cmake-3.18.2/Utilities/cmcurl/CMake/CurlTests.c: In function ‘main’:
+/mnt/teamway/store-service/tools/cmake-3.18.2/Utilities/cmcurl/CMake/CurlTests.c:244:21: error: ‘inet_ntoa_r’ undeclared (first use in this function); did you mean ‘inet_ntoa’?
+   func = (func_type)inet_ntoa_r;
+                     ^~~~~~~~~~~
+                     inet_ntoa
+/mnt/teamway/store-service/tools/cmake-3.18.2/Utilities/cmcurl/CMake/CurlTests.c:244:21: note: each undeclared identifier is reported only once for each function it appears in
+CMakeFiles/cmTC_2403e.dir/build.make:84: recipe for target 'CMakeFiles/cmTC_2403e.dir/CurlTests.c.o' failed
+make[1]: *** [CMakeFiles/cmTC_2403e.dir/CurlTests.c.o] Error 1
+make[1]: 离开目录“/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp”
+Makefile:140: recipe for target 'cmTC_2403e/fast' failed
+make: *** [cmTC_2403e/fast] Error 2
+
+
+Performing Curl Test HAVE_INET_NTOA_R_DECL_REENTRANT failed with the following output:
+Change Dir: /mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_64b02/fast && make  -f CMakeFiles/cmTC_64b02.dir/build.make CMakeFiles/cmTC_64b02.dir/build
+make[1]: 进入目录“/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp”
+Building C object CMakeFiles/cmTC_64b02.dir/CurlTests.c.o
+/usr/bin/gcc   -w -DHAVE_INET_NTOA_R_DECL_REENTRANT  -DHAVE_STDIO_H -DHAVE_INTTYPES_H -DHAVE_SYS_IOCTL_H -DHAVE_SYS_PARAM_H -DHAVE_SYS_POLL_H -DHAVE_SYS_RESOURCE_H -DHAVE_SYS_SELECT_H -DHAVE_SYS_SOCKET_H -DHAVE_SYS_STAT_H -DHAVE_SYS_TIME_H -DHAVE_SYS_TYPES_H -DHAVE_SYS_UIO_H -DHAVE_SYS_UN_H -DHAVE_SYS_XATTR_H -DHAVE_ALLOCA_H -DHAVE_ARPA_INET_H -DHAVE_ARPA_TFTP_H -DHAVE_ASSERT_H -DHAVE_ERR_H -DHAVE_ERRNO_H -DHAVE_FCNTL_H -DHAVE_IDN2_H -DHAVE_IFADDRS_H -DHAVE_LIBGEN_H -DHAVE_LOCALE_H -DHAVE_NET_IF_H -DHAVE_NETDB_H -DHAVE_NETINET_IN_H -DHAVE_NETINET_TCP_H -DHAVE_POLL_H -DHAVE_PWD_H -DHAVE_SETJMP_H -DHAVE_SGTTY_H -DHAVE_SIGNAL_H -DHAVE_STDBOOL_H -DHAVE_STDINT_H -DHAVE_STDIO_H -DHAVE_STDLIB_H -DHAVE_STRING_H -DHAVE_STRINGS_H -DHAVE_STROPTS_H -DHAVE_TERMIO_H -DHAVE_TERMIOS_H -DHAVE_TIME_H -DHAVE_UNISTD_H -DHAVE_UTIME_H -DHAVE_STDDEF_H -DHAVE_DLFCN_H -DHAVE_MALLOC_H -DHAVE_MEMORY_H -DHAVE_NETINET_IF_ETHER_H -DHAVE_STDINT_H -DHAVE_SYS_UTSNAME_H -std=gnu11 -o CMakeFiles/cmTC_64b02.dir/CurlTests.c.o -c /mnt/teamway/store-service/tools/cmake-3.18.2/Utilities/cmcurl/CMake/CurlTests.c
+/mnt/teamway/store-service/tools/cmake-3.18.2/Utilities/cmcurl/CMake/CurlTests.c: In function ‘main’:
+/mnt/teamway/store-service/tools/cmake-3.18.2/Utilities/cmcurl/CMake/CurlTests.c:260:22: error: ‘inet_ntoa_r’ undeclared (first use in this function); did you mean ‘inet_ntoa’?
+   func = (func_type)&inet_ntoa_r;
+                      ^~~~~~~~~~~
+                      inet_ntoa
+/mnt/teamway/store-service/tools/cmake-3.18.2/Utilities/cmcurl/CMake/CurlTests.c:260:22: note: each undeclared identifier is reported only once for each function it appears in
+CMakeFiles/cmTC_64b02.dir/build.make:84: recipe for target 'CMakeFiles/cmTC_64b02.dir/CurlTests.c.o' failed
+make[1]: *** [CMakeFiles/cmTC_64b02.dir/CurlTests.c.o] Error 1
+make[1]: 离开目录“/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp”
+Makefile:140: recipe for target 'cmTC_64b02/fast' failed
+make: *** [cmTC_64b02/fast] Error 2
+
+
+Performing Curl Test HAVE_GLIBC_STRERROR_R failed with the following output:
+Change Dir: /mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_acaec/fast && make  -f CMakeFiles/cmTC_acaec.dir/build.make CMakeFiles/cmTC_acaec.dir/build
+make[1]: 进入目录“/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp”
+Building C object CMakeFiles/cmTC_acaec.dir/CurlTests.c.o
+/usr/bin/gcc   -w -DHAVE_GLIBC_STRERROR_R  -DHAVE_STDIO_H -DHAVE_INTTYPES_H -DHAVE_SYS_IOCTL_H -DHAVE_SYS_PARAM_H -DHAVE_SYS_POLL_H -DHAVE_SYS_RESOURCE_H -DHAVE_SYS_SELECT_H -DHAVE_SYS_SOCKET_H -DHAVE_SYS_STAT_H -DHAVE_SYS_TIME_H -DHAVE_SYS_TYPES_H -DHAVE_SYS_UIO_H -DHAVE_SYS_UN_H -DHAVE_SYS_XATTR_H -DHAVE_ALLOCA_H -DHAVE_ARPA_INET_H -DHAVE_ARPA_TFTP_H -DHAVE_ASSERT_H -DHAVE_ERR_H -DHAVE_ERRNO_H -DHAVE_FCNTL_H -DHAVE_IDN2_H -DHAVE_IFADDRS_H -DHAVE_LIBGEN_H -DHAVE_LOCALE_H -DHAVE_NET_IF_H -DHAVE_NETDB_H -DHAVE_NETINET_IN_H -DHAVE_NETINET_TCP_H -DHAVE_POLL_H -DHAVE_PWD_H -DHAVE_SETJMP_H -DHAVE_SGTTY_H -DHAVE_SIGNAL_H -DHAVE_STDBOOL_H -DHAVE_STDINT_H -DHAVE_STDIO_H -DHAVE_STDLIB_H -DHAVE_STRING_H -DHAVE_STRINGS_H -DHAVE_STROPTS_H -DHAVE_TERMIO_H -DHAVE_TERMIOS_H -DHAVE_TIME_H -DHAVE_UNISTD_H -DHAVE_UTIME_H -DHAVE_STDDEF_H -DHAVE_DLFCN_H -DHAVE_MALLOC_H -DHAVE_MEMORY_H -DHAVE_NETINET_IF_ETHER_H -DHAVE_STDINT_H -DHAVE_SYS_UTSNAME_H -std=gnu11 -o CMakeFiles/cmTC_acaec.dir/CurlTests.c.o -c /mnt/teamway/store-service/tools/cmake-3.18.2/Utilities/cmcurl/CMake/CurlTests.c
+/mnt/teamway/store-service/tools/cmake-3.18.2/Utilities/cmcurl/CMake/CurlTests.c: In function ‘main’:
+/mnt/teamway/store-service/tools/cmake-3.18.2/Utilities/cmcurl/CMake/CurlTests.c:521:51: error: subscripted value is neither array nor pointer nor vector
+   check(strerror_r(EACCES, buffer, sizeof(buffer))[0]);
+                                                   ^
+CMakeFiles/cmTC_acaec.dir/build.make:84: recipe for target 'CMakeFiles/cmTC_acaec.dir/CurlTests.c.o' failed
+make[1]: *** [CMakeFiles/cmTC_acaec.dir/CurlTests.c.o] Error 1
+make[1]: 离开目录“/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp”
+Makefile:140: recipe for target 'cmTC_acaec/fast' failed
+make: *** [cmTC_acaec/fast] Error 2
+
+
+Performing Curl Test HAVE_BUILTIN_AVAILABLE failed with the following output:
+Change Dir: /mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_e33e5/fast && make  -f CMakeFiles/cmTC_e33e5.dir/build.make CMakeFiles/cmTC_e33e5.dir/build
+make[1]: 进入目录“/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp”
+Building C object CMakeFiles/cmTC_e33e5.dir/CurlTests.c.o
+/usr/bin/gcc   -w -DHAVE_BUILTIN_AVAILABLE  -DHAVE_STDIO_H -DHAVE_INTTYPES_H -DHAVE_SYS_IOCTL_H -DHAVE_SYS_PARAM_H -DHAVE_SYS_POLL_H -DHAVE_SYS_RESOURCE_H -DHAVE_SYS_SELECT_H -DHAVE_SYS_SOCKET_H -DHAVE_SYS_STAT_H -DHAVE_SYS_TIME_H -DHAVE_SYS_TYPES_H -DHAVE_SYS_UIO_H -DHAVE_SYS_UN_H -DHAVE_SYS_XATTR_H -DHAVE_ALLOCA_H -DHAVE_ARPA_INET_H -DHAVE_ARPA_TFTP_H -DHAVE_ASSERT_H -DHAVE_ERR_H -DHAVE_ERRNO_H -DHAVE_FCNTL_H -DHAVE_IDN2_H -DHAVE_IFADDRS_H -DHAVE_LIBGEN_H -DHAVE_LOCALE_H -DHAVE_NET_IF_H -DHAVE_NETDB_H -DHAVE_NETINET_IN_H -DHAVE_NETINET_TCP_H -DHAVE_POLL_H -DHAVE_PWD_H -DHAVE_SETJMP_H -DHAVE_SGTTY_H -DHAVE_SIGNAL_H -DHAVE_STDBOOL_H -DHAVE_STDINT_H -DHAVE_STDIO_H -DHAVE_STDLIB_H -DHAVE_STRING_H -DHAVE_STRINGS_H -DHAVE_STROPTS_H -DHAVE_TERMIO_H -DHAVE_TERMIOS_H -DHAVE_TIME_H -DHAVE_UNISTD_H -DHAVE_UTIME_H -DHAVE_STDDEF_H -DHAVE_DLFCN_H -DHAVE_MALLOC_H -DHAVE_MEMORY_H -DHAVE_NETINET_IF_ETHER_H -DHAVE_STDINT_H -DHAVE_SYS_UTSNAME_H -std=gnu11 -o CMakeFiles/cmTC_e33e5.dir/CurlTests.c.o -c /mnt/teamway/store-service/tools/cmake-3.18.2/Utilities/cmcurl/CMake/CurlTests.c
+/mnt/teamway/store-service/tools/cmake-3.18.2/Utilities/cmcurl/CMake/CurlTests.c: In function ‘main’:
+/mnt/teamway/store-service/tools/cmake-3.18.2/Utilities/cmcurl/CMake/CurlTests.c:568:26: error: ‘macOS’ undeclared (first use in this function)
+   if(__builtin_available(macOS 10.12, *)) {}
+                          ^~~~~
+/mnt/teamway/store-service/tools/cmake-3.18.2/Utilities/cmcurl/CMake/CurlTests.c:568:26: note: each undeclared identifier is reported only once for each function it appears in
+/mnt/teamway/store-service/tools/cmake-3.18.2/Utilities/cmcurl/CMake/CurlTests.c:568:32: error: expected ‘)’ before numeric constant
+   if(__builtin_available(macOS 10.12, *)) {}
+                                ^~~~~
+CMakeFiles/cmTC_e33e5.dir/build.make:84: recipe for target 'CMakeFiles/cmTC_e33e5.dir/CurlTests.c.o' failed
+make[1]: *** [CMakeFiles/cmTC_e33e5.dir/CurlTests.c.o] Error 1
+make[1]: 离开目录“/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp”
+Makefile:140: recipe for target 'cmTC_e33e5/fast' failed
+make: *** [cmTC_e33e5/fast] Error 2
+
+
+Determining if the arc4random_buf exist failed with the following output:
+Change Dir: /mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_15265/fast && make  -f CMakeFiles/cmTC_15265.dir/build.make CMakeFiles/cmTC_15265.dir/build
+make[1]: 进入目录“/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp”
+Building C object CMakeFiles/cmTC_15265.dir/CheckSymbolExists.c.o
+/usr/bin/gcc   -w  -std=gnu11 -o CMakeFiles/cmTC_15265.dir/CheckSymbolExists.c.o -c /mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp/CheckSymbolExists.c: In function ‘main’:
+/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp/CheckSymbolExists.c:8:19: error: ‘arc4random_buf’ undeclared (first use in this function); did you mean ‘srandom_r’?
+   return ((int*)(&arc4random_buf))[argc];
+                   ^~~~~~~~~~~~~~
+                   srandom_r
+/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp/CheckSymbolExists.c:8:19: note: each undeclared identifier is reported only once for each function it appears in
+CMakeFiles/cmTC_15265.dir/build.make:84: recipe for target 'CMakeFiles/cmTC_15265.dir/CheckSymbolExists.c.o' failed
+make[1]: *** [CMakeFiles/cmTC_15265.dir/CheckSymbolExists.c.o] Error 1
+make[1]: 离开目录“/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp”
+Makefile:140: recipe for target 'cmTC_15265/fast' failed
+make: *** [cmTC_15265/fast] Error 2
+
+
+File /mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <stdlib.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef arc4random_buf
+  return ((int*)(&arc4random_buf))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the arc4random exist failed with the following output:
+Change Dir: /mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_9e4b9/fast && make  -f CMakeFiles/cmTC_9e4b9.dir/build.make CMakeFiles/cmTC_9e4b9.dir/build
+make[1]: 进入目录“/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp”
+Building C object CMakeFiles/cmTC_9e4b9.dir/CheckSymbolExists.c.o
+/usr/bin/gcc   -w  -std=gnu11 -o CMakeFiles/cmTC_9e4b9.dir/CheckSymbolExists.c.o -c /mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp/CheckSymbolExists.c: In function ‘main’:
+/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp/CheckSymbolExists.c:8:19: error: ‘arc4random’ undeclared (first use in this function); did you mean ‘srandom’?
+   return ((int*)(&arc4random))[argc];
+                   ^~~~~~~~~~
+                   srandom
+/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp/CheckSymbolExists.c:8:19: note: each undeclared identifier is reported only once for each function it appears in
+CMakeFiles/cmTC_9e4b9.dir/build.make:84: recipe for target 'CMakeFiles/cmTC_9e4b9.dir/CheckSymbolExists.c.o' failed
+make[1]: *** [CMakeFiles/cmTC_9e4b9.dir/CheckSymbolExists.c.o] Error 1
+make[1]: 离开目录“/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp”
+Makefile:140: recipe for target 'cmTC_9e4b9/fast' failed
+make: *** [cmTC_9e4b9/fast] Error 2
+
+
+File /mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <stdlib.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef arc4random
+  return ((int*)(&arc4random))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if files sys/types.h;ctype.h;copyfile.h exist failed with the following output:
+Change Dir: /mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_50250/fast && make  -f CMakeFiles/cmTC_50250.dir/build.make CMakeFiles/cmTC_50250.dir/build
+make[1]: 进入目录“/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp”
+Building C object CMakeFiles/cmTC_50250.dir/HAVE_COPYFILE_H.c.o
+/usr/bin/gcc   -w  -std=gnu11 -o CMakeFiles/cmTC_50250.dir/HAVE_COPYFILE_H.c.o -c /mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CheckIncludeFiles/HAVE_COPYFILE_H.c
+/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CheckIncludeFiles/HAVE_COPYFILE_H.c:4:10: fatal error: copyfile.h: 没有那个文件或目录
+ #include <copyfile.h>
+          ^~~~~~~~~~~~
+compilation terminated.
+CMakeFiles/cmTC_50250.dir/build.make:84: recipe for target 'CMakeFiles/cmTC_50250.dir/HAVE_COPYFILE_H.c.o' failed
+make[1]: *** [CMakeFiles/cmTC_50250.dir/HAVE_COPYFILE_H.c.o] Error 1
+make[1]: 离开目录“/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp”
+Makefile:140: recipe for target 'cmTC_50250/fast' failed
+make: *** [cmTC_50250/fast] Error 2
+
+
+Source:
+/* */
+#include <sys/types.h>
+#include <ctype.h>
+#include <copyfile.h>
+
+
+int main(void){return 0;}
+
+Determining if files sys/types.h;ctype.h;direct.h exist failed with the following output:
+Change Dir: /mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_53638/fast && make  -f CMakeFiles/cmTC_53638.dir/build.make CMakeFiles/cmTC_53638.dir/build
+make[1]: 进入目录“/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp”
+Building C object CMakeFiles/cmTC_53638.dir/HAVE_DIRECT_H.c.o
+/usr/bin/gcc   -w  -std=gnu11 -o CMakeFiles/cmTC_53638.dir/HAVE_DIRECT_H.c.o -c /mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CheckIncludeFiles/HAVE_DIRECT_H.c
+/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CheckIncludeFiles/HAVE_DIRECT_H.c:4:10: fatal error: direct.h: 没有那个文件或目录
+ #include <direct.h>
+          ^~~~~~~~~~
+compilation terminated.
+CMakeFiles/cmTC_53638.dir/build.make:84: recipe for target 'CMakeFiles/cmTC_53638.dir/HAVE_DIRECT_H.c.o' failed
+make[1]: *** [CMakeFiles/cmTC_53638.dir/HAVE_DIRECT_H.c.o] Error 1
+make[1]: 离开目录“/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp”
+Makefile:140: recipe for target 'cmTC_53638/fast' failed
+make: *** [cmTC_53638/fast] Error 2
+
+
+Source:
+/* */
+#include <sys/types.h>
+#include <ctype.h>
+#include <direct.h>
+
+
+int main(void){return 0;}
+
+Determining if files sys/types.h;ctype.h;dlfcn.h;errno.h;ext2fs/ext2_fs.h exist failed with the following output:
+Change Dir: /mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_b6fd0/fast && make  -f CMakeFiles/cmTC_b6fd0.dir/build.make CMakeFiles/cmTC_b6fd0.dir/build
+make[1]: 进入目录“/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp”
+Building C object CMakeFiles/cmTC_b6fd0.dir/HAVE_EXT2FS_EXT2_FS_H.c.o
+/usr/bin/gcc   -w  -std=gnu11 -o CMakeFiles/cmTC_b6fd0.dir/HAVE_EXT2FS_EXT2_FS_H.c.o -c /mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CheckIncludeFiles/HAVE_EXT2FS_EXT2_FS_H.c
+/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CheckIncludeFiles/HAVE_EXT2FS_EXT2_FS_H.c:6:10: fatal error: ext2fs/ext2_fs.h: 没有那个文件或目录
+ #include <ext2fs/ext2_fs.h>
+          ^~~~~~~~~~~~~~~~~~
+compilation terminated.
+CMakeFiles/cmTC_b6fd0.dir/build.make:84: recipe for target 'CMakeFiles/cmTC_b6fd0.dir/HAVE_EXT2FS_EXT2_FS_H.c.o' failed
+make[1]: *** [CMakeFiles/cmTC_b6fd0.dir/HAVE_EXT2FS_EXT2_FS_H.c.o] Error 1
+make[1]: 离开目录“/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp”
+Makefile:140: recipe for target 'cmTC_b6fd0/fast' failed
+make: *** [cmTC_b6fd0/fast] Error 2
+
+
+Source:
+/* */
+#include <sys/types.h>
+#include <ctype.h>
+#include <dlfcn.h>
+#include <errno.h>
+#include <ext2fs/ext2_fs.h>
+
+
+int main(void){return 0;}
+
+Performing C SOURCE FILE Test HAVE_WORKING_EXT2_IOC_GETFLAGS failed with the following output:
+Change Dir: /mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_66ca5/fast && make  -f CMakeFiles/cmTC_66ca5.dir/build.make CMakeFiles/cmTC_66ca5.dir/build
+make[1]: 进入目录“/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp”
+Building C object CMakeFiles/cmTC_66ca5.dir/src.c.o
+/usr/bin/gcc   -w -DHAVE_WORKING_EXT2_IOC_GETFLAGS -std=gnu11 -o CMakeFiles/cmTC_66ca5.dir/src.c.o -c /mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp/src.c
+/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp/src.c:2:10: fatal error: ext2fs/ext2_fs.h: 没有那个文件或目录
+ #include <ext2fs/ext2_fs.h>
+          ^~~~~~~~~~~~~~~~~~
+compilation terminated.
+CMakeFiles/cmTC_66ca5.dir/build.make:84: recipe for target 'CMakeFiles/cmTC_66ca5.dir/src.c.o' failed
+make[1]: *** [CMakeFiles/cmTC_66ca5.dir/src.c.o] Error 1
+make[1]: 离开目录“/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp”
+Makefile:140: recipe for target 'cmTC_66ca5/fast' failed
+make: *** [cmTC_66ca5/fast] Error 2
+
+
+Source file was:
+#include <sys/ioctl.h>
+#include <ext2fs/ext2_fs.h>
+int main(void) { return EXT2_IOC_GETFLAGS; }
+Determining if files sys/types.h;ctype.h;dlfcn.h;errno.h;fcntl.h;grp.h;langinfo.h;limits.h;linux/types.h;linux/fiemap.h;linux/fs.h;linux/magic.h;locale.h;membership.h exist failed with the following output:
+Change Dir: /mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_0d80c/fast && make  -f CMakeFiles/cmTC_0d80c.dir/build.make CMakeFiles/cmTC_0d80c.dir/build
+make[1]: 进入目录“/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp”
+Building C object CMakeFiles/cmTC_0d80c.dir/HAVE_MEMBERSHIP_H.c.o
+/usr/bin/gcc   -w  -std=gnu11 -o CMakeFiles/cmTC_0d80c.dir/HAVE_MEMBERSHIP_H.c.o -c /mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CheckIncludeFiles/HAVE_MEMBERSHIP_H.c
+/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CheckIncludeFiles/HAVE_MEMBERSHIP_H.c:15:10: fatal error: membership.h: 没有那个文件或目录
+ #include <membership.h>
+          ^~~~~~~~~~~~~~
+compilation terminated.
+CMakeFiles/cmTC_0d80c.dir/build.make:84: recipe for target 'CMakeFiles/cmTC_0d80c.dir/HAVE_MEMBERSHIP_H.c.o' failed
+make[1]: *** [CMakeFiles/cmTC_0d80c.dir/HAVE_MEMBERSHIP_H.c.o] Error 1
+make[1]: 离开目录“/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp”
+Makefile:140: recipe for target 'cmTC_0d80c/fast' failed
+make: *** [cmTC_0d80c/fast] Error 2
+
+
+Source:
+/* */
+#include <sys/types.h>
+#include <ctype.h>
+#include <dlfcn.h>
+#include <errno.h>
+#include <fcntl.h>
+#include <grp.h>
+#include <langinfo.h>
+#include <limits.h>
+#include <linux/types.h>
+#include <linux/fiemap.h>
+#include <linux/fs.h>
+#include <linux/magic.h>
+#include <locale.h>
+#include <membership.h>
+
+
+int main(void){return 0;}
+
+Determining if files sys/types.h;ctype.h;dlfcn.h;errno.h;fcntl.h;grp.h;langinfo.h;limits.h;linux/types.h;linux/fiemap.h;linux/fs.h;linux/magic.h;locale.h;memory.h;paths.h;poll.h;pthread.h;pwd.h;readpassphrase.h exist failed with the following output:
+Change Dir: /mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_af6f7/fast && make  -f CMakeFiles/cmTC_af6f7.dir/build.make CMakeFiles/cmTC_af6f7.dir/build
+make[1]: 进入目录“/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp”
+Building C object CMakeFiles/cmTC_af6f7.dir/HAVE_READPASSPHRASE_H.c.o
+/usr/bin/gcc   -w  -std=gnu11 -o CMakeFiles/cmTC_af6f7.dir/HAVE_READPASSPHRASE_H.c.o -c /mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CheckIncludeFiles/HAVE_READPASSPHRASE_H.c
+/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CheckIncludeFiles/HAVE_READPASSPHRASE_H.c:20:10: fatal error: readpassphrase.h: 没有那个文件或目录
+ #include <readpassphrase.h>
+          ^~~~~~~~~~~~~~~~~~
+compilation terminated.
+CMakeFiles/cmTC_af6f7.dir/build.make:84: recipe for target 'CMakeFiles/cmTC_af6f7.dir/HAVE_READPASSPHRASE_H.c.o' failed
+make[1]: *** [CMakeFiles/cmTC_af6f7.dir/HAVE_READPASSPHRASE_H.c.o] Error 1
+make[1]: 离开目录“/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp”
+Makefile:140: recipe for target 'cmTC_af6f7/fast' failed
+make: *** [cmTC_af6f7/fast] Error 2
+
+
+Source:
+/* */
+#include <sys/types.h>
+#include <ctype.h>
+#include <dlfcn.h>
+#include <errno.h>
+#include <fcntl.h>
+#include <grp.h>
+#include <langinfo.h>
+#include <limits.h>
+#include <linux/types.h>
+#include <linux/fiemap.h>
+#include <linux/fs.h>
+#include <linux/magic.h>
+#include <locale.h>
+#include <memory.h>
+#include <paths.h>
+#include <poll.h>
+#include <pthread.h>
+#include <pwd.h>
+#include <readpassphrase.h>
+
+
+int main(void){return 0;}
+
+Determining if files sys/types.h;ctype.h;dlfcn.h;errno.h;fcntl.h;grp.h;langinfo.h;limits.h;linux/types.h;linux/fiemap.h;linux/fs.h;linux/magic.h;locale.h;memory.h;paths.h;poll.h;pthread.h;pwd.h;regex.h;signal.h;spawn.h;stdarg.h;stdlib.h;string.h;strings.h;sys/acl.h exist failed with the following output:
+Change Dir: /mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_0b8d0/fast && make  -f CMakeFiles/cmTC_0b8d0.dir/build.make CMakeFiles/cmTC_0b8d0.dir/build
+make[1]: 进入目录“/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp”
+Building C object CMakeFiles/cmTC_0b8d0.dir/HAVE_SYS_ACL_H.c.o
+/usr/bin/gcc   -w  -std=gnu11 -o CMakeFiles/cmTC_0b8d0.dir/HAVE_SYS_ACL_H.c.o -c /mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CheckIncludeFiles/HAVE_SYS_ACL_H.c
+/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CheckIncludeFiles/HAVE_SYS_ACL_H.c:27:10: fatal error: sys/acl.h: 没有那个文件或目录
+ #include <sys/acl.h>
+          ^~~~~~~~~~~
+compilation terminated.
+CMakeFiles/cmTC_0b8d0.dir/build.make:84: recipe for target 'CMakeFiles/cmTC_0b8d0.dir/HAVE_SYS_ACL_H.c.o' failed
+make[1]: *** [CMakeFiles/cmTC_0b8d0.dir/HAVE_SYS_ACL_H.c.o] Error 1
+make[1]: 离开目录“/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp”
+Makefile:140: recipe for target 'cmTC_0b8d0/fast' failed
+make: *** [cmTC_0b8d0/fast] Error 2
+
+
+Source:
+/* */
+#include <sys/types.h>
+#include <ctype.h>
+#include <dlfcn.h>
+#include <errno.h>
+#include <fcntl.h>
+#include <grp.h>
+#include <langinfo.h>
+#include <limits.h>
+#include <linux/types.h>
+#include <linux/fiemap.h>
+#include <linux/fs.h>
+#include <linux/magic.h>
+#include <locale.h>
+#include <memory.h>
+#include <paths.h>
+#include <poll.h>
+#include <pthread.h>
+#include <pwd.h>
+#include <regex.h>
+#include <signal.h>
+#include <spawn.h>
+#include <stdarg.h>
+#include <stdlib.h>
+#include <string.h>
+#include <strings.h>
+#include <sys/acl.h>
+
+
+int main(void){return 0;}
+
+Determining if files sys/types.h;ctype.h;dlfcn.h;errno.h;fcntl.h;grp.h;langinfo.h;limits.h;linux/types.h;linux/fiemap.h;linux/fs.h;linux/magic.h;locale.h;memory.h;paths.h;poll.h;pthread.h;pwd.h;regex.h;signal.h;spawn.h;stdarg.h;stdlib.h;string.h;strings.h;sys/cdefs.h;sys/extattr.h exist failed with the following output:
+Change Dir: /mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_035a3/fast && make  -f CMakeFiles/cmTC_035a3.dir/build.make CMakeFiles/cmTC_035a3.dir/build
+make[1]: 进入目录“/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp”
+Building C object CMakeFiles/cmTC_035a3.dir/HAVE_SYS_EXTATTR_H.c.o
+/usr/bin/gcc   -w  -std=gnu11 -o CMakeFiles/cmTC_035a3.dir/HAVE_SYS_EXTATTR_H.c.o -c /mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CheckIncludeFiles/HAVE_SYS_EXTATTR_H.c
+/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CheckIncludeFiles/HAVE_SYS_EXTATTR_H.c:28:10: fatal error: sys/extattr.h: 没有那个文件或目录
+ #include <sys/extattr.h>
+          ^~~~~~~~~~~~~~~
+compilation terminated.
+CMakeFiles/cmTC_035a3.dir/build.make:84: recipe for target 'CMakeFiles/cmTC_035a3.dir/HAVE_SYS_EXTATTR_H.c.o' failed
+make[1]: *** [CMakeFiles/cmTC_035a3.dir/HAVE_SYS_EXTATTR_H.c.o] Error 1
+make[1]: 离开目录“/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp”
+Makefile:140: recipe for target 'cmTC_035a3/fast' failed
+make: *** [cmTC_035a3/fast] Error 2
+
+
+Source:
+/* */
+#include <sys/types.h>
+#include <ctype.h>
+#include <dlfcn.h>
+#include <errno.h>
+#include <fcntl.h>
+#include <grp.h>
+#include <langinfo.h>
+#include <limits.h>
+#include <linux/types.h>
+#include <linux/fiemap.h>
+#include <linux/fs.h>
+#include <linux/magic.h>
+#include <locale.h>
+#include <memory.h>
+#include <paths.h>
+#include <poll.h>
+#include <pthread.h>
+#include <pwd.h>
+#include <regex.h>
+#include <signal.h>
+#include <spawn.h>
+#include <stdarg.h>
+#include <stdlib.h>
+#include <string.h>
+#include <strings.h>
+#include <sys/cdefs.h>
+#include <sys/extattr.h>
+
+
+int main(void){return 0;}
+
+Determining if files sys/types.h;ctype.h;dlfcn.h;errno.h;fcntl.h;grp.h;langinfo.h;limits.h;linux/types.h;linux/fiemap.h;linux/fs.h;linux/magic.h;locale.h;memory.h;paths.h;poll.h;pthread.h;pwd.h;regex.h;signal.h;spawn.h;stdarg.h;stdlib.h;string.h;strings.h;sys/cdefs.h;sys/ioctl.h;sys/mkdev.h exist failed with the following output:
+Change Dir: /mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_7644e/fast && make  -f CMakeFiles/cmTC_7644e.dir/build.make CMakeFiles/cmTC_7644e.dir/build
+make[1]: 进入目录“/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp”
+Building C object CMakeFiles/cmTC_7644e.dir/HAVE_SYS_MKDEV_H.c.o
+/usr/bin/gcc   -w  -std=gnu11 -o CMakeFiles/cmTC_7644e.dir/HAVE_SYS_MKDEV_H.c.o -c /mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CheckIncludeFiles/HAVE_SYS_MKDEV_H.c
+/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CheckIncludeFiles/HAVE_SYS_MKDEV_H.c:29:10: fatal error: sys/mkdev.h: 没有那个文件或目录
+ #include <sys/mkdev.h>
+          ^~~~~~~~~~~~~
+compilation terminated.
+CMakeFiles/cmTC_7644e.dir/build.make:84: recipe for target 'CMakeFiles/cmTC_7644e.dir/HAVE_SYS_MKDEV_H.c.o' failed
+make[1]: *** [CMakeFiles/cmTC_7644e.dir/HAVE_SYS_MKDEV_H.c.o] Error 1
+make[1]: 离开目录“/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp”
+Makefile:140: recipe for target 'cmTC_7644e/fast' failed
+make: *** [cmTC_7644e/fast] Error 2
+
+
+Source:
+/* */
+#include <sys/types.h>
+#include <ctype.h>
+#include <dlfcn.h>
+#include <errno.h>
+#include <fcntl.h>
+#include <grp.h>
+#include <langinfo.h>
+#include <limits.h>
+#include <linux/types.h>
+#include <linux/fiemap.h>
+#include <linux/fs.h>
+#include <linux/magic.h>
+#include <locale.h>
+#include <memory.h>
+#include <paths.h>
+#include <poll.h>
+#include <pthread.h>
+#include <pwd.h>
+#include <regex.h>
+#include <signal.h>
+#include <spawn.h>
+#include <stdarg.h>
+#include <stdlib.h>
+#include <string.h>
+#include <strings.h>
+#include <sys/cdefs.h>
+#include <sys/ioctl.h>
+#include <sys/mkdev.h>
+
+
+int main(void){return 0;}
+
+Determining if files sys/types.h;ctype.h;dlfcn.h;errno.h;fcntl.h;grp.h;langinfo.h;limits.h;linux/types.h;linux/fiemap.h;linux/fs.h;linux/magic.h;locale.h;memory.h;paths.h;poll.h;pthread.h;pwd.h;regex.h;signal.h;spawn.h;stdarg.h;stdlib.h;string.h;strings.h;sys/cdefs.h;sys/ioctl.h;sys/mount.h exist failed with the following output:
+Change Dir: /mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_874b7/fast && make  -f CMakeFiles/cmTC_874b7.dir/build.make CMakeFiles/cmTC_874b7.dir/build
+make[1]: 进入目录“/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp”
+Building C object CMakeFiles/cmTC_874b7.dir/HAVE_SYS_MOUNT_H.c.o
+/usr/bin/gcc   -w  -std=gnu11 -o CMakeFiles/cmTC_874b7.dir/HAVE_SYS_MOUNT_H.c.o -c /mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CheckIncludeFiles/HAVE_SYS_MOUNT_H.c
+In file included from /mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CheckIncludeFiles/HAVE_SYS_MOUNT_H.c:12:0:
+/usr/include/x86_64-linux-gnu/sys/mount.h:35:3: error: expected identifier before numeric constant
+   MS_RDONLY = 1,  /* Mount read-only.  */
+   ^
+CMakeFiles/cmTC_874b7.dir/build.make:84: recipe for target 'CMakeFiles/cmTC_874b7.dir/HAVE_SYS_MOUNT_H.c.o' failed
+make[1]: *** [CMakeFiles/cmTC_874b7.dir/HAVE_SYS_MOUNT_H.c.o] Error 1
+make[1]: 离开目录“/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp”
+Makefile:140: recipe for target 'cmTC_874b7/fast' failed
+make: *** [cmTC_874b7/fast] Error 2
+
+
+Source:
+/* */
+#include <sys/types.h>
+#include <ctype.h>
+#include <dlfcn.h>
+#include <errno.h>
+#include <fcntl.h>
+#include <grp.h>
+#include <langinfo.h>
+#include <limits.h>
+#include <linux/types.h>
+#include <linux/fiemap.h>
+#include <linux/fs.h>
+#include <linux/magic.h>
+#include <locale.h>
+#include <memory.h>
+#include <paths.h>
+#include <poll.h>
+#include <pthread.h>
+#include <pwd.h>
+#include <regex.h>
+#include <signal.h>
+#include <spawn.h>
+#include <stdarg.h>
+#include <stdlib.h>
+#include <string.h>
+#include <strings.h>
+#include <sys/cdefs.h>
+#include <sys/ioctl.h>
+#include <sys/mount.h>
+
+
+int main(void){return 0;}
+
+Determining if files sys/types.h;ctype.h;dlfcn.h;errno.h;fcntl.h;grp.h;langinfo.h;limits.h;linux/types.h;linux/fiemap.h;linux/fs.h;linux/magic.h;locale.h;memory.h;paths.h;poll.h;pthread.h;pwd.h;regex.h;signal.h;spawn.h;stdarg.h;stdlib.h;string.h;strings.h;sys/cdefs.h;sys/ioctl.h;sys/param.h;sys/poll.h;sys/richacl.h exist failed with the following output:
+Change Dir: /mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_f8faf/fast && make  -f CMakeFiles/cmTC_f8faf.dir/build.make CMakeFiles/cmTC_f8faf.dir/build
+make[1]: 进入目录“/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp”
+Building C object CMakeFiles/cmTC_f8faf.dir/HAVE_SYS_RICHACL_H.c.o
+/usr/bin/gcc   -w  -std=gnu11 -o CMakeFiles/cmTC_f8faf.dir/HAVE_SYS_RICHACL_H.c.o -c /mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CheckIncludeFiles/HAVE_SYS_RICHACL_H.c
+/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CheckIncludeFiles/HAVE_SYS_RICHACL_H.c:31:10: fatal error: sys/richacl.h: 没有那个文件或目录
+ #include <sys/richacl.h>
+          ^~~~~~~~~~~~~~~
+compilation terminated.
+CMakeFiles/cmTC_f8faf.dir/build.make:84: recipe for target 'CMakeFiles/cmTC_f8faf.dir/HAVE_SYS_RICHACL_H.c.o' failed
+make[1]: *** [CMakeFiles/cmTC_f8faf.dir/HAVE_SYS_RICHACL_H.c.o] Error 1
+make[1]: 离开目录“/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp”
+Makefile:140: recipe for target 'cmTC_f8faf/fast' failed
+make: *** [cmTC_f8faf/fast] Error 2
+
+
+Source:
+/* */
+#include <sys/types.h>
+#include <ctype.h>
+#include <dlfcn.h>
+#include <errno.h>
+#include <fcntl.h>
+#include <grp.h>
+#include <langinfo.h>
+#include <limits.h>
+#include <linux/types.h>
+#include <linux/fiemap.h>
+#include <linux/fs.h>
+#include <linux/magic.h>
+#include <locale.h>
+#include <memory.h>
+#include <paths.h>
+#include <poll.h>
+#include <pthread.h>
+#include <pwd.h>
+#include <regex.h>
+#include <signal.h>
+#include <spawn.h>
+#include <stdarg.h>
+#include <stdlib.h>
+#include <string.h>
+#include <strings.h>
+#include <sys/cdefs.h>
+#include <sys/ioctl.h>
+#include <sys/param.h>
+#include <sys/poll.h>
+#include <sys/richacl.h>
+
+
+int main(void){return 0;}
+
+Determining if files sys/types.h;ctype.h;dlfcn.h;errno.h;fcntl.h;grp.h;langinfo.h;limits.h;linux/types.h;linux/fiemap.h;linux/fs.h;linux/magic.h;locale.h;memory.h;paths.h;poll.h;pthread.h;pwd.h;regex.h;signal.h;spawn.h;stdarg.h;stdlib.h;string.h;strings.h;sys/cdefs.h;sys/ioctl.h;sys/param.h;sys/poll.h;sys/select.h;sys/stat.h;sys/statfs.h;sys/statvfs.h;sys/sysmacros.h;sys/time.h;sys/utsname.h;sys/vfs.h;sys/wait.h;sys/xattr.h;time.h;unistd.h;utime.h;wchar.h;wctype.h;windows.h exist failed with the following output:
+Change Dir: /mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_4df46/fast && make  -f CMakeFiles/cmTC_4df46.dir/build.make CMakeFiles/cmTC_4df46.dir/build
+make[1]: 进入目录“/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp”
+Building C object CMakeFiles/cmTC_4df46.dir/HAVE_WINDOWS_H.c.o
+/usr/bin/gcc   -w  -std=gnu11 -o CMakeFiles/cmTC_4df46.dir/HAVE_WINDOWS_H.c.o -c /mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CheckIncludeFiles/HAVE_WINDOWS_H.c
+/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CheckIncludeFiles/HAVE_WINDOWS_H.c:46:10: fatal error: windows.h: 没有那个文件或目录
+ #include <windows.h>
+          ^~~~~~~~~~~
+compilation terminated.
+CMakeFiles/cmTC_4df46.dir/build.make:84: recipe for target 'CMakeFiles/cmTC_4df46.dir/HAVE_WINDOWS_H.c.o' failed
+make[1]: *** [CMakeFiles/cmTC_4df46.dir/HAVE_WINDOWS_H.c.o] Error 1
+make[1]: 离开目录“/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp”
+Makefile:140: recipe for target 'cmTC_4df46/fast' failed
+make: *** [cmTC_4df46/fast] Error 2
+
+
+Source:
+/* */
+#include <sys/types.h>
+#include <ctype.h>
+#include <dlfcn.h>
+#include <errno.h>
+#include <fcntl.h>
+#include <grp.h>
+#include <langinfo.h>
+#include <limits.h>
+#include <linux/types.h>
+#include <linux/fiemap.h>
+#include <linux/fs.h>
+#include <linux/magic.h>
+#include <locale.h>
+#include <memory.h>
+#include <paths.h>
+#include <poll.h>
+#include <pthread.h>
+#include <pwd.h>
+#include <regex.h>
+#include <signal.h>
+#include <spawn.h>
+#include <stdarg.h>
+#include <stdlib.h>
+#include <string.h>
+#include <strings.h>
+#include <sys/cdefs.h>
+#include <sys/ioctl.h>
+#include <sys/param.h>
+#include <sys/poll.h>
+#include <sys/select.h>
+#include <sys/stat.h>
+#include <sys/statfs.h>
+#include <sys/statvfs.h>
+#include <sys/sysmacros.h>
+#include <sys/time.h>
+#include <sys/utsname.h>
+#include <sys/vfs.h>
+#include <sys/wait.h>
+#include <sys/xattr.h>
+#include <time.h>
+#include <unistd.h>
+#include <utime.h>
+#include <wchar.h>
+#include <wctype.h>
+#include <windows.h>
+
+
+int main(void){return 0;}
+
+Determining if files sys/types.h;ctype.h;dlfcn.h;errno.h;fcntl.h;grp.h;langinfo.h;limits.h;linux/types.h;linux/fiemap.h;linux/fs.h;linux/magic.h;locale.h;memory.h;paths.h;poll.h;pthread.h;pwd.h;regex.h;signal.h;spawn.h;stdarg.h;stdlib.h;string.h;strings.h;sys/cdefs.h;sys/ioctl.h;sys/param.h;sys/poll.h;sys/select.h;sys/stat.h;sys/statfs.h;sys/statvfs.h;sys/sysmacros.h;sys/time.h;sys/utsname.h;sys/vfs.h;sys/wait.h;sys/xattr.h;time.h;unistd.h;utime.h;wchar.h;wctype.h;wincrypt.h exist failed with the following output:
+Change Dir: /mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_5851e/fast && make  -f CMakeFiles/cmTC_5851e.dir/build.make CMakeFiles/cmTC_5851e.dir/build
+make[1]: 进入目录“/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp”
+Building C object CMakeFiles/cmTC_5851e.dir/HAVE_WINCRYPT_H.c.o
+/usr/bin/gcc   -w  -std=gnu11 -o CMakeFiles/cmTC_5851e.dir/HAVE_WINCRYPT_H.c.o -c /mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CheckIncludeFiles/HAVE_WINCRYPT_H.c
+/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CheckIncludeFiles/HAVE_WINCRYPT_H.c:46:10: fatal error: wincrypt.h: 没有那个文件或目录
+ #include <wincrypt.h>
+          ^~~~~~~~~~~~
+compilation terminated.
+CMakeFiles/cmTC_5851e.dir/build.make:84: recipe for target 'CMakeFiles/cmTC_5851e.dir/HAVE_WINCRYPT_H.c.o' failed
+make[1]: *** [CMakeFiles/cmTC_5851e.dir/HAVE_WINCRYPT_H.c.o] Error 1
+make[1]: 离开目录“/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp”
+Makefile:140: recipe for target 'cmTC_5851e/fast' failed
+make: *** [cmTC_5851e/fast] Error 2
+
+
+Source:
+/* */
+#include <sys/types.h>
+#include <ctype.h>
+#include <dlfcn.h>
+#include <errno.h>
+#include <fcntl.h>
+#include <grp.h>
+#include <langinfo.h>
+#include <limits.h>
+#include <linux/types.h>
+#include <linux/fiemap.h>
+#include <linux/fs.h>
+#include <linux/magic.h>
+#include <locale.h>
+#include <memory.h>
+#include <paths.h>
+#include <poll.h>
+#include <pthread.h>
+#include <pwd.h>
+#include <regex.h>
+#include <signal.h>
+#include <spawn.h>
+#include <stdarg.h>
+#include <stdlib.h>
+#include <string.h>
+#include <strings.h>
+#include <sys/cdefs.h>
+#include <sys/ioctl.h>
+#include <sys/param.h>
+#include <sys/poll.h>
+#include <sys/select.h>
+#include <sys/stat.h>
+#include <sys/statfs.h>
+#include <sys/statvfs.h>
+#include <sys/sysmacros.h>
+#include <sys/time.h>
+#include <sys/utsname.h>
+#include <sys/vfs.h>
+#include <sys/wait.h>
+#include <sys/xattr.h>
+#include <time.h>
+#include <unistd.h>
+#include <utime.h>
+#include <wchar.h>
+#include <wctype.h>
+#include <wincrypt.h>
+
+
+int main(void){return 0;}
+
+Determining if files sys/types.h;ctype.h;dlfcn.h;errno.h;fcntl.h;grp.h;langinfo.h;limits.h;linux/types.h;linux/fiemap.h;linux/fs.h;linux/magic.h;locale.h;memory.h;paths.h;poll.h;pthread.h;pwd.h;regex.h;signal.h;spawn.h;stdarg.h;stdlib.h;string.h;strings.h;sys/cdefs.h;sys/ioctl.h;sys/param.h;sys/poll.h;sys/select.h;sys/stat.h;sys/statfs.h;sys/statvfs.h;sys/sysmacros.h;sys/time.h;sys/utsname.h;sys/vfs.h;sys/wait.h;sys/xattr.h;time.h;unistd.h;utime.h;wchar.h;wctype.h;winioctl.h exist failed with the following output:
+Change Dir: /mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_4c9ec/fast && make  -f CMakeFiles/cmTC_4c9ec.dir/build.make CMakeFiles/cmTC_4c9ec.dir/build
+make[1]: 进入目录“/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp”
+Building C object CMakeFiles/cmTC_4c9ec.dir/HAVE_WINIOCTL_H.c.o
+/usr/bin/gcc   -w  -std=gnu11 -o CMakeFiles/cmTC_4c9ec.dir/HAVE_WINIOCTL_H.c.o -c /mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CheckIncludeFiles/HAVE_WINIOCTL_H.c
+/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CheckIncludeFiles/HAVE_WINIOCTL_H.c:46:10: fatal error: winioctl.h: 没有那个文件或目录
+ #include <winioctl.h>
+          ^~~~~~~~~~~~
+compilation terminated.
+CMakeFiles/cmTC_4c9ec.dir/build.make:84: recipe for target 'CMakeFiles/cmTC_4c9ec.dir/HAVE_WINIOCTL_H.c.o' failed
+make[1]: *** [CMakeFiles/cmTC_4c9ec.dir/HAVE_WINIOCTL_H.c.o] Error 1
+make[1]: 离开目录“/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp”
+Makefile:140: recipe for target 'cmTC_4c9ec/fast' failed
+make: *** [cmTC_4c9ec/fast] Error 2
+
+
+Source:
+/* */
+#include <sys/types.h>
+#include <ctype.h>
+#include <dlfcn.h>
+#include <errno.h>
+#include <fcntl.h>
+#include <grp.h>
+#include <langinfo.h>
+#include <limits.h>
+#include <linux/types.h>
+#include <linux/fiemap.h>
+#include <linux/fs.h>
+#include <linux/magic.h>
+#include <locale.h>
+#include <memory.h>
+#include <paths.h>
+#include <poll.h>
+#include <pthread.h>
+#include <pwd.h>
+#include <regex.h>
+#include <signal.h>
+#include <spawn.h>
+#include <stdarg.h>
+#include <stdlib.h>
+#include <string.h>
+#include <strings.h>
+#include <sys/cdefs.h>
+#include <sys/ioctl.h>
+#include <sys/param.h>
+#include <sys/poll.h>
+#include <sys/select.h>
+#include <sys/stat.h>
+#include <sys/statfs.h>
+#include <sys/statvfs.h>
+#include <sys/sysmacros.h>
+#include <sys/time.h>
+#include <sys/utsname.h>
+#include <sys/vfs.h>
+#include <sys/wait.h>
+#include <sys/xattr.h>
+#include <time.h>
+#include <unistd.h>
+#include <utime.h>
+#include <wchar.h>
+#include <wctype.h>
+#include <winioctl.h>
+
+
+int main(void){return 0;}
+
+Determining if the function getvfsbyname exists failed with the following output:
+Change Dir: /mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_6f3fe/fast && make  -f CMakeFiles/cmTC_6f3fe.dir/build.make CMakeFiles/cmTC_6f3fe.dir/build
+make[1]: 进入目录“/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp”
+Building C object CMakeFiles/cmTC_6f3fe.dir/CheckFunctionExists.c.o
+/usr/bin/gcc   -w -DCHECK_FUNCTION_EXISTS=getvfsbyname  -fno-builtin -std=gnu11 -o CMakeFiles/cmTC_6f3fe.dir/CheckFunctionExists.c.o -c /mnt/teamway/store-service/tools/cmake-3.18.2/Modules/CheckFunctionExists.c
+Linking C executable cmTC_6f3fe
+/mnt/teamway/store-service/tools/cmake-3.18.2/Bootstrap.cmk/cmake -E cmake_link_script CMakeFiles/cmTC_6f3fe.dir/link.txt --verbose=1
+/usr/bin/gcc  -w -DCHECK_FUNCTION_EXISTS=getvfsbyname  -fno-builtin CMakeFiles/cmTC_6f3fe.dir/CheckFunctionExists.c.o -o cmTC_6f3fe 
+CMakeFiles/cmTC_6f3fe.dir/CheckFunctionExists.c.o：在函数‘main’中：
+CheckFunctionExists.c:(.text+0x10)：对‘getvfsbyname’未定义的引用
+collect2: error: ld returned 1 exit status
+CMakeFiles/cmTC_6f3fe.dir/build.make:105: recipe for target 'cmTC_6f3fe' failed
+make[1]: *** [cmTC_6f3fe] Error 1
+make[1]: 离开目录“/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp”
+Makefile:140: recipe for target 'cmTC_6f3fe/fast' failed
+make: *** [cmTC_6f3fe/fast] Error 2
+
+
+
+Determining if the function lchflags exists failed with the following output:
+Change Dir: /mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_5d52f/fast && make  -f CMakeFiles/cmTC_5d52f.dir/build.make CMakeFiles/cmTC_5d52f.dir/build
+make[1]: 进入目录“/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp”
+Building C object CMakeFiles/cmTC_5d52f.dir/CheckFunctionExists.c.o
+/usr/bin/gcc   -w -DCHECK_FUNCTION_EXISTS=lchflags  -fno-builtin -std=gnu11 -o CMakeFiles/cmTC_5d52f.dir/CheckFunctionExists.c.o -c /mnt/teamway/store-service/tools/cmake-3.18.2/Modules/CheckFunctionExists.c
+Linking C executable cmTC_5d52f
+/mnt/teamway/store-service/tools/cmake-3.18.2/Bootstrap.cmk/cmake -E cmake_link_script CMakeFiles/cmTC_5d52f.dir/link.txt --verbose=1
+/usr/bin/gcc  -w -DCHECK_FUNCTION_EXISTS=lchflags  -fno-builtin CMakeFiles/cmTC_5d52f.dir/CheckFunctionExists.c.o -o cmTC_5d52f 
+CMakeFiles/cmTC_5d52f.dir/CheckFunctionExists.c.o：在函数‘main’中：
+CheckFunctionExists.c:(.text+0x10)：对‘lchflags’未定义的引用
+collect2: error: ld returned 1 exit status
+CMakeFiles/cmTC_5d52f.dir/build.make:105: recipe for target 'cmTC_5d52f' failed
+make[1]: *** [cmTC_5d52f] Error 1
+make[1]: 离开目录“/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp”
+Makefile:140: recipe for target 'cmTC_5d52f/fast' failed
+make: *** [cmTC_5d52f/fast] Error 2
+
+
+
+Determining if the function readpassphrase exists failed with the following output:
+Change Dir: /mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_dd705/fast && make  -f CMakeFiles/cmTC_dd705.dir/build.make CMakeFiles/cmTC_dd705.dir/build
+make[1]: 进入目录“/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp”
+Building C object CMakeFiles/cmTC_dd705.dir/CheckFunctionExists.c.o
+/usr/bin/gcc   -w -DCHECK_FUNCTION_EXISTS=readpassphrase  -fno-builtin -std=gnu11 -o CMakeFiles/cmTC_dd705.dir/CheckFunctionExists.c.o -c /mnt/teamway/store-service/tools/cmake-3.18.2/Modules/CheckFunctionExists.c
+Linking C executable cmTC_dd705
+/mnt/teamway/store-service/tools/cmake-3.18.2/Bootstrap.cmk/cmake -E cmake_link_script CMakeFiles/cmTC_dd705.dir/link.txt --verbose=1
+/usr/bin/gcc  -w -DCHECK_FUNCTION_EXISTS=readpassphrase  -fno-builtin CMakeFiles/cmTC_dd705.dir/CheckFunctionExists.c.o -o cmTC_dd705 
+CMakeFiles/cmTC_dd705.dir/CheckFunctionExists.c.o：在函数‘main’中：
+CheckFunctionExists.c:(.text+0x10)：对‘readpassphrase’未定义的引用
+collect2: error: ld returned 1 exit status
+CMakeFiles/cmTC_dd705.dir/build.make:105: recipe for target 'cmTC_dd705' failed
+make[1]: *** [cmTC_dd705] Error 1
+make[1]: 离开目录“/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp”
+Makefile:140: recipe for target 'cmTC_dd705/fast' failed
+make: *** [cmTC_dd705/fast] Error 2
+
+
+
+Determining if the function strncpy_s exists failed with the following output:
+Change Dir: /mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_132f4/fast && make  -f CMakeFiles/cmTC_132f4.dir/build.make CMakeFiles/cmTC_132f4.dir/build
+make[1]: 进入目录“/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp”
+Building C object CMakeFiles/cmTC_132f4.dir/CheckFunctionExists.c.o
+/usr/bin/gcc   -w -DCHECK_FUNCTION_EXISTS=strncpy_s  -fno-builtin -std=gnu11 -o CMakeFiles/cmTC_132f4.dir/CheckFunctionExists.c.o -c /mnt/teamway/store-service/tools/cmake-3.18.2/Modules/CheckFunctionExists.c
+Linking C executable cmTC_132f4
+/mnt/teamway/store-service/tools/cmake-3.18.2/Bootstrap.cmk/cmake -E cmake_link_script CMakeFiles/cmTC_132f4.dir/link.txt --verbose=1
+/usr/bin/gcc  -w -DCHECK_FUNCTION_EXISTS=strncpy_s  -fno-builtin CMakeFiles/cmTC_132f4.dir/CheckFunctionExists.c.o -o cmTC_132f4 
+CMakeFiles/cmTC_132f4.dir/CheckFunctionExists.c.o：在函数‘main’中：
+CheckFunctionExists.c:(.text+0x10)：对‘strncpy_s’未定义的引用
+collect2: error: ld returned 1 exit status
+CMakeFiles/cmTC_132f4.dir/build.make:105: recipe for target 'cmTC_132f4' failed
+make[1]: *** [cmTC_132f4] Error 1
+make[1]: 离开目录“/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp”
+Makefile:140: recipe for target 'cmTC_132f4/fast' failed
+make: *** [cmTC_132f4/fast] Error 2
+
+
+
+Determining if the function _ctime64_s exists failed with the following output:
+Change Dir: /mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_f110c/fast && make  -f CMakeFiles/cmTC_f110c.dir/build.make CMakeFiles/cmTC_f110c.dir/build
+make[1]: 进入目录“/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp”
+Building C object CMakeFiles/cmTC_f110c.dir/CheckFunctionExists.c.o
+/usr/bin/gcc   -w -DCHECK_FUNCTION_EXISTS=_ctime64_s  -fno-builtin -std=gnu11 -o CMakeFiles/cmTC_f110c.dir/CheckFunctionExists.c.o -c /mnt/teamway/store-service/tools/cmake-3.18.2/Modules/CheckFunctionExists.c
+Linking C executable cmTC_f110c
+/mnt/teamway/store-service/tools/cmake-3.18.2/Bootstrap.cmk/cmake -E cmake_link_script CMakeFiles/cmTC_f110c.dir/link.txt --verbose=1
+/usr/bin/gcc  -w -DCHECK_FUNCTION_EXISTS=_ctime64_s  -fno-builtin CMakeFiles/cmTC_f110c.dir/CheckFunctionExists.c.o -o cmTC_f110c 
+CMakeFiles/cmTC_f110c.dir/CheckFunctionExists.c.o：在函数‘main’中：
+CheckFunctionExists.c:(.text+0x10)：对‘_ctime64_s’未定义的引用
+collect2: error: ld returned 1 exit status
+CMakeFiles/cmTC_f110c.dir/build.make:105: recipe for target 'cmTC_f110c' failed
+make[1]: *** [cmTC_f110c] Error 1
+make[1]: 离开目录“/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp”
+Makefile:140: recipe for target 'cmTC_f110c/fast' failed
+make: *** [cmTC_f110c/fast] Error 2
+
+
+
+Determining if the function _fseeki64 exists failed with the following output:
+Change Dir: /mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_4eab0/fast && make  -f CMakeFiles/cmTC_4eab0.dir/build.make CMakeFiles/cmTC_4eab0.dir/build
+make[1]: 进入目录“/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp”
+Building C object CMakeFiles/cmTC_4eab0.dir/CheckFunctionExists.c.o
+/usr/bin/gcc   -w -DCHECK_FUNCTION_EXISTS=_fseeki64  -fno-builtin -std=gnu11 -o CMakeFiles/cmTC_4eab0.dir/CheckFunctionExists.c.o -c /mnt/teamway/store-service/tools/cmake-3.18.2/Modules/CheckFunctionExists.c
+Linking C executable cmTC_4eab0
+/mnt/teamway/store-service/tools/cmake-3.18.2/Bootstrap.cmk/cmake -E cmake_link_script CMakeFiles/cmTC_4eab0.dir/link.txt --verbose=1
+/usr/bin/gcc  -w -DCHECK_FUNCTION_EXISTS=_fseeki64  -fno-builtin CMakeFiles/cmTC_4eab0.dir/CheckFunctionExists.c.o -o cmTC_4eab0 
+CMakeFiles/cmTC_4eab0.dir/CheckFunctionExists.c.o：在函数‘main’中：
+CheckFunctionExists.c:(.text+0x10)：对‘_fseeki64’未定义的引用
+collect2: error: ld returned 1 exit status
+CMakeFiles/cmTC_4eab0.dir/build.make:105: recipe for target 'cmTC_4eab0' failed
+make[1]: *** [cmTC_4eab0] Error 1
+make[1]: 离开目录“/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp”
+Makefile:140: recipe for target 'cmTC_4eab0/fast' failed
+make: *** [cmTC_4eab0/fast] Error 2
+
+
+
+Determining if the function _get_timezone exists failed with the following output:
+Change Dir: /mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_157dc/fast && make  -f CMakeFiles/cmTC_157dc.dir/build.make CMakeFiles/cmTC_157dc.dir/build
+make[1]: 进入目录“/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp”
+Building C object CMakeFiles/cmTC_157dc.dir/CheckFunctionExists.c.o
+/usr/bin/gcc   -w -DCHECK_FUNCTION_EXISTS=_get_timezone  -fno-builtin -std=gnu11 -o CMakeFiles/cmTC_157dc.dir/CheckFunctionExists.c.o -c /mnt/teamway/store-service/tools/cmake-3.18.2/Modules/CheckFunctionExists.c
+Linking C executable cmTC_157dc
+/mnt/teamway/store-service/tools/cmake-3.18.2/Bootstrap.cmk/cmake -E cmake_link_script CMakeFiles/cmTC_157dc.dir/link.txt --verbose=1
+/usr/bin/gcc  -w -DCHECK_FUNCTION_EXISTS=_get_timezone  -fno-builtin CMakeFiles/cmTC_157dc.dir/CheckFunctionExists.c.o -o cmTC_157dc 
+CMakeFiles/cmTC_157dc.dir/CheckFunctionExists.c.o：在函数‘main’中：
+CheckFunctionExists.c:(.text+0x10)：对‘_get_timezone’未定义的引用
+collect2: error: ld returned 1 exit status
+CMakeFiles/cmTC_157dc.dir/build.make:105: recipe for target 'cmTC_157dc' failed
+make[1]: *** [cmTC_157dc] Error 1
+make[1]: 离开目录“/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp”
+Makefile:140: recipe for target 'cmTC_157dc/fast' failed
+make: *** [cmTC_157dc/fast] Error 2
+
+
+
+Determining if the function _gmtime64_s exists failed with the following output:
+Change Dir: /mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_8caf7/fast && make  -f CMakeFiles/cmTC_8caf7.dir/build.make CMakeFiles/cmTC_8caf7.dir/build
+make[1]: 进入目录“/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp”
+Building C object CMakeFiles/cmTC_8caf7.dir/CheckFunctionExists.c.o
+/usr/bin/gcc   -w -DCHECK_FUNCTION_EXISTS=_gmtime64_s  -fno-builtin -std=gnu11 -o CMakeFiles/cmTC_8caf7.dir/CheckFunctionExists.c.o -c /mnt/teamway/store-service/tools/cmake-3.18.2/Modules/CheckFunctionExists.c
+Linking C executable cmTC_8caf7
+/mnt/teamway/store-service/tools/cmake-3.18.2/Bootstrap.cmk/cmake -E cmake_link_script CMakeFiles/cmTC_8caf7.dir/link.txt --verbose=1
+/usr/bin/gcc  -w -DCHECK_FUNCTION_EXISTS=_gmtime64_s  -fno-builtin CMakeFiles/cmTC_8caf7.dir/CheckFunctionExists.c.o -o cmTC_8caf7 
+CMakeFiles/cmTC_8caf7.dir/CheckFunctionExists.c.o：在函数‘main’中：
+CheckFunctionExists.c:(.text+0x10)：对‘_gmtime64_s’未定义的引用
+collect2: error: ld returned 1 exit status
+CMakeFiles/cmTC_8caf7.dir/build.make:105: recipe for target 'cmTC_8caf7' failed
+make[1]: *** [cmTC_8caf7] Error 1
+make[1]: 离开目录“/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp”
+Makefile:140: recipe for target 'cmTC_8caf7/fast' failed
+make: *** [cmTC_8caf7/fast] Error 2
+
+
+
+Determining if the function _localtime64_s exists failed with the following output:
+Change Dir: /mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_2f357/fast && make  -f CMakeFiles/cmTC_2f357.dir/build.make CMakeFiles/cmTC_2f357.dir/build
+make[1]: 进入目录“/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp”
+Building C object CMakeFiles/cmTC_2f357.dir/CheckFunctionExists.c.o
+/usr/bin/gcc   -w -DCHECK_FUNCTION_EXISTS=_localtime64_s  -fno-builtin -std=gnu11 -o CMakeFiles/cmTC_2f357.dir/CheckFunctionExists.c.o -c /mnt/teamway/store-service/tools/cmake-3.18.2/Modules/CheckFunctionExists.c
+Linking C executable cmTC_2f357
+/mnt/teamway/store-service/tools/cmake-3.18.2/Bootstrap.cmk/cmake -E cmake_link_script CMakeFiles/cmTC_2f357.dir/link.txt --verbose=1
+/usr/bin/gcc  -w -DCHECK_FUNCTION_EXISTS=_localtime64_s  -fno-builtin CMakeFiles/cmTC_2f357.dir/CheckFunctionExists.c.o -o cmTC_2f357 
+CMakeFiles/cmTC_2f357.dir/CheckFunctionExists.c.o：在函数‘main’中：
+CheckFunctionExists.c:(.text+0x10)：对‘_localtime64_s’未定义的引用
+collect2: error: ld returned 1 exit status
+CMakeFiles/cmTC_2f357.dir/build.make:105: recipe for target 'cmTC_2f357' failed
+make[1]: *** [cmTC_2f357] Error 1
+make[1]: 离开目录“/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp”
+Makefile:140: recipe for target 'cmTC_2f357/fast' failed
+make: *** [cmTC_2f357/fast] Error 2
+
+
+
+Determining if the function _mkgmtime64 exists failed with the following output:
+Change Dir: /mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_9f7a0/fast && make  -f CMakeFiles/cmTC_9f7a0.dir/build.make CMakeFiles/cmTC_9f7a0.dir/build
+make[1]: 进入目录“/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp”
+Building C object CMakeFiles/cmTC_9f7a0.dir/CheckFunctionExists.c.o
+/usr/bin/gcc   -w -DCHECK_FUNCTION_EXISTS=_mkgmtime64  -fno-builtin -std=gnu11 -o CMakeFiles/cmTC_9f7a0.dir/CheckFunctionExists.c.o -c /mnt/teamway/store-service/tools/cmake-3.18.2/Modules/CheckFunctionExists.c
+Linking C executable cmTC_9f7a0
+/mnt/teamway/store-service/tools/cmake-3.18.2/Bootstrap.cmk/cmake -E cmake_link_script CMakeFiles/cmTC_9f7a0.dir/link.txt --verbose=1
+/usr/bin/gcc  -w -DCHECK_FUNCTION_EXISTS=_mkgmtime64  -fno-builtin CMakeFiles/cmTC_9f7a0.dir/CheckFunctionExists.c.o -o cmTC_9f7a0 
+CMakeFiles/cmTC_9f7a0.dir/CheckFunctionExists.c.o：在函数‘main’中：
+CheckFunctionExists.c:(.text+0x10)：对‘_mkgmtime64’未定义的引用
+collect2: error: ld returned 1 exit status
+CMakeFiles/cmTC_9f7a0.dir/build.make:105: recipe for target 'cmTC_9f7a0' failed
+make[1]: *** [cmTC_9f7a0] Error 1
+make[1]: 离开目录“/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp”
+Makefile:140: recipe for target 'cmTC_9f7a0/fast' failed
+make: *** [cmTC_9f7a0/fast] Error 2
+
+
+
+Determining if the function cygwin_conv_path exists failed with the following output:
+Change Dir: /mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_57808/fast && make  -f CMakeFiles/cmTC_57808.dir/build.make CMakeFiles/cmTC_57808.dir/build
+make[1]: 进入目录“/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp”
+Building C object CMakeFiles/cmTC_57808.dir/CheckFunctionExists.c.o
+/usr/bin/gcc   -w -DCHECK_FUNCTION_EXISTS=cygwin_conv_path  -fno-builtin -std=gnu11 -o CMakeFiles/cmTC_57808.dir/CheckFunctionExists.c.o -c /mnt/teamway/store-service/tools/cmake-3.18.2/Modules/CheckFunctionExists.c
+Linking C executable cmTC_57808
+/mnt/teamway/store-service/tools/cmake-3.18.2/Bootstrap.cmk/cmake -E cmake_link_script CMakeFiles/cmTC_57808.dir/link.txt --verbose=1
+/usr/bin/gcc  -w -DCHECK_FUNCTION_EXISTS=cygwin_conv_path  -fno-builtin CMakeFiles/cmTC_57808.dir/CheckFunctionExists.c.o -o cmTC_57808 
+CMakeFiles/cmTC_57808.dir/CheckFunctionExists.c.o：在函数‘main’中：
+CheckFunctionExists.c:(.text+0x10)：对‘cygwin_conv_path’未定义的引用
+collect2: error: ld returned 1 exit status
+CMakeFiles/cmTC_57808.dir/build.make:105: recipe for target 'cmTC_57808' failed
+make[1]: *** [cmTC_57808] Error 1
+make[1]: 离开目录“/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp”
+Makefile:140: recipe for target 'cmTC_57808/fast' failed
+make: *** [cmTC_57808/fast] Error 2
+
+
+
+Performing C SOURCE FILE Test HAVE_STRUCT_VFSCONF failed with the following output:
+Change Dir: /mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_b2489/fast && make  -f CMakeFiles/cmTC_b2489.dir/build.make CMakeFiles/cmTC_b2489.dir/build
+make[1]: 进入目录“/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp”
+Building C object CMakeFiles/cmTC_b2489.dir/src.c.o
+/usr/bin/gcc   -w -DHAVE_STRUCT_VFSCONF -std=gnu11 -o CMakeFiles/cmTC_b2489.dir/src.c.o -c /mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp/src.c
+/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp/src.c: In function ‘main’:
+/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp/src.c:3:33: error: storage size of ‘v’ isn’t known
+ int main(void) { struct vfsconf v; return sizeof(v);}
+                                 ^
+CMakeFiles/cmTC_b2489.dir/build.make:84: recipe for target 'CMakeFiles/cmTC_b2489.dir/src.c.o' failed
+make[1]: *** [CMakeFiles/cmTC_b2489.dir/src.c.o] Error 1
+make[1]: 离开目录“/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp”
+Makefile:140: recipe for target 'cmTC_b2489/fast' failed
+make: *** [cmTC_b2489/fast] Error 2
+
+
+Source file was:
+#include <sys/types.h>
+#include <sys/mount.h>
+int main(void) { struct vfsconf v; return sizeof(v);}
+Performing C SOURCE FILE Test HAVE_STRUCT_XVFSCONF failed with the following output:
+Change Dir: /mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_335b0/fast && make  -f CMakeFiles/cmTC_335b0.dir/build.make CMakeFiles/cmTC_335b0.dir/build
+make[1]: 进入目录“/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp”
+Building C object CMakeFiles/cmTC_335b0.dir/src.c.o
+/usr/bin/gcc   -w -DHAVE_STRUCT_XVFSCONF -std=gnu11 -o CMakeFiles/cmTC_335b0.dir/src.c.o -c /mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp/src.c
+/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp/src.c: In function ‘main’:
+/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp/src.c:3:34: error: storage size of ‘v’ isn’t known
+ int main(void) { struct xvfsconf v; return sizeof(v);}
+                                  ^
+CMakeFiles/cmTC_335b0.dir/build.make:84: recipe for target 'CMakeFiles/cmTC_335b0.dir/src.c.o' failed
+make[1]: *** [CMakeFiles/cmTC_335b0.dir/src.c.o] Error 1
+make[1]: 离开目录“/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp”
+Makefile:140: recipe for target 'cmTC_335b0/fast' failed
+make: *** [cmTC_335b0/fast] Error 2
+
+
+Source file was:
+#include <sys/types.h>
+#include <sys/mount.h>
+int main(void) { struct xvfsconf v; return sizeof(v);}
+Performing C SOURCE FILE Test MAJOR_IN_MKDEV failed with the following output:
+Change Dir: /mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_d3b48/fast && make  -f CMakeFiles/cmTC_d3b48.dir/build.make CMakeFiles/cmTC_d3b48.dir/build
+make[1]: 进入目录“/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp”
+Building C object CMakeFiles/cmTC_d3b48.dir/src.c.o
+/usr/bin/gcc   -w -DMAJOR_IN_MKDEV -std=gnu11 -o CMakeFiles/cmTC_d3b48.dir/src.c.o -c /mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp/src.c
+/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp/src.c:1:10: fatal error: sys/mkdev.h: 没有那个文件或目录
+ #include <sys/mkdev.h>
+          ^~~~~~~~~~~~~
+compilation terminated.
+CMakeFiles/cmTC_d3b48.dir/build.make:84: recipe for target 'CMakeFiles/cmTC_d3b48.dir/src.c.o' failed
+make[1]: *** [CMakeFiles/cmTC_d3b48.dir/src.c.o] Error 1
+make[1]: 离开目录“/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp”
+Makefile:140: recipe for target 'cmTC_d3b48/fast' failed
+make: *** [cmTC_d3b48/fast] Error 2
+
+
+Source file was:
+#include <sys/mkdev.h>
+int main() { return major(256); }
+Performing C SOURCE FILE Test HAVE_LZMA_STREAM_ENCODER_MT failed with the following output:
+Change Dir: /mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_bf17f/fast && make  -f CMakeFiles/cmTC_bf17f.dir/build.make CMakeFiles/cmTC_bf17f.dir/build
+make[1]: 进入目录“/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp”
+Building C object CMakeFiles/cmTC_bf17f.dir/src.c.o
+/usr/bin/gcc   -w -DHAVE_LZMA_STREAM_ENCODER_MT -std=gnu11 -o CMakeFiles/cmTC_bf17f.dir/src.c.o -c /mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp/src.c
+/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp/src.c:1:10: fatal error: lzma.h: 没有那个文件或目录
+ #include <lzma.h>
+          ^~~~~~~~
+compilation terminated.
+CMakeFiles/cmTC_bf17f.dir/build.make:84: recipe for target 'CMakeFiles/cmTC_bf17f.dir/src.c.o' failed
+make[1]: *** [CMakeFiles/cmTC_bf17f.dir/src.c.o] Error 1
+make[1]: 离开目录“/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp”
+Makefile:140: recipe for target 'cmTC_bf17f/fast' failed
+make: *** [cmTC_bf17f/fast] Error 2
+
+
+Source file was:
+#include <lzma.h>
+#if LZMA_VERSION < 50020000
+#error unsupported
+#endif
+int main(void){lzma_stream_encoder_mt(0, 0); return 0;}
+Determining if the EFTYPE exist failed with the following output:
+Change Dir: /mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_0c3f6/fast && make  -f CMakeFiles/cmTC_0c3f6.dir/build.make CMakeFiles/cmTC_0c3f6.dir/build
+make[1]: 进入目录“/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp”
+Building C object CMakeFiles/cmTC_0c3f6.dir/CheckSymbolExists.c.o
+/usr/bin/gcc   -w  -std=gnu11 -o CMakeFiles/cmTC_0c3f6.dir/CheckSymbolExists.c.o -c /mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp/CheckSymbolExists.c: In function ‘main’:
+/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp/CheckSymbolExists.c:8:19: error: ‘EFTYPE’ undeclared (first use in this function); did you mean ‘ESPIPE’?
+   return ((int*)(&EFTYPE))[argc];
+                   ^~~~~~
+                   ESPIPE
+/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp/CheckSymbolExists.c:8:19: note: each undeclared identifier is reported only once for each function it appears in
+CMakeFiles/cmTC_0c3f6.dir/build.make:84: recipe for target 'CMakeFiles/cmTC_0c3f6.dir/CheckSymbolExists.c.o' failed
+make[1]: *** [CMakeFiles/cmTC_0c3f6.dir/CheckSymbolExists.c.o] Error 1
+make[1]: 离开目录“/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp”
+Makefile:140: recipe for target 'cmTC_0c3f6/fast' failed
+make: *** [cmTC_0c3f6/fast] Error 2
+
+
+File /mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <errno.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef EFTYPE
+  return ((int*)(&EFTYPE))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the D_MD_ORDER exist failed with the following output:
+Change Dir: /mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_6577d/fast && make  -f CMakeFiles/cmTC_6577d.dir/build.make CMakeFiles/cmTC_6577d.dir/build
+make[1]: 进入目录“/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp”
+Building C object CMakeFiles/cmTC_6577d.dir/CheckSymbolExists.c.o
+/usr/bin/gcc   -w  -std=gnu11 -o CMakeFiles/cmTC_6577d.dir/CheckSymbolExists.c.o -c /mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp/CheckSymbolExists.c: In function ‘main’:
+/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp/CheckSymbolExists.c:8:19: error: ‘D_MD_ORDER’ undeclared (first use in this function)
+   return ((int*)(&D_MD_ORDER))[argc];
+                   ^~~~~~~~~~
+/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp/CheckSymbolExists.c:8:19: note: each undeclared identifier is reported only once for each function it appears in
+CMakeFiles/cmTC_6577d.dir/build.make:84: recipe for target 'CMakeFiles/cmTC_6577d.dir/CheckSymbolExists.c.o' failed
+make[1]: *** [CMakeFiles/cmTC_6577d.dir/CheckSymbolExists.c.o] Error 1
+make[1]: 离开目录“/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp”
+Makefile:140: recipe for target 'cmTC_6577d/fast' failed
+make: *** [cmTC_6577d/fast] Error 2
+
+
+File /mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <langinfo.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef D_MD_ORDER
+  return ((int*)(&D_MD_ORDER))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Performing C SOURCE FILE Test HAVE_STRUCT_TM___TM_GMTOFF failed with the following output:
+Change Dir: /mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_d6271/fast && make  -f CMakeFiles/cmTC_d6271.dir/build.make CMakeFiles/cmTC_d6271.dir/build
+make[1]: 进入目录“/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp”
+Building C object CMakeFiles/cmTC_d6271.dir/src.c.o
+/usr/bin/gcc   -w -DHAVE_STRUCT_TM___TM_GMTOFF -std=gnu11 -o CMakeFiles/cmTC_d6271.dir/src.c.o -c /mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp/src.c
+/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp/src.c: In function ‘main’:
+/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp/src.c:6:34: error: ‘struct tm’ has no member named ‘__tm_gmtoff’; did you mean ‘tm_gmtoff’?
+   (void)sizeof(((struct tm *)0)->__tm_gmtoff);
+                                  ^~~~~~~~~~~
+                                  tm_gmtoff
+CMakeFiles/cmTC_d6271.dir/build.make:84: recipe for target 'CMakeFiles/cmTC_d6271.dir/src.c.o' failed
+make[1]: *** [CMakeFiles/cmTC_d6271.dir/src.c.o] Error 1
+make[1]: 离开目录“/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp”
+Makefile:140: recipe for target 'cmTC_d6271/fast' failed
+make: *** [cmTC_d6271/fast] Error 2
+
+
+Source file was:
+
+#include <time.h>
+
+int main()
+{
+  (void)sizeof(((struct tm *)0)->__tm_gmtoff);
+  return 0;
+}
+
+Performing C SOURCE FILE Test HAVE_STRUCT_STATFS_F_NAMEMAX failed with the following output:
+Change Dir: /mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_5d697/fast && make  -f CMakeFiles/cmTC_5d697.dir/build.make CMakeFiles/cmTC_5d697.dir/build
+make[1]: 进入目录“/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp”
+Building C object CMakeFiles/cmTC_5d697.dir/src.c.o
+/usr/bin/gcc   -w -DHAVE_STRUCT_STATFS_F_NAMEMAX -std=gnu11 -o CMakeFiles/cmTC_5d697.dir/src.c.o -c /mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp/src.c
+/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp/src.c: In function ‘main’:
+/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp/src.c:7:36: error: dereferencing pointer to incomplete type ‘struct statfs’
+   (void)sizeof(((struct statfs *)0)->f_namemax);
+                                    ^~
+CMakeFiles/cmTC_5d697.dir/build.make:84: recipe for target 'CMakeFiles/cmTC_5d697.dir/src.c.o' failed
+make[1]: *** [CMakeFiles/cmTC_5d697.dir/src.c.o] Error 1
+make[1]: 离开目录“/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp”
+Makefile:140: recipe for target 'cmTC_5d697/fast' failed
+make: *** [cmTC_5d697/fast] Error 2
+
+
+Source file was:
+
+#include <sys/param.h>
+#include <sys/mount.h>
+
+int main()
+{
+  (void)sizeof(((struct statfs *)0)->f_namemax);
+  return 0;
+}
+
+Performing C SOURCE FILE Test HAVE_STRUCT_STAT_ST_BIRTHTIME failed with the following output:
+Change Dir: /mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_ad07d/fast && make  -f CMakeFiles/cmTC_ad07d.dir/build.make CMakeFiles/cmTC_ad07d.dir/build
+make[1]: 进入目录“/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp”
+Building C object CMakeFiles/cmTC_ad07d.dir/src.c.o
+/usr/bin/gcc   -w -DHAVE_STRUCT_STAT_ST_BIRTHTIME -std=gnu11 -o CMakeFiles/cmTC_ad07d.dir/src.c.o -c /mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp/src.c
+/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp/src.c: In function ‘main’:
+/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp/src.c:7:36: error: ‘struct stat’ has no member named ‘st_birthtime’; did you mean ‘st_blksize’?
+   (void)sizeof(((struct stat *)0)->st_birthtime);
+                                    ^~~~~~~~~~~~
+                                    st_blksize
+CMakeFiles/cmTC_ad07d.dir/build.make:84: recipe for target 'CMakeFiles/cmTC_ad07d.dir/src.c.o' failed
+make[1]: *** [CMakeFiles/cmTC_ad07d.dir/src.c.o] Error 1
+make[1]: 离开目录“/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp”
+Makefile:140: recipe for target 'cmTC_ad07d/fast' failed
+make: *** [cmTC_ad07d/fast] Error 2
+
+
+Source file was:
+
+#include <sys/types.h>
+#include <sys/stat.h>
+
+int main()
+{
+  (void)sizeof(((struct stat *)0)->st_birthtime);
+  return 0;
+}
+
+Performing C SOURCE FILE Test HAVE_STRUCT_STAT_ST_BIRTHTIMESPEC_TV_NSEC failed with the following output:
+Change Dir: /mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_c1d42/fast && make  -f CMakeFiles/cmTC_c1d42.dir/build.make CMakeFiles/cmTC_c1d42.dir/build
+make[1]: 进入目录“/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp”
+Building C object CMakeFiles/cmTC_c1d42.dir/src.c.o
+/usr/bin/gcc   -w -DHAVE_STRUCT_STAT_ST_BIRTHTIMESPEC_TV_NSEC -std=gnu11 -o CMakeFiles/cmTC_c1d42.dir/src.c.o -c /mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp/src.c
+/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp/src.c: In function ‘main’:
+/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp/src.c:7:34: error: ‘struct stat’ has no member named ‘st_birthtimespec’
+   (void)sizeof(((struct stat *)0)->st_birthtimespec.tv_nsec);
+                                  ^~
+CMakeFiles/cmTC_c1d42.dir/build.make:84: recipe for target 'CMakeFiles/cmTC_c1d42.dir/src.c.o' failed
+make[1]: *** [CMakeFiles/cmTC_c1d42.dir/src.c.o] Error 1
+make[1]: 离开目录“/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp”
+Makefile:140: recipe for target 'cmTC_c1d42/fast' failed
+make: *** [cmTC_c1d42/fast] Error 2
+
+
+Source file was:
+
+#include <sys/types.h>
+#include <sys/stat.h>
+
+int main()
+{
+  (void)sizeof(((struct stat *)0)->st_birthtimespec.tv_nsec);
+  return 0;
+}
+
+Performing C SOURCE FILE Test HAVE_STRUCT_STAT_ST_MTIMESPEC_TV_NSEC failed with the following output:
+Change Dir: /mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_88fce/fast && make  -f CMakeFiles/cmTC_88fce.dir/build.make CMakeFiles/cmTC_88fce.dir/build
+make[1]: 进入目录“/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp”
+Building C object CMakeFiles/cmTC_88fce.dir/src.c.o
+/usr/bin/gcc   -w -DHAVE_STRUCT_STAT_ST_MTIMESPEC_TV_NSEC -std=gnu11 -o CMakeFiles/cmTC_88fce.dir/src.c.o -c /mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp/src.c
+/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp/src.c: In function ‘main’:
+/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp/src.c:7:36: error: ‘struct stat’ has no member named ‘st_mtimespec’; did you mean ‘st_mtim’?
+   (void)sizeof(((struct stat *)0)->st_mtimespec.tv_nsec);
+                                    ^~~~~~~~~~~~
+                                    st_mtim
+CMakeFiles/cmTC_88fce.dir/build.make:84: recipe for target 'CMakeFiles/cmTC_88fce.dir/src.c.o' failed
+make[1]: *** [CMakeFiles/cmTC_88fce.dir/src.c.o] Error 1
+make[1]: 离开目录“/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp”
+Makefile:140: recipe for target 'cmTC_88fce/fast' failed
+make: *** [cmTC_88fce/fast] Error 2
+
+
+Source file was:
+
+#include <sys/types.h>
+#include <sys/stat.h>
+
+int main()
+{
+  (void)sizeof(((struct stat *)0)->st_mtimespec.tv_nsec);
+  return 0;
+}
+
+Performing C SOURCE FILE Test HAVE_STRUCT_STAT_ST_MTIME_N failed with the following output:
+Change Dir: /mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_665a8/fast && make  -f CMakeFiles/cmTC_665a8.dir/build.make CMakeFiles/cmTC_665a8.dir/build
+make[1]: 进入目录“/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp”
+Building C object CMakeFiles/cmTC_665a8.dir/src.c.o
+/usr/bin/gcc   -w -DHAVE_STRUCT_STAT_ST_MTIME_N -std=gnu11 -o CMakeFiles/cmTC_665a8.dir/src.c.o -c /mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp/src.c
+/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp/src.c: In function ‘main’:
+/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp/src.c:7:36: error: ‘struct stat’ has no member named ‘st_mtime_n’; did you mean ‘st_mtim’?
+   (void)sizeof(((struct stat *)0)->st_mtime_n);
+                                    ^~~~~~~~~~
+                                    st_mtim
+CMakeFiles/cmTC_665a8.dir/build.make:84: recipe for target 'CMakeFiles/cmTC_665a8.dir/src.c.o' failed
+make[1]: *** [CMakeFiles/cmTC_665a8.dir/src.c.o] Error 1
+make[1]: 离开目录“/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp”
+Makefile:140: recipe for target 'cmTC_665a8/fast' failed
+make: *** [cmTC_665a8/fast] Error 2
+
+
+Source file was:
+
+#include <sys/types.h>
+#include <sys/stat.h>
+
+int main()
+{
+  (void)sizeof(((struct stat *)0)->st_mtime_n);
+  return 0;
+}
+
+Performing C SOURCE FILE Test HAVE_STRUCT_STAT_ST_UMTIME failed with the following output:
+Change Dir: /mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_4eb10/fast && make  -f CMakeFiles/cmTC_4eb10.dir/build.make CMakeFiles/cmTC_4eb10.dir/build
+make[1]: 进入目录“/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp”
+Building C object CMakeFiles/cmTC_4eb10.dir/src.c.o
+/usr/bin/gcc   -w -DHAVE_STRUCT_STAT_ST_UMTIME -std=gnu11 -o CMakeFiles/cmTC_4eb10.dir/src.c.o -c /mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp/src.c
+/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp/src.c: In function ‘main’:
+/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp/src.c:7:36: error: ‘struct stat’ has no member named ‘st_umtime’; did you mean ‘st_mtim’?
+   (void)sizeof(((struct stat *)0)->st_umtime);
+                                    ^~~~~~~~~
+                                    st_mtim
+CMakeFiles/cmTC_4eb10.dir/build.make:84: recipe for target 'CMakeFiles/cmTC_4eb10.dir/src.c.o' failed
+make[1]: *** [CMakeFiles/cmTC_4eb10.dir/src.c.o] Error 1
+make[1]: 离开目录“/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp”
+Makefile:140: recipe for target 'cmTC_4eb10/fast' failed
+make: *** [cmTC_4eb10/fast] Error 2
+
+
+Source file was:
+
+#include <sys/types.h>
+#include <sys/stat.h>
+
+int main()
+{
+  (void)sizeof(((struct stat *)0)->st_umtime);
+  return 0;
+}
+
+Performing C SOURCE FILE Test HAVE_STRUCT_STAT_ST_MTIME_USEC failed with the following output:
+Change Dir: /mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_dc5ff/fast && make  -f CMakeFiles/cmTC_dc5ff.dir/build.make CMakeFiles/cmTC_dc5ff.dir/build
+make[1]: 进入目录“/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp”
+Building C object CMakeFiles/cmTC_dc5ff.dir/src.c.o
+/usr/bin/gcc   -w -DHAVE_STRUCT_STAT_ST_MTIME_USEC -std=gnu11 -o CMakeFiles/cmTC_dc5ff.dir/src.c.o -c /mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp/src.c
+/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp/src.c: In function ‘main’:
+/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp/src.c:7:36: error: ‘struct stat’ has no member named ‘st_mtime_usec’; did you mean ‘st_mtim’?
+   (void)sizeof(((struct stat *)0)->st_mtime_usec);
+                                    ^~~~~~~~~~~~~
+                                    st_mtim
+CMakeFiles/cmTC_dc5ff.dir/build.make:84: recipe for target 'CMakeFiles/cmTC_dc5ff.dir/src.c.o' failed
+make[1]: *** [CMakeFiles/cmTC_dc5ff.dir/src.c.o] Error 1
+make[1]: 离开目录“/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp”
+Makefile:140: recipe for target 'cmTC_dc5ff/fast' failed
+make: *** [cmTC_dc5ff/fast] Error 2
+
+
+Source file was:
+
+#include <sys/types.h>
+#include <sys/stat.h>
+
+int main()
+{
+  (void)sizeof(((struct stat *)0)->st_mtime_usec);
+  return 0;
+}
+
+Performing C SOURCE FILE Test HAVE_STRUCT_STAT_ST_FLAGS failed with the following output:
+Change Dir: /mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_f4300/fast && make  -f CMakeFiles/cmTC_f4300.dir/build.make CMakeFiles/cmTC_f4300.dir/build
+make[1]: 进入目录“/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp”
+Building C object CMakeFiles/cmTC_f4300.dir/src.c.o
+/usr/bin/gcc   -w -DHAVE_STRUCT_STAT_ST_FLAGS -std=gnu11 -o CMakeFiles/cmTC_f4300.dir/src.c.o -c /mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp/src.c
+/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp/src.c: In function ‘main’:
+/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp/src.c:7:36: error: ‘struct stat’ has no member named ‘st_flags’; did you mean ‘st_nlink’?
+   (void)sizeof(((struct stat *)0)->st_flags);
+                                    ^~~~~~~~
+                                    st_nlink
+CMakeFiles/cmTC_f4300.dir/build.make:84: recipe for target 'CMakeFiles/cmTC_f4300.dir/src.c.o' failed
+make[1]: *** [CMakeFiles/cmTC_f4300.dir/src.c.o] Error 1
+make[1]: 离开目录“/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp”
+Makefile:140: recipe for target 'cmTC_f4300/fast' failed
+make: *** [cmTC_f4300/fast] Error 2
+
+
+Source file was:
+
+#include <sys/types.h>
+#include <sys/stat.h>
+
+int main()
+{
+  (void)sizeof(((struct stat *)0)->st_flags);
+  return 0;
+}
+
+Performing C SOURCE FILE Test HAVE_STRUCT_STATVFS_F_IOSIZE failed with the following output:
+Change Dir: /mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_37ba1/fast && make  -f CMakeFiles/cmTC_37ba1.dir/build.make CMakeFiles/cmTC_37ba1.dir/build
+make[1]: 进入目录“/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp”
+Building C object CMakeFiles/cmTC_37ba1.dir/src.c.o
+/usr/bin/gcc   -w -DHAVE_STRUCT_STATVFS_F_IOSIZE -std=gnu11 -o CMakeFiles/cmTC_37ba1.dir/src.c.o -c /mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp/src.c
+/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp/src.c: In function ‘main’:
+/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp/src.c:7:39: error: ‘struct statvfs’ has no member named ‘f_iosize’; did you mean ‘f_bsize’?
+   (void)sizeof(((struct statvfs *)0)->f_iosize);
+                                       ^~~~~~~~
+                                       f_bsize
+CMakeFiles/cmTC_37ba1.dir/build.make:84: recipe for target 'CMakeFiles/cmTC_37ba1.dir/src.c.o' failed
+make[1]: *** [CMakeFiles/cmTC_37ba1.dir/src.c.o] Error 1
+make[1]: 离开目录“/mnt/teamway/store-service/tools/cmake-3.18.2/CMakeFiles/CMakeTmp”
+Makefile:140: recipe for target 'cmTC_37ba1/fast' failed
+make: *** [cmTC_37ba1/fast] Error 2
+
+
+Source file was:
+
+#include <sys/types.h>
+#include <sys/statvfs.h>
+
+int main()
+{
+  (void)sizeof(((struct statvfs *)0)->f_iosize);
+  return 0;
+}
+
+Checking for curses support failed with the following output:
+Change Dir: /mnt/teamway/store-service/tools/cmake-3.18.2/Source/Checks/Curses-build
+
+Run Build Command(s):/usr/bin/make CheckCurses && make: *** 没有规则可制作目标“CheckCurses”。 停止。
+
+
+
+Looking for a Fortran compiler failed with the following output:
+-- The Fortran compiler identification is unknown
+CMake Error at CMakeLists.txt:2 (project):
+  No CMAKE_Fortran_COMPILER could be found.
+
+  Tell CMake where to find the compiler by setting either the environment
+  variable "FC" or the CMake cache entry CMAKE_Fortran_COMPILER to the full
+  path to the compiler, or to the compiler name if it is in the PATH.
+
+
+-- Configuring incomplete, errors occurred!
+See also "/mnt/teamway/store-service/tools/cmake-3.18.2/Tests/CMakeFiles/CheckFortran/CMakeFiles/CMakeOutput.log".
+See also "/mnt/teamway/store-service/tools/cmake-3.18.2/Tests/CMakeFiles/CheckFortran/CMakeFiles/CMakeError.log".
+
